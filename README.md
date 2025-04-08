@@ -1,2 +1,2 @@
 # test-repo
-for test issues
+for test purposes
