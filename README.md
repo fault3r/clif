@@ -1,2 +1,3 @@
-# test-repo
-for test purposes
+# Test Repository
+
+⏳ This repository is used only for personal testing purposes.
