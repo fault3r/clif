@@ -36,10 +36,7 @@ ____________________________________
 
 ## EXAMPLES
     > sudo apt update -y
-        :update with prompt the confirms.
 
     > sudo apt update -y && sudo apt upgrade -y
-        :update and upgrade with prompt the confirms.
 
     > sudo apt install neofetch
-        :install neofetch app

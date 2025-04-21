@@ -23,4 +23,3 @@ ____________________________________
 
 ## EXAMPLES
     > sudo -u hamed-damavandi ls
-        :run ls command as hamed-damavandi user

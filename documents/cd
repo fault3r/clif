@@ -1,0 +1,30 @@
+# cd
+    :"Change Diredctory", change the shell working directory.
+____________________________________
+
+> cd [PATH]
+    
+    [PATH]
+        /
+            :root
+
+	    ~
+            :home
+
+	    ./
+            :current path
+	    
+        ../
+            :parent path
+	    
+        ..
+            :back to parent
+	    
+        \
+            :use as space
+
+
+## EXAMPLES
+    > cd /
+
+    > cd /usr/share/
