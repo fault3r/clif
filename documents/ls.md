@@ -3,7 +3,7 @@
 list information about the FILEs (the current directory by default).
 ---
 
-` ls [OPTION]... `
+` ls [OPTION]... [FILE]... `
 ---
 
 | **OPTION** | description |
