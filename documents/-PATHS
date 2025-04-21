@@ -1,4 +1,6 @@
-# Paths
+# PATHS
+    :system directories.
+____________________________________
 
 > /
     :the top-level directory in the filesystem hierarchy.
