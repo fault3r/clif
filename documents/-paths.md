@@ -3,7 +3,7 @@
 linux system directories.
 ---
 
-| **linux folders** | |
+| **linux folders** | description |
 |:---:|:---:|
 | / | the top-level directory in the filesystem hierarchy. |
 | /home | the home directories for all users. where personal files are stored. |

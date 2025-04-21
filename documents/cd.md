@@ -6,7 +6,7 @@
 `cd [PATH]`
 ---
 
-| **PATH** | |
+| **PATH** | description |
 |:---:|:---:|
 | / | root |
 | ~ | home |

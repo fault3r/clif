@@ -6,7 +6,7 @@
 ` cp [OPTION]... [SOURCE] [DESTINATION] `
 ---
 
-| **OPTION** | |
+| **OPTION** | description |
 |:---:|:---:|
 | -r, --recursive | recursively mode |
 | -v, --verbose | verbose mode |

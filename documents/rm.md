@@ -6,7 +6,7 @@
 ` rm [OPTION]... [FILE]... `
 ---
 
-| **OPTION** | |
+| **OPTION** | description |
 |:---:|:---:|
 | -r, --recursive | recursively mode |
 | -v, --verbose | verbose mode |

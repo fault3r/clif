@@ -6,7 +6,7 @@ list information about the FILEs (the current directory by default).
 ` ls [OPTION]... `
 ---
 
-| **OPTION** | |
+| **OPTION** | description |
 |:---:|:---:|
 | -l | list mode |
 | -a | all hidden files and directories included |

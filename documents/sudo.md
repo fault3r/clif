@@ -6,7 +6,7 @@
 ` sudo [OPTION] [COMMAND] `
 ---
 
-| **OPTION** | |
+| **OPTION** | description |
 |:---:|:---:|
 | -u [USER], --user=[USER] | run the command as the specified user instead of the default root user |
 | -b, --background | run the command in the background |

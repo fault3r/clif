@@ -6,7 +6,7 @@
 ` apt [COMMAND] `
 ---
 
-| **COMMAND** | |
+| **COMMAND** | description |
 |:---:|:---:|
 | update | update the local package index with the latest information |
 | upgrade | upgrade installed packages to their latest versions |

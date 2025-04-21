@@ -6,7 +6,7 @@
 ` mv [OPTION]... [SOURCE] [DESTINATION] `
 ---
 
-| **OPTION** | |
+| **OPTION** | description |
 |:---:|:---:|
 | -v, --verbose | verbose mode |
 | -i, --interactive | interactive mode	 |

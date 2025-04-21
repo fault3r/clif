@@ -6,7 +6,7 @@
 ` rmdir [OPTION]... [DIRECTORY]... `
 ---
 
-| **OPTION** | |
+| **OPTION** | description |
 |:---:|:---:|
 | -p, --parents | remove parent directories if empty |
 | -v, --verbose | verbose mode |

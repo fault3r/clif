@@ -6,7 +6,7 @@
 ` mkdir [OPTION]... [DIRECTORY]... `
 ---
 
-| **OPTION** | |
+| **OPTION** | description |
 |:---:|:---:|
 | -p, --parents | create parent directories as needed |
 | -v, --verbose | verbose mode |

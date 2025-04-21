@@ -6,7 +6,7 @@ Snap is a package management system developed by Canonical.
 ` snap [COMMAND] `
 ---
 
-| **COMMAND** | |
+| **COMMAND** | description |
 |:---:|:---:|
 | list | display a list of snap packages |
 | info [PACKAGE] | information of a package |
