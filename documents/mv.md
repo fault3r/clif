@@ -1,0 +1,18 @@
+# mv
+
+**Move** > move or rename files & directories.
+---
+
+` mv [OPTION]... [SOURCE] [DESTINATION] `
+---
+
+| **OPTION** | |
+|:---:|:---:|
+| -v, --verbose | verbose mode |
+| -i, --interactive | interactive mode	 |
+| -f, --force | force mode |
+| -n, --no-clobber | no overwrite mode |
+| -u | update mode |
+
+## EXAMPLES
+` mv -vuf test/ /home/ `
