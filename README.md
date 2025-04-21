@@ -1,3 +1,3 @@
-# Test Repository
+# Linux Terminal
 
-⏳ This repository is used only for personal testing purposes.
+⏳ This repository is used only for save my most used terminal commands.
