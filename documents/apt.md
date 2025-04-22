@@ -3,7 +3,7 @@
 **Advanced Package Tool** > a package management system used by Debian-based Linux distributions.
 ---
 
-` apt [COMMAND] `
+` apt [COMMAND] [OPTION] `
 ---
 
 | **COMMAND** | description |
@@ -17,8 +17,9 @@
 | remove [PACKAGE] | remove a package |
 | search '[PACKAGE]' | search a package |
 
-- -y, --yes
-    - prompt the confirms.
+| **OPTION** | description |
+|:---:|:---:|
+| -y, --yes | prompt the confirms |
 
 ## Examples:
 ` sudo apt update -y `
