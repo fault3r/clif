@@ -13,5 +13,7 @@ list information about the FILEs (the current directory by default).
 
 ## Examples:
 ` ls -l `
+
 ` ls -la / /home `
+
 ` ls -l file.txt `

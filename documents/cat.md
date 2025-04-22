@@ -8,8 +8,8 @@
 
 | **OPTION** | description |
 |:---:|:---:|
-| > [OUTPUT.FILE] | create a new file by redirecting the output |
-| >> [OUTPUT.FILE] | append the contents of a file to another file |
+| > [RESULT] | create a new file by redirecting the output |
+| >> [RESULT] | append the contents of a file to another file |
 | -n, --number | number all output lines |
 | -E, --show-ends | display $ at end of each line |
 | -T, --show-tabs | display TAB characters as ^I |
