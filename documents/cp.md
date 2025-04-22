@@ -15,5 +15,5 @@
 | -n, --no-clobber | no overwrite mode |
 | -u | update mode |
 
-## EXAMPLES
+## Examples:
 ` cp -rv test/ /home/ `

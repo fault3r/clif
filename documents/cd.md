@@ -16,7 +16,7 @@
 | .. | back to parent |
 | \ | use as space |
 
-## EXAMPLES
+## Examples:
 ` cd / `
 
 ` cd /usr/share/ `

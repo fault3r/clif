@@ -20,7 +20,7 @@
 - -y, --yes
     - prompt the confirms.
 
-## EXAMPLES
+## Examples:
 ` sudo apt update -y `
 
 ` sudo apt update -y && sudo apt upgrade -y `

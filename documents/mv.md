@@ -14,5 +14,5 @@
 | -n, --no-clobber | no overwrite mode |
 | -u | update mode |
 
-## EXAMPLES
+## Examples:
 ` mv -vuf test/ /home/ `

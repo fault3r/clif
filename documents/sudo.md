@@ -14,5 +14,5 @@
 | -h, --help | display help information |
 | -V, --version | display the version |
 
-## EXAMPLES
+## Examples:
 ` sudo -u hamed-damavandi ls `

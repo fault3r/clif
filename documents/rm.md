@@ -13,5 +13,5 @@
 | -i, --interactive | interactive mode	 |
 | -f, --force | force mode |
 
-## EXAMPLES
+## Examples:
 ` rm -riv test/ `

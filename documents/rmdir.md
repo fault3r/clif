@@ -11,5 +11,5 @@
 | -p, --parents | remove parent directories if empty |
 | -v, --verbose | verbose mode |
 
-## EXAMPLES
+## Examples:
 ` rmdir -v test1 test2 `
