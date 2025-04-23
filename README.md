@@ -1,10 +1,6 @@
-# CLI: Command Line Interface
+# My Common CLI Commands
 
-stored just in case! ⏳
-
-🩶 **my common commands**
----
-
+***stored just in case!*** ⏳
 
 | **Linux Terminal** |
 |:---:|
@@ -22,6 +18,7 @@ stored just in case! ⏳
 | [cat](https://github.com/fault3r/linux-terminal/blob/main/documents/cat.md) |
 | [touch](https://github.com/fault3r/linux-terminal/blob/main/documents/touch.md) |
 | [nano](https://github.com/fault3r/linux-terminal/blob/main/documents/nano.md) |
+| [grep](https://github.com/fault3r/linux-terminal/blob/main/documents/grep.md) |
+| [find](https://github.com/fault3r/linux-terminal/blob/main/documents/find.md) |
 | [whoami](https://github.com/fault3r/linux-terminal/blob/main/documents/whoami.md) |
 | [neofetch](https://github.com/fault3r/linux-terminal/blob/main/documents/neofetch.md) |
-[grep](https://github.com/fault3r/linux-terminal/blob/main/documents/grep.md)

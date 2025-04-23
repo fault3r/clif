@@ -11,12 +11,12 @@
 | update | update the local package index with the latest information |
 | upgrade | upgrade installed packages to their latest versions |
 | list | display a list of system packages |
-| show PACKAGE | show information of a package |
-| install PACKAGE | install a package |
-| install ./PACKAGE.deb | install a deb package |
-| remove PACKAGE | remove a package |
+| show [PACKAGE] | show information of a package |
+| install [PACKAGE] | install a package |
+| install ./[PACKAGE].deb | install a deb package |
+| remove [PACKAGE] | remove a package |
 | autoremove | automatically remove all unused packages |
-| search 'PACKAGE' | search a package |
+| search '[PACKAGE]' | search a package |
 
 | **OPTION** | description |
 |:---:|:---:|

@@ -1,6 +1,6 @@
 # grep
 
-**Global Regular Expression Print** > a powerful text search utility to search for specific patterns within files or input streams.
+**Global Regular Expression Print** > search for specific patterns within files or input streams.
 ---
 
 ` grep [OPTION]... "PATTERN" [FILE]... `
