@@ -9,7 +9,6 @@
 | [snap](https://github.com/fault3r/linux-terminal/blob/main/documents/snap.md) |
 | [ls](https://github.com/fault3r/linux-terminal/blob/main/documents/ls.md) |
 | [cd](https://github.com/fault3r/linux-terminal/blob/main/documents/cd.md) |
-| [pwd](https://github.com/fault3r/linux-terminal/blob/main/documents/pwd.md) |
 | [mkdir](https://github.com/fault3r/linux-terminal/blob/main/documents/mkdir.md) |
 | [rmdir](https://github.com/fault3r/linux-terminal/blob/main/documents/rmdir.md) |
 | [cp](https://github.com/fault3r/linux-terminal/blob/main/documents/cp.md) |
@@ -20,5 +19,10 @@
 | [nano](https://github.com/fault3r/linux-terminal/blob/main/documents/nano.md) |
 | [grep](https://github.com/fault3r/linux-terminal/blob/main/documents/grep.md) |
 | [find](https://github.com/fault3r/linux-terminal/blob/main/documents/find.md) |
+| [more](https://github.com/fault3r/linux-terminal/blob/main/documents/more.md) |
+| [less](https://github.com/fault3r/linux-terminal/blob/main/documents/less.md) |
+| [head](https://github.com/fault3r/linux-terminal/blob/main/documents/head.md) |
+| [tail](https://github.com/fault3r/linux-terminal/blob/main/documents/tail.md) |
+| [pwd](https://github.com/fault3r/linux-terminal/blob/main/documents/pwd.md) |
 | [whoami](https://github.com/fault3r/linux-terminal/blob/main/documents/whoami.md) |
 | [neofetch](https://github.com/fault3r/linux-terminal/blob/main/documents/neofetch.md) |
