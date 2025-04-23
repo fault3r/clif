@@ -8,11 +8,13 @@
 
 | **OPTION** | description |
 |:---:|:---:|
-| -u [USER], --user=[USER] | run the command as the specified user instead of the default root user |
+| -u [USER], --user=[USER] | run the command as the specified user |
 | -b, --background | run the command in the background |
-| -i | login to root access |
-| -h, --help | display help information |
-| -V, --version | display the version |
+| -i, --login | login to root access |
+
+### ` sudo su - ` switch the current user to the superuser
 
 ## Examples:
-` sudo -u hamed-damavandi ls `
+` sudo apt update `
+
+` sudo -i `

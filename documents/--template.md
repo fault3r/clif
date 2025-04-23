@@ -14,3 +14,5 @@
 
 ## Examples:
 ` command example `
+
+[Link](URL)
