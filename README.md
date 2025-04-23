@@ -24,3 +24,4 @@ stored just in case! ⏳
 | [nano](https://github.com/fault3r/linux-terminal/blob/main/documents/nano.md) |
 | [whoami](https://github.com/fault3r/linux-terminal/blob/main/documents/whoami.md) |
 | [neofetch](https://github.com/fault3r/linux-terminal/blob/main/documents/neofetch.md) |
+[grep](https://github.com/fault3r/linux-terminal/blob/main/documents/grep.md)
