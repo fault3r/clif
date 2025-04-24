@@ -15,5 +15,11 @@ displays the usernames of users currently logged into the system.
 #### remove a user account.
 #### ` deluser --remove-home [USERNAME] ` to delete home directory of user.
 
+---
+
+### ` id [USERNAME] ` display information of the specified user.
+
 ## Examples:
 ` sudo adduser t-user `
+
+` sudo id t-user `
