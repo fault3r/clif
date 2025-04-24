@@ -12,6 +12,8 @@
 | -v, --verbose | verbose mode |
 
 ## Examples:
+` chown faUser file.txt `
+
 ` chown -vR faUser:faGroup faDir/ `
 
 ` chown :faGroup file.txt `

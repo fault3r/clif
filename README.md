@@ -1,9 +1,10 @@
 # My Common CLI Commands
 
-***stored just in case!*** ⏳
-- personal
+- Individual
 
-| **Linux Terminal** |
+***stored just in case!*** ⏳
+
+| ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux&theme=dark) * **Linux Terminal** |
 |:---:|
 | [sudo](https://github.com/fault3r/linux-terminal/blob/main/documents/sudo.md) |
 | [apt](https://github.com/fault3r/linux-terminal/blob/main/documents/apt.md) |
