@@ -8,12 +8,14 @@
 
 | **OPTION** | description |
 |:---:|:---:|
-| -r, --recursive | recursively mode |
-| -v, --verbose | verbose mode |
-| -i, --interactive | interactive mode	 |
-| -f, --force | force mode |
-| -n, --no-clobber | no overwrite mode |
-| -u | update mode |
+| -r, --recursive | copy directories recursively |
+| -v, --verbose | explain what is being done |
+| -i, --interactive | prompt before overwrite |
+| -f, --force | do not prompt before overwriting or fail |
+| -n, --no-clobber | do not overwrite an existing file or fail |
+| -u, --update | control which existing files are updated for copy | 
 
 ## Examples:
 ` cp -rv test/ /home/ `
+
+` cp -iv --update *.* bckDir/ `

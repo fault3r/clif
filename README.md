@@ -1,6 +1,7 @@
 # My Common CLI Commands
 
 ***stored just in case!*** ⏳
+- personal
 
 | **Linux Terminal** |
 |:---:|
@@ -14,6 +15,8 @@
 | [cp](https://github.com/fault3r/linux-terminal/blob/main/documents/cp.md) |
 | [mv](https://github.com/fault3r/linux-terminal/blob/main/documents/mv.md) |
 | [rm](https://github.com/fault3r/linux-terminal/blob/main/documents/rm.md) |
+| [chmod](https://github.com/fault3r/linux-terminal/blob/main/documents/chmod.md) |
+| [chown](https://github.com/fault3r/linux-terminal/blob/main/documents/chown.md) |
 | [cat](https://github.com/fault3r/linux-terminal/blob/main/documents/cat.md) |
 | [touch](https://github.com/fault3r/linux-terminal/blob/main/documents/touch.md) |
 | [nano](https://github.com/fault3r/linux-terminal/blob/main/documents/nano.md) |

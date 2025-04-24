@@ -8,11 +8,15 @@
 
 | **OPTION** | description |
 |:---:|:---:|
-| -v, --verbose | verbose mode |
-| -i, --interactive | interactive mode	 |
-| -f, --force | force mode |
-| -n, --no-clobber | no overwrite mode |
-| -u | update mode |
+| -v, --verbose | explain what is being done |
+| -i, --interactive | prompt before overwrite |
+| -f, --force | do not prompt before overwriting |
+| -n, --no-clobber | do not overwrite an existing file |
+| -u, --update | control which existing files are updated for move |
+
+### ` mv ` command moves directories automatically without needing a recursive option.
 
 ## Examples:
-` mv -vuf test/ /home/ `
+` mv -v test/ /home/ `
+
+` mv -viu *.txt bckDir/ `
