@@ -9,6 +9,8 @@ linux system directories.
 | /home | the home directories for all users. where personal files are stored. |
 | /etc | system-wide configuration files, settings for system services, user accounts, and other configurations. |
 | /etc/apt | software sources. |
+| /etc/passwd | list all users. |
+| /etc/group | list all groups. |
 | /var | variable data files, applications data, to store data that changes frequently. |
 | /usr | user programs and data. |
 | /usr/bin | executable binaries. |

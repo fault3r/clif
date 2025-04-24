@@ -25,9 +25,8 @@
 | w | write |
 | x | execute |
 
----
 
-### ***Numeric mode:*** ` chmod [OPTION]... [3-NUMBER] [FILE]... ` <br>
+### ***Numeric mode*** ` chmod [OPTION]... [3-NUMBER] [FILE]... ` <br>
 #### each digit represents the permissions for ` user `, ` group ` and ` others `.
 
 | **[3-NUMBER]** | |
