@@ -1,6 +1,6 @@
 # neofetch
 
-display information about your system.
+display information about system.
 ---
 
 ` neofetch `

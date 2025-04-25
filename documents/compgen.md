@@ -14,9 +14,11 @@
 | -k | list all keywords |
 | -v | list all shell variables |
 | -d | list all directories |
-| -f | list all files |
+| -f | list all files and directories |
 
 ## Examples:
 ` compgen -e `
 
 ` compgen -ac dotnet `
+
+` compgen -f Doc `

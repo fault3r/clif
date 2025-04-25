@@ -1,6 +1,6 @@
 # pwd
 
-print the name of the current working directory.
+print the path of the current working directory.
 ---
 
 ` pwd `
