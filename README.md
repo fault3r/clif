@@ -35,6 +35,8 @@
 | [uname](https://github.com/fault3r/cli-commands/blob/main/documents/uname.md) |
 | [alias](https://github.com/fault3r/cli-commands/blob/main/documents/alias.md) |
 | [compgen](https://github.com/fault3r/cli-commands/blob/main/documents/compgen.md) |
+| [tar](https://github.com/fault3r/cli-commands/blob/main/documents/tar.md) |
+| [wget](https://github.com/fault3r/cli-commands/blob/main/documents/wget.md) |
 | [more](https://github.com/fault3r/cli-commands/blob/main/documents/more.md) |
 | [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) |
 | [head](https://github.com/fault3r/cli-commands/blob/main/documents/head.md) |

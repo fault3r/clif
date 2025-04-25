@@ -17,7 +17,7 @@
 | -C [DIRECTORY] | change to directory before performing operations |
 | -v | verbosely list files processed |
 
-### all tar options are typically used with ` -f [ARCHIVE] `
+### all tar options are typically used with ` -f ` option.
 
 ## Examples:
 ` tar -vcf my-archive.tar test/ test.txt test.cs `

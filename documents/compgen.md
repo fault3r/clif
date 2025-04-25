@@ -15,6 +15,8 @@
 | -v | list all shell variables |
 | -d | list all directories |
 | -f | list all files and directories |
+| -u | list all users |
+| -g | list all groups |
 
 ## Examples:
 ` compgen -e `
