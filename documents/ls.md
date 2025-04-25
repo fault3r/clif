@@ -1,6 +1,6 @@
 # ls
 
-list information about the FILEs (the current directory by default).
+list information about the files (the current directory by default).
 ---
 
 ` ls [OPTION]... [FILE]... `
@@ -10,6 +10,11 @@ list information about the FILEs (the current directory by default).
 |:---:|:---:|
 | -l | list mode |
 | -a | all hidden files and directories included |
+
+---
+
+### create this alias ` la='ls -a' ` <br>
+#### use these `ls`, `ls -l`, `la`, `la -l`
 
 ## Examples:
 ` ls -l `
