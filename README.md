@@ -36,9 +36,12 @@
 | [alias](https://github.com/fault3r/cli-commands/blob/main/documents/alias.md) |
 | [compgen](https://github.com/fault3r/cli-commands/blob/main/documents/compgen.md) |
 | [tar](https://github.com/fault3r/cli-commands/blob/main/documents/tar.md) |
+| [ping](https://github.com/fault3r/cli-commands/blob/main/documents/ping.md) |
 | [wget](https://github.com/fault3r/cli-commands/blob/main/documents/wget.md) |
+| [ps](https://github.com/fault3r/cli-commands/blob/main/documents/ps.md) |
 | [more](https://github.com/fault3r/cli-commands/blob/main/documents/more.md) |
 | [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) |
 | [head](https://github.com/fault3r/cli-commands/blob/main/documents/head.md) |
 | [tail](https://github.com/fault3r/cli-commands/blob/main/documents/tail.md) |
+| [w3m](https://github.com/fault3r/cli-commands/blob/main/documents/w3m.md) |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) |
