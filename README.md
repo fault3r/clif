@@ -8,6 +8,7 @@
 |:---:|
 | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux&theme=dark) |
 | [sudo](https://github.com/fault3r/cli-commands/blob/main/documents/sudo.md) |
+| [systemctl](https://github.com/fault3r/cli-commands/blob/main/documents/systemctl.md) |
 | [apt](https://github.com/fault3r/cli-commands/blob/main/documents/apt.md) |
 | [snap](https://github.com/fault3r/cli-commands/blob/main/documents/snap.md) |
 | [ls](https://github.com/fault3r/cli-commands/blob/main/documents/ls.md) |
@@ -29,6 +30,7 @@
 | [users](https://github.com/fault3r/cli-commands/blob/main/documents/users.md) |
 | [groups](https://github.com/fault3r/cli-commands/blob/main/documents/groups.md) |
 | [usermod](https://github.com/fault3r/cli-commands/blob/main/documents/usermod.md) |
+| [chfn](https://github.com/fault3r/cli-commands/blob/main/documents/chfn.md) |
 | [passwd](https://github.com/fault3r/cli-commands/blob/main/documents/passwd.md) |
 | [gpasswd](https://github.com/fault3r/cli-commands/blob/main/documents/gpasswd.md) |
 | [whoami](https://github.com/fault3r/cli-commands/blob/main/documents/whoami.md) |

@@ -8,7 +8,7 @@
 
 | **OPTION** | description |
 |:---:|:---:|
-| -u [USER], --user=[USER] | run the command as the specified user |
+| -u, --user [USER] | run the command as the specified user |
 | -b, --background | run the command in the background |
 | -i, --login | login to root access |
 
@@ -16,5 +16,7 @@
 
 ## Examples:
 ` sudo apt update `
+
+` sudo --user root ls `
 
 ` sudo -i `

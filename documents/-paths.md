@@ -8,14 +8,8 @@ linux system directories.
 | / | the top-level directory in the filesystem hierarchy |
 | /home | the home directories for all users where personal files are stored |
 | /etc | system-wide configuration files, settings for system services, user accounts, and other configurations |
-| /etc/apt | software sources |
-| /etc/passwd | list all users |
-| /etc/group | list all groups |
 | /var | variable data files, applications data, to store data that changes frequently |
 | /usr | user programs and data |
-| /usr/bin | executable binaries |
-| /usr/lib | libraries for the binaries |
-| /usr/share | architecture-independent data |
 | /media | mount point for removable media such as USB drives and CDs |
 | /dev | device files that represent hardware devices |
 | /sys | virtual filesystem that provides information and configuration options for the kernel and devices |
