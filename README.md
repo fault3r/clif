@@ -41,6 +41,8 @@
 | [ping](https://github.com/fault3r/cli-commands/blob/main/documents/ping.md) |
 | [wget](https://github.com/fault3r/cli-commands/blob/main/documents/wget.md) |
 | [ps](https://github.com/fault3r/cli-commands/blob/main/documents/ps.md) |
+| [kill](https://github.com/fault3r/cli-commands/blob/main/documents/kill.md) |
+| [pkill](https://github.com/fault3r/cli-commands/blob/main/documents/pkill.md) |
 | [more](https://github.com/fault3r/cli-commands/blob/main/documents/more.md) |
 | [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) |
 | [head](https://github.com/fault3r/cli-commands/blob/main/documents/head.md) |
