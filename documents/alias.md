@@ -8,8 +8,9 @@ create shortcuts for longer commands or to customize command behavior.
 
 | **OPTION** | description |
 |:---:|:---:|
-|  | list of all currently defined aliases |
 | -p | print all defined aliases in a reusable format |
+
+### ` alias ` to display list of all defined aliases.
 
 ### ` unalias [NAME] ` to remove an alias.
 
@@ -19,3 +20,5 @@ create shortcuts for longer commands or to customize command behavior.
 ` alias -p `
 
 ` alias cls='clear' `
+
+` unalias cls `

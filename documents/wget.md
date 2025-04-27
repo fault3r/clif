@@ -8,10 +8,10 @@
 
 | **OPTION** | description |
 |:---:|:---:|
-|  | download a single file |
-| -O [FILENAME] | download a file with a different name |
-| -c,  --continue | resume an interrupted download |
-| -b,  --background | download in the background |
+|  | download a file |
+| -O [FILENAME] | set a name for output file |
+| -c, --continue | resume an interrupted download |
+| -b, --background | download in the background |
 | -i [INPUT.txt] | download files from a local or external list <br> each URL on a new line |
 
 ## Examples:

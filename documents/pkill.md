@@ -19,7 +19,7 @@
 ## Examples:
 ` pkill firefox `
 
-` pkill -9 thunderbird `
+` pkill -9 "thunderbird" `
 
 ` pkill -e --signal 15 firefox `
 
