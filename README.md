@@ -47,6 +47,7 @@
 | [compgen](https://github.com/fault3r/cli-commands/blob/main/documents/compgen.md) |
 | [w3m](https://github.com/fault3r/cli-commands/blob/main/documents/w3m.md) |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) |
+| [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) |
 | [more](https://github.com/fault3r/cli-commands/blob/main/documents/more.md) |
 | [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) |
 | [head](https://github.com/fault3r/cli-commands/blob/main/documents/head.md) |
