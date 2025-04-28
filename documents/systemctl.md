@@ -3,10 +3,10 @@
 **System Control** > query or send control commands to the system manager.
 ---
 
-` systemctl [OPTION]... `
+` systemctl [COMMAND] `
 ---
 
-| **OPTION** | description |
+| **COMMAND** | description |
 |:---:|:---:|
 | list-units [PATTERN] | display the currently active units <br> pass `--all` to see loaded but inactive units |
 | list-unit-files [PATTERN] | display all unit files available on the system |
