@@ -44,9 +44,11 @@
 | [tar](https://github.com/fault3r/cli-commands/blob/main/documents/tar.md) |
 | [ping](https://github.com/fault3r/cli-commands/blob/main/documents/ping.md) |
 | [wget](https://github.com/fault3r/cli-commands/blob/main/documents/wget.md) |
-| [compgen](https://github.com/fault3r/cli-commands/blob/main/documents/compgen.md) |
+| [ufw](https://github.com/fault3r/cli-commands/blob/main/documents/ufw.md) |
 | [w3m](https://github.com/fault3r/cli-commands/blob/main/documents/w3m.md) |
+| [compgen](https://github.com/fault3r/cli-commands/blob/main/documents/compgen.md) |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) |
+| [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) |
 | [more](https://github.com/fault3r/cli-commands/blob/main/documents/more.md) |
 | [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) |

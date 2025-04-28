@@ -15,9 +15,9 @@
 | reload | reload firewall |
 | reset | reset to default settings |
 | allow [SERVICE\|PORT] | allow a specific service or port number |
-| delete allow | delete an allow rule |
+| delete allow [SERVICE\|PORT] | delete an allow rule |
 | deny [SERVICE\|PORT] | deny a specific service or port number |
-| delete deny | delete a deny rule |
+| delete deny [SERVICE\|PORT] | delete a deny rule |
 
 ## Examples:
 ` sudo ufw status `
