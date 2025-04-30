@@ -8,7 +8,7 @@
 
 | **COMMAND** | description |
 |:---:|:---:|
-| list-units ["EXPRESSION] | display the currently active units <br> pass `--all` to see loaded but inactive units |
+| list-units [EXPRESSION] | display the currently active units <br> pass `--all` to see loaded but inactive units |
 | list-unit-files [EXPRESSION] | display all unit files available on the system |
 | --type=service\|socket\|target\|mount\|automount\|timer\|path\|slice\|scope | filter the output based on the type of units <br> only valid in combination with the `list-units` or `list-unit-files` |
 | status [UNIT] | display status of units |
@@ -27,6 +27,6 @@
 ## Examples:
 ` systemctl list-units --all --type=service "systemd*" `
 
-` systemctl status "systemd*" `
+` systemctl status boot-efi.mount `
 
 ` systemctl reboot `

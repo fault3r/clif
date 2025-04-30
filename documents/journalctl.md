@@ -9,14 +9,13 @@
 | **OPTION** | description |
 |:---:|:---:|
 | | display all system logs |
-| -b, --boot -[NUMBER] | display current[0] boot logs <br> logs from previous[NUMBER] boots |
+| -b, --boot -[NUMBER] | display current boot logs <br> or logs from previous `NUMBER` boots |
 | -f, --follow | follow the journal |
 | -S, --since ["yyyy-mm-dd [hh:mm:ss]"] | logs from the beginning of SINCE up to the present time |
 | -U, --until ["yyyy-mm-dd [hh:mm:ss]"] | logs up to UNTIL |
 | -u, --unit [UNIT] | logs for a specific unit |
-| -p, --priority [emerg \| alert \| crit \| err \| warning \| notice \| info \| debug] | filter logs by priority level <br>  |c | desc |
-| desc | desc |rshjyhg 
-| desc | desc |
+| -p, --priority emerg\|alert\|crit\|err\|warning\|notice\|info\|debug | filter logs by priority level |
+
 
 ## Examples:
 ` journalctl -b -f `
