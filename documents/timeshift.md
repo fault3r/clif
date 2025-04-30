@@ -3,10 +3,10 @@
 Timeshift is a system restore utility for create and manage snapshots of system.
 ---
 
-` timeshift [OPTION] `
+` timeshift [COMMAND] `
 ---
 
-| **OPTION** | description |
+| **COMMAND** | description |
 |:---:|:---:|
 | | open timeshift in GUI mode |
 | --list | list all available snapshots |
