@@ -3,7 +3,7 @@
 search for files and directories within a specified directory hierarchy.
 ---
 
-` find [PATH] [OPTION]... "*EXPRESSION*" `
+` find [PATH] [OPTION]... [EXPRESSION] `
 ---
 
 | **OPTION** | description |
@@ -17,7 +17,7 @@ search for files and directories within a specified directory hierarchy.
 | -exec [COMMAND] {} \\;\|+ | execute a command on the found files <br> (`{}` found files, `\;` singleton mode, `+` statement mode) |
 
 ## Examples:
-` find ./ -type f -iname "*search*" `
+` find ./ -type f -iname search `
 
 ` find ./ -size +1M `
 

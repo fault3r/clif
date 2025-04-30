@@ -6,9 +6,9 @@ displays the usernames of users currently logged into the system.
 ` users `
 ---
 
-### ` nano /etc/passwd ` display all users.
+### ` cat /etc/passwd ` display all users.
 
-### ` id [USERNAME] ` display information of the specified user.
+### ` id [USERNAME] ` display user and groups information for the specified user.
 
 ---
 
@@ -19,7 +19,7 @@ displays the usernames of users currently logged into the system.
 
 ### ***Delete User*** ` deluser [USERNAME] ` <br>
 #### remove a user account.
-#### ` deluser --remove-home [USERNAME] ` to delete home directory of user.
+#### use ` deluser --remove-home [USERNAME] ` to delete home directory of user.
 
 ## Examples:
 ` sudo adduser t-user `

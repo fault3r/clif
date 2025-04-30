@@ -8,8 +8,8 @@
 
 | **OPTION** | description |
 |:---:|:---:|
-| -d, --home [DIRECTORY] | change the user's home directory |
-| -m, --move-home | move the contents of the old home directory <br> only valid in combination with the -d |
+| -d, --home [PATH] | change the user's home directory |
+| -m, --move-home | move the contents of the old home directory <br> only valid in combination with the `-d` option |
 | -l, --login [NEW-USERNAME] | change the username |
 | -aG [GROUPNAME] | append user to a group |
 

@@ -6,7 +6,7 @@ display the groups that a specified user belongs to. currently logged-in user by
 ` groups [USERNAME] `
 ---
 
-### ` nano /etc/group ` display all groups.
+### ` cat /etc/group ` display all groups.
 
 ---
 

@@ -24,4 +24,6 @@
 
 ` sudo ufw allow samba `
 
+` sudo ufw deny 2600 `
+
 ` sudo ufw delete allow samba `
