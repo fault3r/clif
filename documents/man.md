@@ -1,6 +1,6 @@
 # man
 
-**Manual** > display the manual pages for other commands, providing detailed information about their usage, options and examples.
+**Manual** > display the manual pages for other commands.
 ---
 
 ` man [OPTION] [COMMAND] `

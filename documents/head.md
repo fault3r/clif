@@ -8,8 +8,8 @@ display the beginning of files.
 
 | **OPTION** | description |
 |:---:|:---:|
-| -n , --lines [NUMBER] | print the first NUM lines instead of the first 10 |
-| -c , --bytes [NUMBER] | print the first NUM bytes |
+| -n , --lines [NUMBER] | print the first `NUMBER` lines instead of the first 10 |
+| -c , --bytes [NUMBER] | print the first `NUMBER` bytes |
 
 ## Examples:
-` head -c 10 file.txt `
+` head -c 26 file.txt `

@@ -3,7 +3,7 @@
 **Global Regular Expression Print** > search for specific patterns within files or input streams.
 ---
 
-` grep [OPTION]... "PATTERN" [FILE]... `
+` grep [OPTION]... [EXPRESSION] [FILE]... `
 ---
 
 | **OPTION** | description |
@@ -17,11 +17,11 @@
 | -w, --word-regexp | match only whole words |
 | -o, --only-matching | show only nonempty parts of lines that match |
 
-### use ` grep ` in combination with other commands using pipes ` | `
+### use pipe ` | ` to combination with other commands
 
 ## Examples:
-` grep -ric "a" ./ `
+` grep -ric search ./ `
 
-` grep "search" file.txt `
+` grep "search text" file.txt `
 
-` cat file.txt | grep "search" -i `
+` cat file.txt | grep search -i `

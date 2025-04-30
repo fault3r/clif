@@ -8,15 +8,15 @@
 
 | **PATH** | description |
 |:---:|:---:|
-| / | root |
-| ~ | home |
+| | home directory |
+| ~ | home directory |
+| / | root directory |
 | ./ | current path |
 | ../ | parent path |
-| .. | back to parent |
-| .. | back to parent |
-| \ | use as space |
+
+### use ` \ ` as space, ` cd /home/linux\ terminal/ `
 
 ## Examples:
-` cd / `
+` cd ../../home/ `
 
 ` cd /usr/share/ `

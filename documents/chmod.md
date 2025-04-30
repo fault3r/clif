@@ -25,11 +25,10 @@
 | w | write |
 | x | execute |
 
-
-### ***Numeric mode*** ` chmod [OPTION]... [3-NUMBER] [FILE]... ` <br>
+### ***Numeric mode syntax*** ` chmod [OPTION]... [ugo-NUMBER] [FILE]... ` <br>
 #### each digit represents the permissions for ` user `, ` group ` and ` others `.
 
-| **[3-NUMBER]** | description |
+| **[ugo-NUMBER]** | description |
 |:---:|:---:|
 | 0 | no permissions |
 | 1 | execute |

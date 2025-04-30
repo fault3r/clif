@@ -3,7 +3,7 @@
 **Completion Generator** > display possible completions.
 ---
 
-` compgen [OPTION]... [WORD] `
+` compgen [OPTION]... [EXPRESSION] `
 ---
 
 | **OPTION** | description |

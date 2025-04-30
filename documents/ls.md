@@ -8,13 +8,13 @@ list information about the files (the current directory by default).
 
 | **OPTION** | description |
 |:---:|:---:|
-| -l | list mode |
-| -a | all hidden files and directories included |
+| -l | view in list view mode |
+| -a | display all hidden files and directories |
 
 ---
 
 ### create this alias ` la='ls -a' ` <br>
-#### use these `ls`, `ls -l`, `la`, `la -l`
+#### use these commands `ls`, `ls -l`, `la`, `la -l`
 
 ## Examples:
 ` ls -l `
