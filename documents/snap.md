@@ -15,4 +15,6 @@ Snap is a package management system developed by Canonical.
 | remove [PACKAGE] | remove a package |
         
 ## Examples:
+` sudo snap list `
+
 ` sudo snap refresh firefox `

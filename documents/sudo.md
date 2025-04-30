@@ -12,7 +12,7 @@
 | -b, --background | run the command in the background |
 | -i, --login | login to root access |
 
-### ` sudo su - ` switch the current user to the superuser
+### use ` sudo su - ` to switch to the superuser.
 
 ## Examples:
 ` sudo apt update `

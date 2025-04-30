@@ -3,7 +3,7 @@
 **Process grep** > search for processes based on a pattern. specifically designed to find and return the process IDs.
 ---
 
-` pgrep [OPTION]... [PATTERN] `
+` pgrep [OPTION]... [EXPRESSION] `
 ---
 
 | **OPTION** | description |

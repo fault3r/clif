@@ -8,8 +8,8 @@ display the end of files.
 
 | **OPTION** | description |
 |:---:|:---:|
-| -n , --lines [NUMBER] | print the last NUMBER lines instead of the last 10 |
-| -c , --bytes [NUMBER] | print the last NUMBER bytes |
+| -n , --lines [NUMBER] | print the last `NUMBER` lines instead of the last 10 |
+| -c , --bytes [NUMBER] | print the last `NUMBER` bytes |
 | -f, --follow | follow the file in real-time mode |
 
 ## Examples:

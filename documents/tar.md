@@ -8,7 +8,7 @@
 
 | **OPTION** | description |
 |:---:|:---:|
-| -f [ARCHIVE] | specify the archive file name <br> |
+| -f [FILENAME] | specify the archive filename <br> |
 | -c | create a new archive |
 | -x | extract files from an archive |
 | -t | list the contents of an archive |

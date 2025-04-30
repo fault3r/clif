@@ -9,9 +9,9 @@ create empty files or to update the timestamps of existing files.
 | **OPTION** | description |
 |:---:|:---:|
 |  | create new file |
-| -t | set timestamp. format: yyyymmddhhmm |
+| -t | set timestamp, `yyyymmddhhmm` |
 | -r [FILE] | use another file's timestamp as reference |
-| -c [FILE] | no create, update the timestamp only if the file already exists |
+| -c [FILE] | update the timestamp only if the file already exists (no create)|
 
 ## Examples:
 ` touch test1.txt test2.txt `

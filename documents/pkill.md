@@ -3,7 +3,7 @@
 **Process Kill** > send signals to processes based on a pattern, typically to terminate them.
 ---
 
-` pkill [OPTION]... [PATTERN] `
+` pkill [OPTION]... [EXPRESSION] `
 ---
 
 | **OPTION** | description |
