@@ -1,6 +1,6 @@
 # sudo 
 
-**superuser do** > execute a command as another user!
+**superuser do** > execute a command as another user.
 ---
 
 ` sudo [OPTION] [COMMAND] `

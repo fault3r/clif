@@ -1,6 +1,6 @@
 # pgrep
 
-**Process grep** > search for processes based on a pattern. specifically designed to find and return the process IDs.
+**Process grep** > search for processes based on a pattern. specifically designed to find the process IDs.
 ---
 
 ` pgrep [OPTION]... [EXPRESSION] `

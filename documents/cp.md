@@ -1,6 +1,6 @@
 # cp
 
-**Copy** > copy files & directories.
+**Copy** > copy files and directories.
 ---
 
 ` cp [OPTION]... [SOURCE] [DESTINATION] `

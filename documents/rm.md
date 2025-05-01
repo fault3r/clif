@@ -1,6 +1,6 @@
 # rm
 
-**Remove** > remove files & directories.
+**Remove** > remove files and directories.
 ---
 
 ` rm [OPTION]... [FILE]... `

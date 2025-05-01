@@ -1,6 +1,6 @@
 # mv
 
-**Move** > move or rename files & directories.
+**Move** > move or rename files and directories.
 ---
 
 ` mv [OPTION]... [SOURCE] [DESTINATION] `

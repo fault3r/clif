@@ -1,6 +1,6 @@
 # users
 
-displays the usernames of users currently logged into the system.
+display the usernames of users currently logged into the system.
 ---
 
 ` users `
