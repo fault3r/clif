@@ -23,6 +23,9 @@
 | [cat](https://github.com/fault3r/cli-commands/blob/main/documents/cat.md) |
 | [touch](https://github.com/fault3r/cli-commands/blob/main/documents/touch.md) |
 | [nano](https://github.com/fault3r/cli-commands/blob/main/documents/nano.md) |
+| [more](https://github.com/fault3r/cli-commands/blob/main/documents/more.md) |
+| [head](https://github.com/fault3r/cli-commands/blob/main/documents/head.md) |
+| [tail](https://github.com/fault3r/cli-commands/blob/main/documents/tail.md) |
 | [alias](https://github.com/fault3r/cli-commands/blob/main/documents/alias.md) |
 | [grep](https://github.com/fault3r/cli-commands/blob/main/documents/grep.md) |
 | [find](https://github.com/fault3r/cli-commands/blob/main/documents/find.md) |
@@ -40,6 +43,7 @@
 | [pgrep](https://github.com/fault3r/cli-commands/blob/main/documents/pgrep.md) |
 | [kill](https://github.com/fault3r/cli-commands/blob/main/documents/kill.md) |
 | [pkill](https://github.com/fault3r/cli-commands/blob/main/documents/pkill.md) |
+| [journalctl](https://github.com/fault3r/cli-commands/blob/main/documents/journalctl.md) |
 | [man](https://github.com/fault3r/cli-commands/blob/main/documents/man.md) |
 | [tar](https://github.com/fault3r/cli-commands/blob/main/documents/tar.md) |
 | [ping](https://github.com/fault3r/cli-commands/blob/main/documents/ping.md) |
@@ -50,7 +54,5 @@
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) |
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) |
-| [more](https://github.com/fault3r/cli-commands/blob/main/documents/more.md) |
 | [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) |
-| [head](https://github.com/fault3r/cli-commands/blob/main/documents/head.md) |
-| [tail](https://github.com/fault3r/cli-commands/blob/main/documents/tail.md) |
+
