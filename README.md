@@ -32,7 +32,7 @@
 | [chown](https://github.com/fault3r/cli-commands/blob/main/documents/chown.md) | change the owner and group of files. |
 | [users](https://github.com/fault3r/cli-commands/blob/main/documents/users.md) | display the usernames of users currently logged into the system. |
 | [groups](https://github.com/fault3r/cli-commands/blob/main/documents/groups.md) | display the groups that a specified user belongs to. currently logged-in user by default. |
-| [usermod](https://github.com/fault3r/cli-commands/blob/main/documents/usermod.md) | modify user accounts, change the username, home directory, shell, and group memberships. |
+| [usermod](https://github.com/fault3r/cli-commands/blob/main/documents/usermod.md) | modify user accounts, change the username, home directory, shell and group memberships. |
 | [passwd](https://github.com/fault3r/cli-commands/blob/main/documents/passwd.md) | change or remove user account password. |
 | [gpasswd](https://github.com/fault3r/cli-commands/blob/main/documents/gpasswd.md) | manage group memberships. |
 | [whoami](https://github.com/fault3r/cli-commands/blob/main/documents/whoami.md) | print the user name associated with the current effective user ID. |

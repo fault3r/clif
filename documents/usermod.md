@@ -1,9 +1,9 @@
 # usermod
 
-**User Mode** > modify user accounts, change the username, home directory, shell, and group memberships.
+**User Mode** > modify user accounts, change the username, home directory, shell and group memberships.
 ---
 
-` usermod [OPTION]... [USERNAME] `
+` usermod [OPTION] [USERNAME] `
 ---
 
 | **OPTION** | description |

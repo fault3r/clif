@@ -20,3 +20,5 @@ display the groups that a specified user belongs to. currently logged-in user by
 
 ## Examples:
 ` sudo groups t-user `
+
+` sudo addgroup testgroup `

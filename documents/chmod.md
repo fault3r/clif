@@ -21,14 +21,14 @@
 | **PERMISSION** | description |
 |:---:|:---:|
 |  | no permissions |
-| r | read |
-| w | write |
 | x | execute |
+| w | write |
+| r | read |
 
-### ***Numeric mode syntax*** ` chmod [OPTION]... [ugo-NUMBER] [FILE]... ` <br>
+### ***Numeric mode syntax*** ` chmod [OPTION]... [UGO-NUMBER] [FILE]... ` <br>
 #### each digit represents the permissions for ` user `, ` group ` and ` others `.
 
-| **[ugo-NUMBER]** | description |
+| **[UGO-NUMBER]** | description |
 |:---:|:---:|
 | 0 | no permissions |
 | 1 | execute |
