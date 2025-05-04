@@ -1,6 +1,6 @@
 # tar
 
-**Tape Archive** > create, extract and manipulate archive files.
+**Tape Archive** > create, extract and manipulate tar archive files.
 ---
 
 ` tar [OPTION]... [FILE]... `

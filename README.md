@@ -44,6 +44,7 @@
 | [pkill](https://github.com/fault3r/cli-commands/blob/main/documents/pkill.md) | send signals to processes based on a pattern, typically to terminate them. |
 | [journalctl](https://github.com/fault3r/cli-commands/blob/main/documents/journalctl.md) | view logs from the system and services in a structured format. |
 | [man](https://github.com/fault3r/cli-commands/blob/main/documents/man.md) | display the manual pages for other commands. |
+| [zip](https://github.com/fault3r/cli-commands/blob/main/documents/zip.md) | create, extract and manipulate zip archive files. |
 | [tar](https://github.com/fault3r/cli-commands/blob/main/documents/tar.md) | create, extract and manipulate archive files. |
 | [ping](https://github.com/fault3r/cli-commands/blob/main/documents/ping.md) | test the reachability of a host. |
 | [wget](https://github.com/fault3r/cli-commands/blob/main/documents/wget.md) | downloading files from the web. |
@@ -54,4 +55,3 @@
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
 | [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) | viewing the contents of files in navigation mode. |
-
