@@ -23,6 +23,7 @@
 | [touch](https://github.com/fault3r/cli-commands/blob/main/documents/touch.md) | create empty files or to update the timestamps of existing files. |
 | [nano](https://github.com/fault3r/cli-commands/blob/main/documents/nano.md) | create and edit text files directly from the terminal. |
 | [more](https://github.com/fault3r/cli-commands/blob/main/documents/more.md) | viewing the contents of files in pagination mode. |
+| [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) | viewing the contents of files in navigation mode. |
 | [head](https://github.com/fault3r/cli-commands/blob/main/documents/head.md) | display the beginning of files. |
 | [tail](https://github.com/fault3r/cli-commands/blob/main/documents/tail.md) | display the end of files. |
 | [alias](https://github.com/fault3r/cli-commands/blob/main/documents/alias.md) | create shortcuts for longer commands or to customize command behavior. |
@@ -50,10 +51,9 @@
 | [ping](https://github.com/fault3r/cli-commands/blob/main/documents/ping.md) | test the reachability of a host. |
 | [wget](https://github.com/fault3r/cli-commands/blob/main/documents/wget.md) | downloading files from the web. |
 | [ufw](https://github.com/fault3r/cli-commands/blob/main/documents/ufw.md) | managing a netfilter firewall on Linux systems. |
-| [w3m](https://github.com/fault3r/cli-commands/blob/main/documents/w3m.md) | text-based web browser that runs in the terminal. |
 | [compgen](https://github.com/fault3r/cli-commands/blob/main/documents/compgen.md) | display possible completions. |
+| [w3m](https://github.com/fault3r/cli-commands/blob/main/documents/w3m.md) | text-based web browser that runs in the terminal. |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
-| [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) | viewing the contents of files in navigation mode. |
 | [dotnet](https://github.com/fault3r/cli-commands/blob/main/documents/dotnet.md) | ☄️.NET CLI |
