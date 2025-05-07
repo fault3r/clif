@@ -56,3 +56,4 @@
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
 | [less](https://github.com/fault3r/cli-commands/blob/main/documents/less.md) | viewing the contents of files in navigation mode. |
+| [dotnet](https://github.com/fault3r/cli-commands/blob/main/documents/dotnet.md) | ☄️.NET CLI |
