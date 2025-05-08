@@ -19,6 +19,7 @@
 | [cp](https://github.com/fault3r/cli-commands/blob/main/documents/cp.md) | copy files and directories. |
 | [mv](https://github.com/fault3r/cli-commands/blob/main/documents/mv.md) | move or rename files and directories. |
 | [rm](https://github.com/fault3r/cli-commands/blob/main/documents/rm.md) | remove files and directories. |
+| [ln](https://github.com/fault3r/cli-commands/blob/main/documents/ln.md) | create links for files and directories. |
 | [cat](https://github.com/fault3r/cli-commands/blob/main/documents/cat.md) | display the contents of files. |
 | [touch](https://github.com/fault3r/cli-commands/blob/main/documents/touch.md) | create empty files or to update the timestamps of existing files. |
 | [nano](https://github.com/fault3r/cli-commands/blob/main/documents/nano.md) | create and edit text files directly from the terminal. |

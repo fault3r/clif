@@ -8,11 +8,11 @@
 
 | **OPTION** | description |
 |:---:|:---:|
-| -v, --verbose | explain what is being done |
-| -i, --interactive | prompt before overwrite |
-| -f, --force | do not prompt before overwriting |
-| -n, --no-clobber | do not overwrite an existing file |
 | -u, --update | control which existing files are updated for move |
+| -n, --no-clobber | do not overwrite an existing file |
+| -f, --force | do not prompt before overwriting |
+| -i, --interactive | prompt before overwrite |
+| -v, --verbose | explain what is being done |
 
 #### ` mv ` command moves directories automatically without needing a recursive option.
 
