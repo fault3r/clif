@@ -16,7 +16,7 @@ create shortcuts for longer commands or to customize command behavior.
 
 ### by default aliases are only available in the current shell session. <br> to make them Permanent, configure aliases in ` ~/.bash_aliases ` or directly in ` ~/.bashrc `.
 
-## Examples:
+## Examples
 ` alias -p `
 
 ` alias cls='clear' `

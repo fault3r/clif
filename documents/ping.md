@@ -10,7 +10,7 @@ test the reachability of a host.
 |:---:|:---:|
 | -c [COUNT] | specify number of echo requests |
 
-## Examples:
+## Examples
 ` ping google.com `
 
 ` ping -c 5 8.8.8.8 `

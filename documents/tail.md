@@ -12,7 +12,7 @@ display the end of files.
 | -c , --bytes [NUMBER] | print the last `NUMBER` bytes |
 | -f, --follow | follow the file in real-time mode |
 
-## Examples:
+## Examples
 ` tail --lines 5 file.txt `
 
 ` tail -f file.txt `

@@ -20,7 +20,7 @@
 | -u, --unit [UNIT] | logs for a specific unit |
 | -p, --priority emerg\|alert\|crit\|err\|warning\|notice\|info\|debug | filter logs by priority level |
 
-## Examples:
+## Examples
 ` journalctl -b -f `
 
 ` journalctl --boot -2 `

@@ -30,6 +30,7 @@
 | [grep](https://github.com/fault3r/cli-commands/blob/main/documents/grep.md) | search for specific patterns within files or input streams. |
 | [find](https://github.com/fault3r/cli-commands/blob/main/documents/find.md) | search for files and directories within a specified directory hierarchy. |
 | [du](https://github.com/fault3r/cli-commands/blob/main/documents/du.md) | analyze and report on disk usage within directories and files. |
+| [df](https://github.com/fault3r/cli-commands/blob/main/documents/df.md) | report the amount of disk space used and available on file systems. |
 | [chmod](https://github.com/fault3r/cli-commands/blob/main/documents/chmod.md) | managing permissions of files. |
 | [chown](https://github.com/fault3r/cli-commands/blob/main/documents/chown.md) | change the owner and group of files. |
 | [users](https://github.com/fault3r/cli-commands/blob/main/documents/users.md) | display the usernames of users currently logged into the system. |
@@ -56,4 +57,6 @@
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
-| [dotnet](https://github.com/fault3r/cli-commands/blob/main/documents/dotnet.md) | ☄️.NET CLI |
+| | |
+| [dotnet](https://github.com/fault3r/cli-commands/blob/main/documents/dotnet.md) | .NET CLI ☄️ <br> 🧙🏻‍♂️ one command to rule them all. |
+| | |

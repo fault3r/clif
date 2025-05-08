@@ -8,5 +8,5 @@
 
 ### cannot modify fullname while user is in use.
 
-## Examples:
+## Examples
 ` sudo chfn any-user `

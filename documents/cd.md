@@ -16,7 +16,7 @@
 
 ### use ` \ ` as space, ` cd /home/linux\ terminal/ `
 
-## Examples:
+## Examples
 ` cd ../../home/ `
 
 ` cd /usr/share/ `

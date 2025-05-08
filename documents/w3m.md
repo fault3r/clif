@@ -14,7 +14,7 @@
 - Press ` M ` to view page in browser.
 - Press ` / ` to search on the current page, type your search term and press ` Enter `. use ` n ` to go to the next occurrence of the search term.
 
-## Examples:
+## Examples
 ` w3m google.com `
 
 ` w3m filename.html `

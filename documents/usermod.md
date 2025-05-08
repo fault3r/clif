@@ -15,7 +15,7 @@
 
 ### cannot modify username of account while it is in use.
 
-## Examples:
+## Examples
 ` sudo usermod -d /home/user-new-home -m test-user `
 
 ` sudo usermod -aG testgroup test-user `

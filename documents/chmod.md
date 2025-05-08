@@ -35,7 +35,7 @@
 | 2 | write |
 | 4 | read |
 
-## Examples:
+## Examples
 ` chmod ug+wx file.txt `
 
 ` chmod -vR 750 ./ `

@@ -19,7 +19,7 @@
 
 ### all tar options are typically used with ` -f ` option.
 
-## Examples:
+## Examples
 ` tar -vcf my-archive.tar test/ test.txt test.cs `
 
 ` tar -vxf my-archive.tar `

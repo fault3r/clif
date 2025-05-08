@@ -13,7 +13,7 @@ create empty files or to update the timestamps of existing files.
 | -r [FILE] | use another file's timestamp as reference |
 | -c [FILE] | update the timestamp only if the file already exists (no create)|
 
-## Examples:
+## Examples
 ` touch test1.txt test2.txt `
 
 ` touch -r ref.txt new.txt `

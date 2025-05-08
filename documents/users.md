@@ -21,7 +21,7 @@ display the usernames of users currently logged into the system.
 #### remove a user account.
 #### use ` deluser --remove-home [USERNAME] ` to delete home directory of user.
 
-## Examples:
+## Examples
 ` sudo adduser t-user `
 
 ` sudo id t-user `

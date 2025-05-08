@@ -15,7 +15,7 @@ create and edit text files directly from the terminal.
 | -m, --mouse | enable the use of the mouse |
 | -l, --linenumbers | show line numbers in front of the text |
 
-## Examples:
+## Examples
 ` nano -lv examp.txt `
 
 ` sudo nano --syntax sh -lm .bashrc.sh `

@@ -8,7 +8,7 @@ viewing the contents of files in pagination mode.
 
 ### use pipe ` | ` to combination with other commands.
 
-## Examples:
+## Examples
 ` more file.txt `
 
 ` ps axu | more `

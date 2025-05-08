@@ -21,7 +21,7 @@ send signal to process based on PID, typically to terminate it.
 | SIGSTOP #19 | pauses a process |
 | SIGCONT #18 | Resumes a process that has been paused by SIGSTOP |
 
-## Examples:
+## Examples
 ` kill 1234 `
 
 ` kill -s SIGTERM 4321 `

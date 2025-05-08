@@ -11,5 +11,5 @@
 | -a, --add [USERNAME] | add a user to the specified group |
 | -d, --delete [USERNAME] | remove a user from the specified group |
 
-## Examples:
+## Examples
 ` sudo gpasswd -a t-user testgroup `

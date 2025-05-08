@@ -14,7 +14,7 @@
 
 ### use ` sudo su - ` to switch to the superuser.
 
-## Examples:
+## Examples
 ` sudo apt update `
 
 ` sudo --user root ls `

@@ -11,5 +11,5 @@
 | -p, --parents | create parent directories as needed |
 | -v, --verbose | verbose mode |
 
-## Examples:
+## Examples
 ` mkdir -v test1 test2 `

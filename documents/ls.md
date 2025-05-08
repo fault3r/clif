@@ -16,7 +16,7 @@ list information about the files (the current directory by default).
 ### create this alias ` la='ls -a' ` <br>
 #### use these commands `ls`, `ls -l`, `la`, `la -l`
 
-## Examples:
+## Examples
 ` ls -l `
 
 ` ls -la / /home `

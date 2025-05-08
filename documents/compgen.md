@@ -18,7 +18,7 @@
 | -u | list all users |
 | -g | list all groups |
 
-## Examples:
+## Examples
 ` compgen -e `
 
 ` compgen -ac dotnet `

@@ -16,7 +16,7 @@
 
 ### ` mv ` command moves directories automatically without needing a recursive option.
 
-## Examples:
+## Examples
 ` mv -v test/ /home/ `
 
 ` mv -viu *.txt bckDir/ `

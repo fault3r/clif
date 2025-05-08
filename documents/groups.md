@@ -18,7 +18,7 @@ display the groups that a specified user belongs to. currently logged-in user by
 ### ***Delete Group*** ` delgroup [GROUPNAME] ` <br>
 #### remove a group.
 
-## Examples:
+## Examples
 ` sudo groups t-user `
 
 ` sudo addgroup testgroup `

@@ -22,7 +22,7 @@
 |:---:|:---:|
 | -y, --yes | prompt the confirms |
 
-## Examples:
+## Examples
 ` sudo apt update -y `
 
 ` sudo apt update -y && sudo apt upgrade -y `

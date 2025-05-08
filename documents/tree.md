@@ -14,7 +14,7 @@ display the directory structure of the current directory.
 | -f |  print the full path prefix for each file |
 | -h |  print the size in a more human readable way |
 
-## Examples:
+## Examples
 ` tree -hf ./ `
 
 ` tree -d -L 2 / `

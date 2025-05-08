@@ -20,7 +20,7 @@ create, extract and manipulate zip archive files.
 ### `unzip -o [ZIPFILE]` ***overwrite existing files without prompting***
 ### `unzip [ZIPFILE] -d [EXTRACT/PATH]` ***specify the target directory for extraction***
 
-## Examples:
+## Examples
 ` zip -r archive.zip file1.txt file2.txt dir3/ `
 
 ` zip -d archive.zip dir/\* `

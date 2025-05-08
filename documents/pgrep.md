@@ -16,7 +16,7 @@
 | -n, --newest | select most recently started |
 | -o, --oldest | select least recently started |
 
-## Examples:
+## Examples
 ` pgrep code `
 
 ` pgrep -l systemd `

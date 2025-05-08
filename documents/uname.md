@@ -18,5 +18,5 @@
 | -i, --hardware-platform | print the hardware platform |
 | -o, --operating-system | print the operating system |
 
-## Examples:
+## Examples
 ` uname -snrpo `

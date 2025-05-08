@@ -16,7 +16,7 @@ search for files and directories within a specified directory hierarchy.
 | -delete | delete the found files |
 | -exec [COMMAND] {} \\;\|+ | execute a command on the found files <br> (`{}` found files, `\;` singleton mode, `+` statement mode) |
 
-## Examples:
+## Examples
 ` find ./ -type f -iname search `
 
 ` find ./ -size +1M `

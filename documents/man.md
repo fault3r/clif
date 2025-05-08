@@ -19,7 +19,7 @@
 | 7 | specify the section of the manual for miscellaneous |
 | 8 | specify the section of the manual for system administration commands |
 
-## Examples:
+## Examples
 ` man ls `
 
 ` man -k systemd `

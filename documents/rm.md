@@ -13,5 +13,5 @@
 | -i, --interactive | prompt before every removal |
 | -f, --force | ignore nonexistent files and arguments |
 
-## Examples:
+## Examples
 ` rm -riv test/ `

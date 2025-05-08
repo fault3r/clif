@@ -12,8 +12,8 @@
 | -h, --human-readable | print sizes in human readable format |
 | -s, --summarize | display only a total disk usage 
 | -d, --max-depth [NUMBER] | limit the depth of directory traversal to `NUMBER` levels |
-|
-## Examples:
+
+## Examples
 ` du -sh `
 
 ` du -ha -d 2 ~/ `

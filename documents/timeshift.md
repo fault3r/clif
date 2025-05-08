@@ -17,7 +17,7 @@ Timeshift is a system restore utility for create and manage snapshots of system.
 
 ### ` sudo apt install timeshift ` to install timeshift.
 
-## Examples:
+## Examples
 ` sudo timeshift --create `
 
 ` sudo timeshift --restore --snapshot "2025-09-25_04-26-26" `

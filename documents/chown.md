@@ -11,7 +11,7 @@
 | -R, --recursive | change files and directories recursively |
 | -v, --verbose | verbose mode |
 
-## Examples:
+## Examples
 ` chown faUser file.txt `
 
 ` chown -vR faUser:faGroup faDir/ `

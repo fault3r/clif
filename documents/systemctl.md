@@ -24,7 +24,7 @@
 | reboot | reboot the system |
 | poweroff | shutdown the system |
 
-## Examples:
+## Examples
 ` systemctl list-units --all --type=service "systemd*" `
 
 ` systemctl status boot-efi.mount `

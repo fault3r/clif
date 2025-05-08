@@ -18,7 +18,7 @@
 
 ### ` pkill -u [USERNAME] ` to **Logout** the current user account.
 
-## Examples:
+## Examples
 ` pkill firefox `
 
 ` pkill -9 "thunderbird" `

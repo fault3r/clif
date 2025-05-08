@@ -6,6 +6,6 @@ viewing the contents of files in navigation mode.
 ` less [FILE]... `
 ---
 
-## Examples:
+## Examples
 ` less file.txt `
 

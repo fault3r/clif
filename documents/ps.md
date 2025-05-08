@@ -17,5 +17,5 @@
 | -l | long format |
 | -H, f | hierarchical tree format |
 
-## Examples:
+## Examples
 ` ps axu `

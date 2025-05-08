@@ -14,7 +14,7 @@
 | -b, --background | download in the background |
 | -i [FILENAME.txt] | download files from a local or external list <br> each URL on a new line |
 
-## Examples:
+## Examples
 ` wget http://example.com/file.zip `
 
 ` wget -O my-file.zip http://example.com/file.zip `

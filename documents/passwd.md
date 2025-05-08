@@ -12,7 +12,7 @@
 
 ### do not pass `[USERNAME]` to change the password of the current user account.
 
-## Examples:
+## Examples
 ` passwd `
 
 ` sudo passwd t-user `

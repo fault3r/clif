@@ -17,9 +17,9 @@
 | -w, --word-regexp | match only whole words |
 | -o, --only-matching | show only nonempty parts of lines that match |
 
-### use pipe ` | ` to combination with other commands
+### use pipe ` | ` to combination with other commands.
 
-## Examples:
+## Examples
 ` grep -ric search ./ `
 
 ` grep "search text" file.txt `

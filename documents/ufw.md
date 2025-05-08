@@ -19,7 +19,7 @@
 | deny [SERVICE\|PORT] | deny a specific service or port number |
 | delete deny [SERVICE\|PORT] | delete a deny rule |
 
-## Examples:
+## Examples
 ` sudo ufw status `
 
 ` sudo ufw allow samba `

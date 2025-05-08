@@ -15,7 +15,7 @@
 | -n, --no-clobber | do not overwrite an existing file or fail |
 | -u, --update | control which existing files are updated for copy | 
 
-## Examples:
+## Examples
 ` cp -rv test/ /home/ `
 
 ` cp -iv --update *.* bckDir/ `

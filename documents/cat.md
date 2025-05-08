@@ -17,7 +17,7 @@
 | > [FILE] | create a new file by redirecting the output |
 | >> [FILE] | append the contents of a file to another file |
 
-## Examples:
+## Examples
 ` cat -n file1.txt `
 
 ` cat file1.txt file2.txt > cat.txt `
