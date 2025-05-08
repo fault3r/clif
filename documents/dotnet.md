@@ -22,7 +22,7 @@
 | sln, solution | create a new solution file in the current directory |
 | [TEMPLATE] -n [NAME] | create a project with specify template and name |
 
-##### ` -f, --framework [VERSION] ` ***use this flag to target a specific version of dotnet framework.***
+##### ` -f, --framework [VERSION] ` use this flag to target a specific version of dotnet framework.
 
 ### Examples
 ` dotnet new list ` <br>
@@ -68,11 +68,10 @@
 | add | add a package to project |
 | remove | remove a package from project |
 
-##### ` --version [VERSION] ` ***use this flag to target a specific version of package.***
+##### ` --version [VERSION] ` use this flag to target a specific version of package.
 
 ### Examples
 ` dotnet list package ` <br>
 ` dotnet add package FluentValidation --version 11.11.0 `
 
 ---
-

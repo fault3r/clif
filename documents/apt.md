@@ -16,7 +16,7 @@
 | install ./[PACKAGE].deb | install a deb package |
 | remove [PACKAGE] | remove a package |
 | autoremove | automatically remove all unused packages |
-| search '[PACKAGE]' | search a package |
+| search [EXPRESSION] | search a package |
 
 | **OPTION** | description |
 |:---:|:---:|
