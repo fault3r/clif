@@ -13,7 +13,7 @@
 | -l, --login [NEW-USERNAME] | change the username |
 | -aG [GROUPNAME] | append user to a group |
 
-### cannot modify username of account while it is in use.
+#### cannot modify username of account while it is in use.
 
 ## Examples
 ` sudo usermod -d /home/user-new-home -m test-user `

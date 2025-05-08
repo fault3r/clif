@@ -11,10 +11,11 @@
 | | home directory |
 | ~ | home directory |
 | / | root directory |
-| ./ | current path |
-| ../ | parent path |
+| . | current directory |
+| .. | parent directory |
+| - | previous directory |
 
-### use ` \ ` as space, ` cd /home/linux\ terminal/ `
+#### use ` \ ` instead of space, ` cd /home/linux\ terminal/ `
 
 ## Examples
 ` cd ../../home/ `

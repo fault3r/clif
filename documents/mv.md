@@ -14,7 +14,7 @@
 | -n, --no-clobber | do not overwrite an existing file |
 | -u, --update | control which existing files are updated for move |
 
-### ` mv ` command moves directories automatically without needing a recursive option.
+#### ` mv ` command moves directories automatically without needing a recursive option.
 
 ## Examples
 ` mv -v test/ /home/ `

@@ -6,7 +6,7 @@
 ` chfn [USERNAME] `
 ---
 
-### cannot modify fullname while user is in use.
+#### cannot modify fullname while user is in use.
 
 ## Examples
 ` sudo chfn any-user `

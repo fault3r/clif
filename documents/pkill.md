@@ -16,7 +16,7 @@
 | -n, --newest | select most recently started |
 | -o, --oldest | select least recently started |
 
-### ` pkill -u [USERNAME] ` to **Logout** the current user account.
+#### ` pkill -u [USERNAME] ` to **Logout** the current user account.
 
 ## Examples
 ` pkill firefox `

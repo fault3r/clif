@@ -16,9 +16,9 @@ create, extract and manipulate zip archive files.
 | -v | verbose operation |
 | -T | test the integrity of the zipfile |
 
-### `unzip -l [ZIPFILE]` ***list the contents of the zipfile without extracting***
-### `unzip -o [ZIPFILE]` ***overwrite existing files without prompting***
-### `unzip [ZIPFILE] -d [EXTRACT/PATH]` ***specify the target directory for extraction***
+#### `unzip -l [ZIPFILE]` ***list the contents of the zipfile without extracting***
+#### `unzip -o [ZIPFILE]` ***overwrite existing files without prompting***
+#### `unzip [ZIPFILE] -d [EXTRACT/PATH]` ***specify the target directory for extraction***
 
 ## Examples
 ` zip -r archive.zip file1.txt file2.txt dir3/ `

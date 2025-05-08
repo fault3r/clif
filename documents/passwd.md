@@ -10,7 +10,7 @@
 |:---:|:---:|
 | -d, --delete | delete the password of user account |
 
-### do not pass `[USERNAME]` to change the password of the current user account.
+#### do not pass `[USERNAME]` to change the password of the current user account.
 
 ## Examples
 ` passwd `
