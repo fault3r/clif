@@ -13,7 +13,7 @@
 | list | display a list of system packages |
 | show [PACKAGE] | show information of a package |
 | install [PACKAGE] | install a package |
-| install ./[PACKAGE].deb | install a deb package |
+| install ./[PACKAGE.deb] | install a debian package |
 | remove [PACKAGE] | remove a package |
 | autoremove | automatically remove all unused packages |
 | search [EXPRESSION] | search a package |

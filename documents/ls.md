@@ -1,24 +1,23 @@
 # ls
 
-list information about the files (the current directory by default).
+**List** > list information about the files (the current directory by default).
 ---
 
-` ls [OPTION]... [FILE]... `
+` ls [OPTION]... [PATH] `
 ---
 
 | **OPTION** | description |
 |:---:|:---:|
-| -l | view in list view mode |
-| -a | display all hidden files and directories |
-
----
-
-### create this alias ` la='ls -a' ` <br>
-#### use these commands `ls`, `ls -l`, `la`, `la -l`
+| | list the contents of a directory <br> order by name |
+| -l | long listing format |
+| -a | include hidden files |
+| -h | human-readable sizes |
+| -t | sort by modification time |
+| -S | sort by file size |
+| -X | sort by file extension |
+| -r | reverse order while sorting |
 
 ## Examples
-` ls -l `
+` ls -la `
 
-` ls -la / /home `
-
-` ls -l file.txt `
+` ls -hlSr / `
