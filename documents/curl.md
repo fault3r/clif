@@ -1,6 +1,6 @@
 # curl
 
-**Client for URLs** > transferring data with URLs, supporting various protocols such as HTTP, HTTPS, FTP and etc.
+**Client for URLs** > transferring data with URLs, supporting various protocols.
 ---
 
 ` curl [OPTION]... [URL] `
