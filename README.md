@@ -1,10 +1,10 @@
 # My Common CLI Commands
 
-✔ ***my most used commands in the Linux terminal.*** <br>
-✔ ***my most used CLI applications.*** <br>
-✦ ***individual.*** <br>
-✦ ***stored just in case!*** ⏳
-| **⌘ COMMAND** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux&theme=dark) | 
+✔️ ***my most used commands in the Linux terminal.*** <br>
+✔️ ***my most used CLI applications.*** <br>
+💡 ***individual.*** <br>
+💡 ***stored just in case!*** ⏳
+| **⌘ COMMAND** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux,bash) | 
 |:---:|:---:|
 | [sudo](https://github.com/fault3r/cli-commands/blob/main/documents/sudo.md) | execute a command as another user. |
 | [systemctl](https://github.com/fault3r/cli-commands/blob/main/documents/systemctl.md) | query or send control commands to the system manager. |
