@@ -4,7 +4,7 @@
 ✔ ***my most used CLI applications.*** <br>
 ✦ ***individual.*** <br>
 ✦ ***stored just in case!*** ⏳
-| command | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux&theme=dark) | 
+| **⌘ COMMAND** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux&theme=dark) | 
 |:---:|:---:|
 | [sudo](https://github.com/fault3r/cli-commands/blob/main/documents/sudo.md) | execute a command as another user. |
 | [systemctl](https://github.com/fault3r/cli-commands/blob/main/documents/systemctl.md) | query or send control commands to the system manager. |
@@ -54,10 +54,15 @@
 | [wget](https://github.com/fault3r/cli-commands/blob/main/documents/wget.md) | downloading files from the web. |
 | [ufw](https://github.com/fault3r/cli-commands/blob/main/documents/ufw.md) | managing a netfilter firewall on Linux systems. |
 | [compgen](https://github.com/fault3r/cli-commands/blob/main/documents/compgen.md) | display possible completions. |
-| [w3m](https://github.com/fault3r/cli-commands/blob/main/documents/w3m.md) | text-based web browser that runs in the terminal. |
-| [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
+| [curl](https://github.com/fault3r/cli-commands/blob/main/documents/curl.md) | transferring data with URLs, supporting various protocols such as HTTP, HTTPS, FTP and etc. |
 | | |
 | [dotnet](https://github.com/fault3r/cli-commands/blob/main/documents/dotnet.md) | .NET CLI ☄️ <br> 🧙🏻‍♂️ one platform to rule them all. |
 | | |
+| **🌈 FOR FUN** |  |
+| [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
+| [cmatrix](https://github.com/fault3r/cli-commands/blob/main/documents/cmatrix.md) | simulates the digital rain effect from "The Matrix". |
+| lolcat | |
+| pv | |
+| [w3m](https://github.com/fault3r/cli-commands/blob/main/documents/w3m.md) | text-based web browser that runs in the terminal. |
