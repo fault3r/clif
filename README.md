@@ -2,8 +2,8 @@
 
 ✔️ ***my most used commands in the Linux terminal.*** <br>
 ✔️ ***my most used CLI applications.*** <br>
-💡 ***individual.*** <br>
-💡 ***stored just in case!*** ⏳
+➕ ***individual.*** <br>
+➕ ***stored just in case!*** ⏳
 | **⌘ COMMAND** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux,bash) | 
 |:---:|:---:|
 | [sudo](https://github.com/fault3r/cli-commands/blob/main/documents/sudo.md) | execute a command as another user. |
@@ -67,3 +67,4 @@
 | [lolcat](https://github.com/fault3r/cli-commands/blob/main/documents/lolcat.md) | add a colorful rainbow effect to text output in the terminal. |
 | [pv](https://github.com/fault3r/cli-commands/blob/main/documents/pv.md) | animate output showing progress. |
 | [fortune](https://github.com/fault3r/cli-commands/blob/main/documents/fortune.md) | display a random sentence. |
+| [cbonsai](https://github.com/fault3r/cli-commands/blob/main/documents/cbonsai.md) | random bonsai tree generator. |

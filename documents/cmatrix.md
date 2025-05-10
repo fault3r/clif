@@ -8,7 +8,7 @@ simulates the digital rain effect from "The Matrix".
 
 | **OPTION** | description |
 |:---:|:---:|
-| -s | screen saver mode |
+| -s | screensaver mode |
 | -u | updates per second |
 | -b | bold characters on |
 | -C [COLOR] | change the color |
