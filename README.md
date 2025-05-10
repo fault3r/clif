@@ -63,6 +63,6 @@
 | **🌈 FOR FUN** |  |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
 | [cmatrix](https://github.com/fault3r/cli-commands/blob/main/documents/cmatrix.md) | simulates the digital rain effect from "The Matrix". |
-| lolcat | |
-| pv | |
+| [lolcat](https://github.com/fault3r/cli-commands/blob/main/documents/lolcat.md) | add a colorful rainbow effect to text output in the terminal. |
+| [pv](https://github.com/fault3r/cli-commands/blob/main/documents/pv.md) | animate output showing progress. |
 | [w3m](https://github.com/fault3r/cli-commands/blob/main/documents/w3m.md) | text-based web browser that runs in the terminal. |
