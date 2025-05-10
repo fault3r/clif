@@ -12,4 +12,4 @@ animate output showing progress.
 | -L | rate limit |
 
 ## Examples
-` pv -qL 200 `
+` tree | pv -qL 200 `
