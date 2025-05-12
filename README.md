@@ -58,6 +58,7 @@
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
 | [curl](https://github.com/fault3r/cli-commands/blob/main/documents/curl.md) | transferring data with URLs, supporting various protocols. |
+| OTHER | [PATHs](https://github.com/fault3r/cli-commands/blob/main/documents/paths.md) \| [OPERATORs](https://github.com/fault3r/cli-commands/blob/main/documents/operators.md) |
 | **🌈 FOR FUN** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux) |
 | [oneko](https://github.com/fault3r/cli-commands/blob/main/documents/oneko.md) | a small pet cat named neko. |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
@@ -67,11 +68,6 @@
 | [fortune](https://github.com/fault3r/cli-commands/blob/main/documents/fortune.md) | display a random sentence. |
 | [cbonsai](https://github.com/fault3r/cli-commands/blob/main/documents/cbonsai.md) | random bonsai tree generator. |
 
-| | | | | | |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| [PATHs](https://github.com/fault3r/cli-commands/blob/main/documents/paths.md) | [OPERATORs](https://github.com/fault3r/cli-commands/blob/main/documents/operators.md) |
-
 | .NET CLI ☄️ | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=dotnet) |
 |:---:|:---:|
 | [dotnet](https://github.com/fault3r/cli-commands/blob/main/documents/dotnet.md) | 🧙🏻‍♂️ one platform to rule them all. |
-| | |
