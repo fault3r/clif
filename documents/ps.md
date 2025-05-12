@@ -3,7 +3,7 @@
 **Process Status** > display information about running processes.
 ---
 
-` ps [OPTION]... `
+` ps [OPTION]... [PID] `
 ---
 
 | **OPTION** | description |

@@ -46,21 +46,18 @@
 | [pgrep](https://github.com/fault3r/cli-commands/blob/main/documents/pgrep.md) | search for processes based on a pattern. specifically designed to find the process IDs. |
 | [kill](https://github.com/fault3r/cli-commands/blob/main/documents/kill.md) | send signal to process based on PID, typically to terminate it. |
 | [pkill](https://github.com/fault3r/cli-commands/blob/main/documents/pkill.md) | send signals to processes based on a pattern, typically to terminate them. |
-| [journalctl](https://github.com/fault3r/cli-commands/blob/main/documents/journalctl.md) | view logs from the system and services in a structured format. |
-| [man](https://github.com/fault3r/cli-commands/blob/main/documents/man.md) | display the manual pages for other commands. |
 | [zip](https://github.com/fault3r/cli-commands/blob/main/documents/zip.md) | create, extract and manipulate zip archive files. |
 | [tar](https://github.com/fault3r/cli-commands/blob/main/documents/tar.md) | create, extract and manipulate archive files. |
 | [ping](https://github.com/fault3r/cli-commands/blob/main/documents/ping.md) | test the reachability of a host. |
 | [wget](https://github.com/fault3r/cli-commands/blob/main/documents/wget.md) | downloading files from the web. |
 | [ufw](https://github.com/fault3r/cli-commands/blob/main/documents/ufw.md) | managing a netfilter firewall on Linux systems. |
 | [compgen](https://github.com/fault3r/cli-commands/blob/main/documents/compgen.md) | display possible completions. |
+| [journalctl](https://github.com/fault3r/cli-commands/blob/main/documents/journalctl.md) | view logs from the system and services in a structured format. |
+| [man](https://github.com/fault3r/cli-commands/blob/main/documents/man.md) | display the manual pages for other commands. |
 | [w3m](https://github.com/fault3r/cli-commands/blob/main/documents/w3m.md) | text-based web browser that runs in the terminal. |
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
 | [curl](https://github.com/fault3r/cli-commands/blob/main/documents/curl.md) | transferring data with URLs, supporting various protocols. |
-| | |
-| [dotnet](https://github.com/fault3r/cli-commands/blob/main/documents/dotnet.md) | .NET CLI ☄️ <br> 🧙🏻‍♂️ one platform to rule them all. |
-| | |
 | **🌈 FOR FUN** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux) |
 | [oneko](https://github.com/fault3r/cli-commands/blob/main/documents/oneko.md) | a small pet cat named neko. |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
@@ -69,3 +66,12 @@
 | [pv](https://github.com/fault3r/cli-commands/blob/main/documents/pv.md) | animate output showing progress. |
 | [fortune](https://github.com/fault3r/cli-commands/blob/main/documents/fortune.md) | display a random sentence. |
 | [cbonsai](https://github.com/fault3r/cli-commands/blob/main/documents/cbonsai.md) | random bonsai tree generator. |
+
+| | | | | | |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| [PATHs](https://github.com/fault3r/cli-commands/blob/main/documents/paths.md) | [OPERATORs](https://github.com/fault3r/cli-commands/blob/main/documents/operators.md) |
+
+| .NET CLI ☄️ | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=dotnet) |
+|:---:|:---:|
+| [dotnet](https://github.com/fault3r/cli-commands/blob/main/documents/dotnet.md) | 🧙🏻‍♂️ one platform to rule them all. |
+| | |

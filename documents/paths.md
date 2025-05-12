@@ -1,9 +1,9 @@
-# PATHS
+# PATHs
 
-linux system directories.
+Linux system directories.
 ---
 
-| **BASIC** | description |
+| **PATH** | description |
 |:---:|:---:|
 | / | the top-level directory in the filesystem hierarchy |
 | ~/ | the home directory for current user |
