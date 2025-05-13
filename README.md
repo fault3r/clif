@@ -59,7 +59,6 @@
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
 | [curl](https://github.com/fault3r/cli-commands/blob/main/documents/curl.md) | transferring data with URLs, supporting various protocols. |
-| OTHER | [Paths](https://github.com/fault3r/cli-commands/blob/main/documents/paths.md) \| [Operators](https://github.com/fault3r/cli-commands/blob/main/documents/operators.md) \| [Variables](https://github.com/fault3r/cli-commands/blob/main/documents/variables.md) |
 | **🌈 FOR FUN** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux) |
 | [oneko](https://github.com/fault3r/cli-commands/blob/main/documents/oneko.md) | a small pet cat named neko. |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
