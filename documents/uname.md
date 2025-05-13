@@ -1,6 +1,6 @@
 # uname
 
-**Unix Name** > obtaining certain system information.
+**Unix Name** > obtaining certain system software information.
 ---
 
 ` uname [OPTION]... `

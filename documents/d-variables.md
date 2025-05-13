@@ -1,4 +1,4 @@
-# VARIABLEs
+# Variables
 
 shell and environment variables.
 ---

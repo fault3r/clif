@@ -1,4 +1,4 @@
-# PATHs
+# Paths
 
 Linux system directories.
 ---

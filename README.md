@@ -41,7 +41,8 @@
 | [gpasswd](https://github.com/fault3r/cli-commands/blob/main/documents/gpasswd.md) | manage group memberships. |
 | [whoami](https://github.com/fault3r/cli-commands/blob/main/documents/whoami.md) | print the user name associated with the current effective user ID. |
 | [chfn](https://github.com/fault3r/cli-commands/blob/main/documents/chfn.md) | change the users information. |
-| [uname](https://github.com/fault3r/cli-commands/blob/main/documents/uname.md) | obtaining certain system information. |
+| [uname](https://github.com/fault3r/cli-commands/blob/main/documents/uname.md) | obtaining certain system software information. |
+| [lshw](https://github.com/fault3r/cli-commands/blob/main/documents/lshw.md) | list hardware configuration information. |
 | [ps](https://github.com/fault3r/cli-commands/blob/main/documents/ps.md) | display information about running processes. |
 | [pgrep](https://github.com/fault3r/cli-commands/blob/main/documents/pgrep.md) | search for processes based on a pattern. specifically designed to find the process IDs. |
 | [kill](https://github.com/fault3r/cli-commands/blob/main/documents/kill.md) | send signal to process based on PID, typically to terminate it. |
@@ -58,7 +59,7 @@
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
 | [curl](https://github.com/fault3r/cli-commands/blob/main/documents/curl.md) | transferring data with URLs, supporting various protocols. |
-| OTHER | [PATHs](https://github.com/fault3r/cli-commands/blob/main/documents/paths.md) \| [OPERATORs](https://github.com/fault3r/cli-commands/blob/main/documents/operators.md) \| [VARIABLEs](https://github.com/fault3r/cli-commands/blob/main/documents/variables.md) |
+| OTHER | [Paths](https://github.com/fault3r/cli-commands/blob/main/documents/paths.md) \| [Operators](https://github.com/fault3r/cli-commands/blob/main/documents/operators.md) \| [Variables](https://github.com/fault3r/cli-commands/blob/main/documents/variables.md) |
 | **🌈 FOR FUN** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux) |
 | [oneko](https://github.com/fault3r/cli-commands/blob/main/documents/oneko.md) | a small pet cat named neko. |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
