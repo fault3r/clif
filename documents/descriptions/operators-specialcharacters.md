@@ -50,7 +50,8 @@ operators and special characters.
 
 | **SPECIAL-CHARACTER** | description |
 |:---:|:---:|
-| # |  indicate the start of a comment |
+| #! | it began with the forging of the great shebang💍 <br> ` #!/bin/bash ` |
+| # |  indicate the start of a comment <br> ` # linus ` |
 | && | execute the second command only if the first succeeds <br> ` mkdir dir && cd dir ` |
 | \|\| | execute the second command only if the first fails <br> ` cd dir \|\| echo "not exist" ` |
 | ; |  run multiple commands sequentially <br> ` echo "first"; echo "second" ` |
@@ -65,3 +66,9 @@ operators and special characters.
 | \| |  pipe output to another command <br> ` ls \| lolcat ` |
 | \\ | prevent the special meaning of a character <br> ` echo "This is a backslash: \\" ` |
 | ", ' | allow variable expansion <br> ` echo "double-quoted string: $HOME" ` |
+| $? | exit status of the last command <br> ` 0 ` indicates success |
+| $! | process id of the last background command |
+| $$ | process id of the current shell |
+| 0> | standard input (stdin) |
+| 1> | standard output (stdout) <br> ` ls -la 1> output.txt ` |
+| 2> | standard error (stderr) <br> ` ls /notexist/ 2> error.txt ` |

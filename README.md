@@ -59,8 +59,9 @@
 | [samba](https://github.com/fault3r/cli-commands/blob/main/documents/samba.md) | Samba allows you to share files and printers between Linux and Windows systems. |
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/documents/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
 | [curl](https://github.com/fault3r/cli-commands/blob/main/documents/curl.md) | transferring data with URLs, supporting various protocols. |
-| OTHER | [Paths](https://github.com/fault3r/cli-commands/blob/main/documents/descriptions/paths.md) \| [Variables](https://github.com/fault3r/cli-commands/blob/main/documents/descriptions/variables.md) \| [Operators](https://github.com/fault3r/cli-commands/blob/main/documents/descriptions/operators.md)  |
+
 | **🌈 FOR FUN** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux) |
+|:---:|:---:|
 | [oneko](https://github.com/fault3r/cli-commands/blob/main/documents/oneko.md) | a small pet cat named neko. |
 | [neofetch](https://github.com/fault3r/cli-commands/blob/main/documents/neofetch.md) | display system information in a visually appealing way. |
 | [cmatrix](https://github.com/fault3r/cli-commands/blob/main/documents/cmatrix.md) | simulates the digital rain effect from "The Matrix". |
@@ -68,6 +69,13 @@
 | [pv](https://github.com/fault3r/cli-commands/blob/main/documents/pv.md) | animate output showing progress. |
 | [fortune](https://github.com/fault3r/cli-commands/blob/main/documents/fortune.md) | display a random sentence. |
 | [cbonsai](https://github.com/fault3r/cli-commands/blob/main/documents/cbonsai.md) | random bonsai tree generator. |
+
+| ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=bash) |
+|:---:|
+| ***#!/bin/bash*** |
+| [Operators and Special-Characters](https://github.com/fault3r/cli-commands/blob/main/documents/descriptions/operators-specialcharacters.md) |
+| [Shell,Environment Variables](https://github.com/fault3r/cli-commands/blob/main/documents/descriptions/shell-environment-variables.md) |
+| [System Directories](https://github.com/fault3r/cli-commands/blob/main/documents/descriptions/system-directories.md) |
 
 | .NET CLI ☄️ | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=dotnet) |
 |:---:|:---:|
