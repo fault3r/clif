@@ -50,10 +50,18 @@ operators and special characters.
 
 | **SPECIAL-CHARACTER** | description |
 |:---:|:---:|
-| && | run a second command only if the first command succeeds <br> ` mkdir dir && cd dir ` |
-| \|\| | run a second command only if the first command fails <br> ` cd dir \|\| echo "not exist" ` |
-| ; |  run multiple commands sequentially, whether the previous command succeeded or failed <br> ` echo "first"; echo "second" ` |
-| () | allow to group commands and run them in a separate environment <br> ` (cd /tmp && ls) ` |
-| & | run command in the background <br> ` oneko & ` |
+| # |  indicate the start of a comment |
+| && | execute the second command only if the first succeeds <br> ` mkdir dir && cd dir ` |
+| \|\| | execute the second command only if the first fails <br> ` cd dir \|\| echo "not exist" ` |
+| ; |  run multiple commands sequentially <br> ` echo "first"; echo "second" ` |
+| () | group commands in a subshell <br> ` (cd /tmp && ls) ` |
+| {} | group commands in the current shell <br> ` { echo "first"; echo "another"; } ` |
+| & | run command in the background <br> ` oneko & ` <br> ` jobs ` to list background jobs <br> ` fg [JOB] ` to bring a background job to the foreground <br> ` bg [JOB] ` to resume a suspended job in the background |
 | > | operator redirects the output of a command to a file <br> ` echo "hello" > output.txt ` |
 | >> | operator appends the output of a command to a file <br> ` echo "world" >> output.txt ` |
+| < | redirect input from a file <br> ` sort < input.txt ` |
+| << | allow to provide input directly in shell <br> ` cat << EOF this is a here-document. EOF ` |
+| <<< | allow to provide a string as input <br> ` grep "test" <<< "this is a test string." ` |
+| \| |  pipe output to another command <br> ` ls \| lolcat ` |
+| \\ | prevent the special meaning of a character <br> ` echo "This is a backslash: \\" ` |
+| ", ' | allow variable expansion <br> ` echo "double-quoted string: $HOME" ` |
