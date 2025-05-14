@@ -3,20 +3,20 @@
 operators and special characters.
 ---
 
-| **FILE-TEST** | description |
+| **ARITHMETIC-OPERATOR** | description |
 |:---:|:---:|
-| -e | checks if a file exists |
-| -d | check if a file is a directory |
-| -f | check if a file is a regular file |
-| -L | check if a file is a symbolic link |
-| -s | check if a file is not empty |
-| -r | check if a file is readable |
-| -w | check if a file is writable |
-| -x | check if a file is executable |
-| -O | check if a file is owned by the effective user id |
-| -G | check if a file is owned by the effective group id |
-| -z | check if the lenght of a string is zero |
-| -n | check if the lenght of a string is non-zero |
+| + | addition
+| - | subtraction
+| * | multiplication
+| / | division
+| % | modulus
+
+| **STRING-COMPARISON** | description |
+|:---:|:---:|
+| = | equal to |
+| != | not equal to |
+| > | greater than |
+| < | less than |
 
 | **NUMERIC-COMPARISON** | description |
 |:---:|:---:|
@@ -27,26 +27,26 @@ operators and special characters.
 | -lt | less than |
 | -le | less than or equal to |
 
-| **STRING-COMPARISON** | description |
-|:---:|:---:|
-| = | equal to |
-| != | not equal to |
-| > | greater than |
-| < | less than |
-
-| **ARITHMETIC-COMPARISON** | description |
-|:---:|:---:|
-| + | addition
-| - | subtraction
-| * | multiplication
-| / | division
-| % | modulus
-
-| **LOGICAL** | description |
+| **LOGICAL-OPERATOR** | description |
 |:---:|:---:|
 | && | logical and |
 | \|\| | logical or |
 | ! | logical not |
+
+| **FILE-TEST** | description |
+|:---:|:---:|
+| -e | checks if a file exists |
+| -d | check if a file is a directory |
+| -f | check if a file is a regular file |
+| -L | check if a file is a symbolic link |
+| -s | check if a file is not empty |
+| -r | check if a file is readable |
+| -w | check if a file is writable |
+| -x | check if a file is executable |
+| -z | check if a string is zero |
+| -n | check if a string is non-zero |
+| -O | check if a file is owned by current user |
+| -G | check if a file is owned by current group |
 
 | **SPECIAL-CHARACTER** | description |
 |:---:|:---:|
@@ -57,7 +57,3 @@ operators and special characters.
 | & | run command in the background <br> ` oneko & ` |
 | > | operator redirects the output of a command to a file <br> ` echo "hello" > output.txt ` |
 | >> | operator appends the output of a command to a file <br> ` echo "world" >> output.txt ` |
-
-
-
-
