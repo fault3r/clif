@@ -77,6 +77,6 @@
 | [Shell,Environment Variables](https://github.com/fault3r/cli-commands/blob/main/documents/descriptions/shell-environment-variables.md) |
 | [System Directories](https://github.com/fault3r/cli-commands/blob/main/documents/descriptions/system-directories.md) |
 
-| .NET CLI ☄️ | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=dotnet) |
+| ☄️.NET CLI | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=dotnet) |
 |:---:|:---:|
 | [dotnet](https://github.com/fault3r/cli-commands/blob/main/documents/dotnet.md) | 🧙🏻‍♂️ one platform to rule them all. |
