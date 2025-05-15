@@ -13,7 +13,7 @@ operators and special characters.
 
 | **STRING-COMPARISON** | description |
 |:---:|:---:|
-| = | equal to |
+| == | equal to |
 | != | not equal to |
 | > | greater than |
 | < | less than |
@@ -52,9 +52,11 @@ operators and special characters.
 |:---:|:---:|
 | #! | it began with the forging of the great shebang💍 <br> ` #!/bin/bash ` |
 | # |  indicate the start of a comment <br> ` # linus ` |
+| $ | reference the value of a variable <br> ` echo "hello $name" ` |
 | && | execute the second command only if the first succeeds <br> ` mkdir dir && cd dir ` |
 | \|\| | execute the second command only if the first fails <br> ` cd dir \|\| echo "not exist" ` |
 | ; |  run multiple commands sequentially <br> ` echo "first"; echo "second" ` |
+| [] | evaluate conditional expressions and array indexing |
 | () | group commands in a subshell <br> ` (cd /tmp && ls) ` |
 | {} | group commands in the current shell <br> ` { echo "first"; echo "another"; } ` |
 | & | run command in the background <br> ` oneko & ` <br> ` jobs ` to list background jobs <br> ` fg [JOB] ` to bring a background job to the foreground <br> ` bg [JOB] ` to resume a suspended job in the background |
