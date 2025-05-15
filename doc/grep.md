@@ -20,8 +20,6 @@
 #### use pipe ` | ` to combination with other commands.
 
 ## Examples
-` grep -ric search ./ `
+` grep search file.txt `
 
-` grep "search text" file.txt `
-
-` cat file.txt | grep search -i `
+` tree -hf / | grep -i DotNet `

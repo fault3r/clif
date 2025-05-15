@@ -62,7 +62,7 @@
 
 | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=bash) |
 |:---:|
-| [***#!/bin/bash***](https://github.com/fault3r/cli-commands/blob/main/doc/bash/operators-specialcharacters.md) |
+| [#!/bin/bash](https://github.com/fault3r/cli-commands/blob/main/doc/bash/operators-specialcharacters.md) |
 
 | **🌈 FOR FUN** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux) |
 |:---:|:---:|
