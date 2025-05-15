@@ -65,10 +65,12 @@ operators and special characters.
 | <<< | allow to provide a string as input <br> ` grep "test" <<< "this is a test string." ` |
 | \| |  pipe output to another command <br> ` ls \| lolcat ` |
 | \\ | prevent the special meaning of a character <br> ` echo "This is a backslash: \\" ` |
-| ", ' | allow variable expansion <br> ` echo "double-quoted string: $HOME" ` |
+| " or ' | allow variable expansion <br> ` echo "double-quoted string: $HOME" ` |
 | $? | exit status of the last command <br> ` 0 ` indicates success |
 | $! | process id of the last background command |
 | $$ | process id of the current shell |
 | 0> | standard input (stdin) |
 | 1> | standard output (stdout) <br> ` ls -la 1> output.txt ` |
-| 2> | standard error (stderr) <br> ` ls /notexist/ 2> error.txt ` |
+| 2> | standard error (stderr) <br> ` ls /notexist/ 2>> append-error.txt ` |
+| 2>&1 or &> | standard output & error <br>` mkdir -v test/ > out-err.txt 2>&1 ` <br> ` mkdir -v test/ &> out-err.txt ` |
+| 2> /dev/null | Black-Hole, do nothing on stderr <br> ` mkdir test/ 2> /dev/null ` | 

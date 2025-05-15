@@ -12,6 +12,7 @@
 | -l | long listing format |
 | -a | include hidden files |
 | -h | human-readable sizes |
+| -s | display size of each file in blocks |
 | -t | sort by modification time |
 | -S | sort by file size |
 | -X | sort by file extension |
