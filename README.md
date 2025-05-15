@@ -75,7 +75,6 @@
 | ***#!/bin/bash*** |
 | [Operators and Special-Characters](https://github.com/fault3r/cli-commands/blob/main/doc/bash/operators-specialcharacters.md) |
 | [Shell,Environment Variables](https://github.com/fault3r/cli-commands/blob/main/doc/bash/shell-environment-variables.md) |
-| [System Directories](https://github.com/fault3r/cli-commands/blob/main/doc/bash/system-directories.md) |
 
 | ☄️.NET CLI | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=dotnet) |
 |:---:|:---:|
