@@ -1,7 +1,4 @@
-# Operators
-
-operators and special characters.
----
+# Operators & Special-Characters
 
 | **ARITHMETIC-OPERATOR** | description |
 |:---:|:---:|

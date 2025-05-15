@@ -60,6 +60,10 @@
 | [timeshift](https://github.com/fault3r/cli-commands/blob/main/doc/timeshift.md) | Timeshift is a system restore utility for create and manage snapshots of system. |
 | [curl](https://github.com/fault3r/cli-commands/blob/main/doc/curl.md) | transferring data with URLs, supporting various protocols. |
 
+| ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=bash) |
+|:---:|
+| [***#!/bin/bash***](https://github.com/fault3r/cli-commands/blob/main/doc/bash/operators-specialcharacters.md) |
+
 | **🌈 FOR FUN** | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=linux) |
 |:---:|:---:|
 | [oneko](https://github.com/fault3r/cli-commands/blob/main/doc/oneko.md) | a small pet cat named neko. |
@@ -69,12 +73,6 @@
 | [pv](https://github.com/fault3r/cli-commands/blob/main/doc/pv.md) | animate output showing progress. |
 | [fortune](https://github.com/fault3r/cli-commands/blob/main/doc/fortune.md) | display a random sentence. |
 | [cbonsai](https://github.com/fault3r/cli-commands/blob/main/doc/cbonsai.md) | random bonsai tree generator. |
-
-| ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=bash) |
-|:---:|
-| ***#!/bin/bash*** |
-| [Operators and Special-Characters](https://github.com/fault3r/cli-commands/blob/main/doc/bash/operators-specialcharacters.md) |
-| [Shell,Environment Variables](https://github.com/fault3r/cli-commands/blob/main/doc/bash/shell-environment-variables.md) |
 
 | ☄️.NET CLI | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=dotnet) |
 |:---:|:---:|
