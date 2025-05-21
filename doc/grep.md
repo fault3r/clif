@@ -23,3 +23,5 @@
 ` grep search file.txt `
 
 ` tree -hf / | grep -i DotNet `
+
+` sudo apt list --installed | grep -v installed,automatic `
