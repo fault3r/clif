@@ -10,7 +10,7 @@
 |:---:|:---:|
 | update | update the local package index with the latest information |
 | upgrade | upgrade installed packages to their latest versions |
-| list | display a list of system packages |
+| list | list of all available packages <br> pass `--installed` to see just the installed packages |
 | show [PACKAGE] | show information of a package |
 | install [PACKAGE] | install a package |
 | install ./[PACKAGE.deb] | install a debian package |
