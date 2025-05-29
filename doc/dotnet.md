@@ -15,14 +15,13 @@
 
 ---
 
-### ` dotnet new [COMMAND] `
+### ` dotnet new [COMMAND|[TEMPLATE]] [OPTION]... `
 
 | **COMMAND** | description |
 |:---:|:---:|
 | list | list of all available templates |
-| sln, solution | create a new solution file in the current directory |
-| [TEMPLATE] -n [NAME] | create a project with specify template and name |
 
+##### ` -n [NAME] ` use this flag to create a project with specify name.
 ##### ` -f, --framework [VERSION] ` use this flag to target a specific version of dotnet framework.
 
 ### Examples
