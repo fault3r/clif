@@ -12,8 +12,8 @@ a NoSQL database management system.
 ### Methods in MongoDB for executing commands and queries.
 
 ### Syntax
-` [COMMAND]({"[KEY]":"[VALUE]"})[.count()]; ` <br>
-` [COMMAND]({_id:ObjectId("[ID]")}); `
+` db.[COLLECTION].[METHOD]({"[KEY]":"[VALUE]"}); ` <br>
+` db.[COLLECTION].[METHOD]({_id:ObjectId("[ID]")}); `
 
 | **METHOD** | description |
 |:---:|:---:|
