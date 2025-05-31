@@ -75,3 +75,5 @@
 ` dotnet add package FluentValidation --version 11.11.0 `
 
 ---
+
+` dotnet tool update dotnet-ef ` update dotnet entityframework core
