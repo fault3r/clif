@@ -75,5 +75,5 @@
 ` dotnet add package FluentValidation --version 11.11.0 `
 
 ---
-` dotnet dev-certs https --trust ` add https certificates
+` dotnet dev-certs https --trust ` add https certificates <br>
 ` dotnet tool update --global dotnet-ef ` update dotnet entityframework core
