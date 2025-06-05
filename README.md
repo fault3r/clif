@@ -72,7 +72,7 @@
 
 | #!bin/bash | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=bash) |
 |:---:|:---:|
-| [bash](https://github.com/fault3r/cli-commands/blob/main/doc/mongodb.md) | Bash operators & special-characters. |
+| [bash](https://github.com/fault3r/cli-commands/blob/main/doc/bash.md) | Bash operators & special-characters. |
 
 | Mongo DB | ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=mongodb) |
 |:---:|:---:|
