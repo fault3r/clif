@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "jOrq2sT0H60=",
+  "success": true,
+  "projectFilePath": "/home/hamed-damavandi/Documents/clif/src/clifCLI/clifCLI.csproj",
+  "expectedPackageFiles": [
+    "/home/hamed-damavandi/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.16/microsoft.netcore.app.host.linux-x64.8.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}
