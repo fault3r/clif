@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/hamed-damavandi/Documents/clif/src/clifCLI/clifCLI.csproj": {}
+    "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj": {}
   },
   "projects": {
-    "/home/hamed-damavandi/Documents/clif/src/clifCLI/clifCLI.csproj": {
+    "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/hamed-damavandi/Documents/clif/src/clifCLI/clifCLI.csproj",
-        "projectName": "clifCLI",
-        "projectPath": "/home/hamed-damavandi/Documents/clif/src/clifCLI/clifCLI.csproj",
+        "projectUniqueName": "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj",
+        "projectName": "cliFa",
+        "projectPath": "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj",
         "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-        "outputPath": "/home/hamed-damavandi/Documents/clif/src/clifCLI/obj/",
+        "outputPath": "/home/hamed-damavandi/Documents/clif/src/cliFa/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -55,12 +55,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[8.0.16, 8.0.16]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
