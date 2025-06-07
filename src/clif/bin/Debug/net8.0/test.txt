@@ -1,7 +1,7 @@
-clif.deps.json
+clif.deps.json\n
 clif.runtimeconfig.json
-cliFa.pdb
-cliFa.dll
+cliFa.pdb;[]0-989786765745634524313`3`
+cliFa.dll';;
 clif.pdb
 clif.dll
 clif

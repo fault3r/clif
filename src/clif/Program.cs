@@ -8,24 +8,41 @@ namespace clif_cli
 
 
         public static void Main(string[] args)
-        {
-            Console.BackgroundColor = ConsoleColor.Cyan;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("app starts...\n");
-            Console.ResetColor();
-         
-                string str = string.Empty;
-                string? line;
-                while (!string.IsNullOrEmpty(line = Console.ReadLine()))
+        { 
+            if (args.Length == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("clif README");
+                Console.ResetColor();
+                return;
+            }
+            if (args.Length == 1 && !string.IsNullOrEmpty(args[0]))
+            {
+
+                //arg must be a file
+                string arg = args[0];
+                if (File.Exists(arg))
                 {
-                    str += "[B]" + line +"[E]\n";
+                    string[]? lines = File.ReadAllLines(arg);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("file received.");
+                    Console.ResetColor();    
+                    foreach (string line in lines)
+                        Console.WriteLine("\n[B]" + line + "[E]");
                 }
-                Console.WriteLine(str);
-                
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\napp stops...");
-            Console.ResetColor();
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("\u001b[1mfile not found!");
+                    Console.ResetColor();    
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("invalid command!");
+                Console.ResetColor();
+            }
         }
     }
 }
