@@ -4,6 +4,66 @@
     "/home/hamed-damavandi/Documents/clif/src/clif/clif.csproj": {}
   },
   "projects": {
+    "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj",
+        "projectName": "cliFa",
+        "projectPath": "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj",
+        "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
+        "outputPath": "/home/hamed-damavandi/Documents/clif/src/cliFa/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.106/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/home/hamed-damavandi/Documents/clif/src/clif/clif.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -26,7 +86,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj": {
+                "projectPath": "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

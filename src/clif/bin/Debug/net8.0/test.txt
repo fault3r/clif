@@ -1,0 +1,8 @@
+clif.deps.json
+clif.runtimeconfig.json
+cliFa.pdb
+cliFa.dll
+clif.pdb
+clif.dll
+clif
+test.txt

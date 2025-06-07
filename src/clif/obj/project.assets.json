@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "cliFa/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/cliFa.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/cliFa.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "cliFa/1.0.0": {
+      "type": "project",
+      "path": "../cliFa/cliFa.csproj",
+      "msbuildProject": "../cliFa/cliFa.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "cliFa >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/home/hamed-damavandi/.nuget/packages/": {}
@@ -32,7 +51,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj": {
+              "projectPath": "/home/hamed-damavandi/Documents/clif/src/cliFa/cliFa.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
