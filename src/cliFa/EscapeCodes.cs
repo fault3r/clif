@@ -5,17 +5,22 @@ namespace EscapeCodes
     public class TextFormats
     {
         public const string Reset = "\x1B[0m";
-        public const string Normal = "\x1B[22m";
         public const string Bold = "\x1B[1m";
+        public const string BoldOff = "\x1B[22m";
         public const string Dim = "\x1B[2m";
+        public const string DimOff = "\x1B[22m";
         public const string Italic = "\x1B[3m";
+        public const string ItalicOff = "\x1B[23m";
         public const string Underline = "\x1B[4m";
+        public const string UnderlineOff = "\x1B[24m";
         public const string Blink = "\x1B[5m";
+        public const string BlinkOff = "\x1B[25m";
         public const string Reverse = "\x1B[7m";
+        public const string ReverseOff = "\x1B[27m";
         public const string Hidden = "\x1B[8m";
-        public const string Framed = "\x1B[51m";
-        public const string Encircled = "\x1B[52m";
-        public const string Overlined = "\x1B[53m";
+        public const string HiddenOff = "\x1B[28m";
+        public const string Strike = "\x1B[9m";
+        public const string StrikeOff = "\x1B[29m";
     }
 
     public class Foregrounds

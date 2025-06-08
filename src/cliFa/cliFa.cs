@@ -10,36 +10,57 @@ namespace clif
         {
             string rendered = input;
             rendered = Header(rendered);
-            rendered = Bold(rendered);
-            rendered = Italic(rendered);
+            rendered = Styles(rendered);
             return rendered;
         }
 
-
         public string Header(string input)
         {
-            string pattern = @"^###";
+            string pattern = string.Empty;
+            pattern = @"^###"; //Header3
             if (Regex.IsMatch(input, pattern))
-                return Regex.Replace(input, pattern, Backgrounds.Red) + TextFormats.Reset;
-            pattern = @"^##";
+                return Regex.Replace(input, pattern, Backgrounds.Red + Foregrounds.Black) + TextFormats.Reset;
+            pattern = @"^##"; //Header2
              if (Regex.IsMatch(input, pattern))
-                return Regex.Replace(input, pattern, Backgrounds.Yellow) + TextFormats.Reset;
-            pattern = @"^#";
+                return Regex.Replace(input, pattern, Backgrounds.Yellow+ Foregrounds.Black) + TextFormats.Reset;
+            pattern = @"^#"; //Header1
             if (Regex.IsMatch(input, pattern))
-                return Regex.Replace(input, pattern, Backgrounds.Green) + TextFormats.Reset;
+                return Regex.Replace(input, pattern, Backgrounds.Green+ Foregrounds.Black) + TextFormats.Reset;
             return input;      
         }
 
-        public string Bold(string input)
+        public string Styles(string input)
         {
-            string pattern = @"\*\*(.+?)\*\*";
-            return Regex.Replace(input, pattern, match => TextFormats.Bold + match.Groups[1].Value + TextFormats.Normal);
-        }
-
-        public string Italic(string input)
-        {
-            string pattern = @"\*(.+?)\*";
-            return Regex.Replace(input, pattern, match => TextFormats.Italic + match.Groups[1].Value + TextFormats.Normal);
+            string pattern = string.Empty;
+            pattern = @"\*\*\*(.+?)\*\*\*"; //Bold & Italic
+            if (Regex.IsMatch(input, pattern))
+                input = Regex.Replace(input, pattern, match =>
+                    TextFormats.Bold + TextFormats.Italic + match.Groups[1].Value + TextFormats.ItalicOff + TextFormats.BoldOff);
+            pattern = @"\*\*(.+?)\*\*"; //Bold
+            if (Regex.IsMatch(input, pattern))
+                input = Regex.Replace(input, pattern, match =>
+                    TextFormats.Bold + match.Groups[1].Value + TextFormats.BoldOff);
+            pattern = @"\*(.+?)\*"; //Italic
+            if (Regex.IsMatch(input, pattern))
+                input = Regex.Replace(input, pattern, match =>
+                    TextFormats.Italic + match.Groups[1].Value + TextFormats.ItalicOff);
+            pattern = @"___(.*?)___"; //Strike
+            if (Regex.IsMatch(input, pattern))
+                input = Regex.Replace(input, pattern, match =>
+                    TextFormats.Strike + match.Groups[1].Value + TextFormats.StrikeOff);
+            pattern = @"__(.*?)__"; //Underline
+            if (Regex.IsMatch(input, pattern))
+                input = Regex.Replace(input, pattern, match =>
+                    TextFormats.Underline + match.Groups[1].Value + TextFormats.UnderlineOff);
+            pattern = @"_(.*?)_"; //Dim
+            if (Regex.IsMatch(input, pattern))
+                input = Regex.Replace(input, pattern, match =>
+                    TextFormats.Dim + match.Groups[1].Value + TextFormats.DimOff);
+            pattern = @"%(.*?)%"; //Blink
+            if (Regex.IsMatch(input, pattern))
+                input = Regex.Replace(input, pattern, match =>
+                    TextFormats.Blink + match.Groups[1].Value + TextFormats.BlinkOff);
+            return input;
         }
         
     }

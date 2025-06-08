@@ -11,14 +11,17 @@ namespace clif_cli
         public static void Main(string[] args)
         {
 
-            string sample = "# this is a **bold** character *italic* and sample text";
+            string sample = "# text this is a __**bold**__ character *italic* and sample ***bold and italic*** text";
             Console.WriteLine(clif.Render(sample));
 
-            sample = "## this is a **bold** character *italic* and sample text";
+            sample = "## this is a ___strike___ character __underline__ and sample _fault3r_ text";
             Console.WriteLine(clif.Render(sample));
 
-            sample = "### this is a **bold** character *italic* and sample text";
+            sample = "### this is a **bold** character *italic* and sample of %Hamed Damavandi% text";
             Console.WriteLine(clif.Render(sample));
+
+            Console.WriteLine(TextFormats.Dim + "Dim " + TextFormats.DimOff + "test");
+            Console.WriteLine(TextFormats.Underline + "Underlined text" + TextFormats.UnderlineOff + " test");
 
             if (args.Length == 0)
             {
