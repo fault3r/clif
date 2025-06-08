@@ -4,7 +4,8 @@ namespace EscapeCodes
 {
     public class TextFormats
     {
-        public const string Default = "\x1B[0m";
+        public const string Reset = "\x1B[0m";
+        public const string Normal = "\x1B[22m";
         public const string Bold = "\x1B[1m";
         public const string Dim = "\x1B[2m";
         public const string Italic = "\x1B[3m";
@@ -19,7 +20,7 @@ namespace EscapeCodes
 
     public class Foregrounds
     {
-        public const string Default = "\x1B[39m";
+        public const string Reset = "\x1B[39m";
         public const string Black = "\x1B[30m";
         public const string Red = "\x1B[31m";
         public const string Green = "\x1B[32m";
@@ -40,7 +41,7 @@ namespace EscapeCodes
 
     public class Backgrounds
     {
-        public const string Default = "\x1B[49m";
+        public const string Reset = "\x1B[49m";
         public const string Black = "\x1B[40m";
         public const string Red = "\x1B[41m";
         public const string Green = "\x1B[42m";

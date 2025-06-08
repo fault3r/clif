@@ -10,40 +10,28 @@ namespace clif_cli
 
         public static void Main(string[] args)
         {
+
+            string sample = "### this is a **bold** character *italic* and sample text";
+            Console.WriteLine(clif.Render(sample));
+
             if (args.Length == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("clif README");
-                Console.ResetColor();
                 return;
             }
             if (args.Length == 1 && !string.IsNullOrEmpty(args[0]))
             {
-
-                //arg must be a file
-                string arg = args[0];
-                if (File.Exists(arg))
+                string file = args[0];
+                if (File.Exists(file))
                 {
-                    string[]? lines = File.ReadAllLines(arg);
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("file received.");
-                    Console.ResetColor();
-                    foreach (string line in lines)
-                        Console.WriteLine("\n[B]" + line + "[E]");
+                    string[]? lines = File.ReadAllLines(file);
                 }
                 else
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("\u001b[1mfile not found!");
-                    Console.ResetColor();
-                }
+                    Console.WriteLine("file not found!");
+                
             }
             else
-            {
-                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("invalid command!");
-                Console.ResetColor();
-            }
 
         }
     }
