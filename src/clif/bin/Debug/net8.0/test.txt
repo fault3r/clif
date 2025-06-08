@@ -1,8 +1,10 @@
-clif.deps.json\n
-clif.runtimeconfig.json
-cliFa.pdb;[]0-989786765745634524313`3`
-cliFa.dll';;
-clif.pdb
-clif.dll
-clif
-test.txt
+#Hamed Damavandi
+
+	this is a normal text...
+
+**hello** I work on %computers% whats your __job__? can you _tell_ me ___dont lie___ to me.
+
+##Warning
+this may %***harmful***% to you. be careful...
+
+###by the way

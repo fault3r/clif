@@ -7,25 +7,13 @@ namespace clif_cli
     {
         private static cliFa clif = new();
 
-
         public static void Main(string[] args)
         {
-
-            string sample = "# text this is a __**bold**__ character *italic* and sample ***bold and italic*** text";
-            Console.WriteLine(clif.Render(sample));
-
-            sample = "## this is a ___strike___ character __underline__ and sample _fault3r_ text";
-            Console.WriteLine(clif.Render(sample));
-
-            sample = "### this is a **bold** character *italic* and sample of %Hamed Damavandi% text";
-            Console.WriteLine(clif.Render(sample));
-
-            Console.WriteLine(TextFormats.Dim + "Dim " + TextFormats.DimOff + "test");
-            Console.WriteLine(TextFormats.Underline + "Underlined text" + TextFormats.UnderlineOff + " test");
-
+            string output = string.Empty;
             if (args.Length == 0)
             {
-                Console.WriteLine("clif README");
+                output = clif.Render("#[clif README]");
+                Console.WriteLine(output);
                 return;
             }
             if (args.Length == 1 && !string.IsNullOrEmpty(args[0]))
@@ -34,14 +22,14 @@ namespace clif_cli
                 if (File.Exists(file))
                 {
                     string[]? lines = File.ReadAllLines(file);
+                    foreach (string line in lines)
+                        Console.WriteLine(clif.Render(line));
                 }
                 else
-                    Console.WriteLine("file not found!");
-                
+                    Console.WriteLine(clif.Render("###file not found!"));
             }
             else
-                Console.WriteLine("invalid command!");
-
+                Console.WriteLine(clif.Render("##command not found!"));
         }
     }
 }

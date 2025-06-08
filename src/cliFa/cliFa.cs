@@ -14,22 +14,22 @@ namespace clif
             return rendered;
         }
 
-        public string Header(string input)
+        private string Header(string input)
         {
             string pattern = string.Empty;
             pattern = @"^###"; //Header3
             if (Regex.IsMatch(input, pattern))
-                return Regex.Replace(input, pattern, Backgrounds.Red + Foregrounds.Black) + TextFormats.Reset;
+                return Regex.Replace(input, pattern, $"{Backgrounds.Red}{Foregrounds.Black}") + $"{Foregrounds.Reset}{Backgrounds.Reset}";
             pattern = @"^##"; //Header2
              if (Regex.IsMatch(input, pattern))
-                return Regex.Replace(input, pattern, Backgrounds.Yellow+ Foregrounds.Black) + TextFormats.Reset;
+                return Regex.Replace(input, pattern, $"{Backgrounds.Yellow}{Foregrounds.Black}") + $"{Foregrounds.Reset}{Backgrounds.Reset}";
             pattern = @"^#"; //Header1
             if (Regex.IsMatch(input, pattern))
-                return Regex.Replace(input, pattern, Backgrounds.Green+ Foregrounds.Black) + TextFormats.Reset;
+                return Regex.Replace(input, pattern, $"{Backgrounds.Green}{Foregrounds.Black}") + $"{Foregrounds.Reset}{Backgrounds.Reset}";
             return input;      
         }
 
-        public string Styles(string input)
+        private string Styles(string input)
         {
             string pattern = string.Empty;
             pattern = @"\*\*\*(.+?)\*\*\*"; //Bold & Italic
