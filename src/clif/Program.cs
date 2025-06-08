@@ -12,7 +12,7 @@ namespace clif_cli
             string output = string.Empty;
             if (args.Length == 0)
             {
-                output = clif.Render("#[clif README]");
+                output = clif.Render("#clif Readme");
                 Console.WriteLine(output);
                 return;
             }
@@ -26,10 +26,10 @@ namespace clif_cli
                         Console.WriteLine(clif.Render(line));
                 }
                 else
-                    Console.WriteLine(clif.Render("###file not found!"));
+                    Console.WriteLine(clif.Render("###File not found!"));
             }
             else
-                Console.WriteLine(clif.Render("##command not found!"));
+                Console.WriteLine(clif.Render("##Invalid command!"));
         }
     }
 }

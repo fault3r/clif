@@ -35,31 +35,31 @@ namespace clif
             pattern = @"\*\*\*(.+?)\*\*\*"; //Bold & Italic
             if (Regex.IsMatch(input, pattern))
                 input = Regex.Replace(input, pattern, match =>
-                    TextFormats.Bold + TextFormats.Italic + match.Groups[1].Value + TextFormats.ItalicOff + TextFormats.BoldOff);
+                    $"{TextFormats.Bold}{TextFormats.Italic}{match.Groups[1].Value}{TextFormats.ItalicOff}{TextFormats.BoldOff}");
             pattern = @"\*\*(.+?)\*\*"; //Bold
             if (Regex.IsMatch(input, pattern))
                 input = Regex.Replace(input, pattern, match =>
-                    TextFormats.Bold + match.Groups[1].Value + TextFormats.BoldOff);
+                    $"{TextFormats.Bold}{match.Groups[1].Value}{TextFormats.BoldOff}");
             pattern = @"\*(.+?)\*"; //Italic
             if (Regex.IsMatch(input, pattern))
                 input = Regex.Replace(input, pattern, match =>
-                    TextFormats.Italic + match.Groups[1].Value + TextFormats.ItalicOff);
+                    $"{TextFormats.Italic}{match.Groups[1].Value}{TextFormats.ItalicOff}");
             pattern = @"___(.*?)___"; //Strike
             if (Regex.IsMatch(input, pattern))
                 input = Regex.Replace(input, pattern, match =>
-                    TextFormats.Strike + match.Groups[1].Value + TextFormats.StrikeOff);
+                    $"{TextFormats.Strike}{match.Groups[1].Value}{TextFormats.StrikeOff}");
             pattern = @"__(.*?)__"; //Underline
             if (Regex.IsMatch(input, pattern))
                 input = Regex.Replace(input, pattern, match =>
-                    TextFormats.Underline + match.Groups[1].Value + TextFormats.UnderlineOff);
+                    $"{TextFormats.Underline}{match.Groups[1].Value}{TextFormats.UnderlineOff}");
             pattern = @"_(.*?)_"; //Dim
             if (Regex.IsMatch(input, pattern))
                 input = Regex.Replace(input, pattern, match =>
-                    TextFormats.Dim + match.Groups[1].Value + TextFormats.DimOff);
+                    $"{TextFormats.Dim}{match.Groups[1].Value}{TextFormats.DimOff}");
             pattern = @"%(.*?)%"; //Blink
             if (Regex.IsMatch(input, pattern))
                 input = Regex.Replace(input, pattern, match =>
-                    TextFormats.Blink + match.Groups[1].Value + TextFormats.BlinkOff);
+                    $"{TextFormats.Blink}{match.Groups[1].Value}{TextFormats.BlinkOff}");
             return input;
         }
         
