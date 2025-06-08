@@ -11,7 +11,13 @@ namespace clif_cli
         public static void Main(string[] args)
         {
 
-            string sample = "### this is a **bold** character *italic* and sample text";
+            string sample = "# this is a **bold** character *italic* and sample text";
+            Console.WriteLine(clif.Render(sample));
+
+            sample = "## this is a **bold** character *italic* and sample text";
+            Console.WriteLine(clif.Render(sample));
+
+            sample = "### this is a **bold** character *italic* and sample text";
             Console.WriteLine(clif.Render(sample));
 
             if (args.Length == 0)

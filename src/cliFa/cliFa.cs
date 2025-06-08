@@ -9,31 +9,25 @@ namespace clif
         public string Render(string input)
         {
             string rendered = input;
-            rendered = Header3(rendered);
-            rendered = Header2(rendered);
-            rendered = Header1(rendered);
+            rendered = Header(rendered);
             rendered = Bold(rendered);
             rendered = Italic(rendered);
             return rendered;
         }
 
 
-        public string Header1(string input)
-        {
-            string pattern = @"^#";
-            return Regex.Replace(input, pattern, Backgrounds.Red) + TextFormats.Reset;
-        }
-
-        public string Header2(string input)
-        {
-            string pattern = @"^##";
-            return Regex.Replace(input, pattern, Backgrounds.Yellow) + TextFormats.Reset;
-        }
-
-        public string Header3(string input)
+        public string Header(string input)
         {
             string pattern = @"^###";
-            return Regex.Replace(input, pattern, Backgrounds.Green) + TextFormats.Reset;
+            if (Regex.IsMatch(input, pattern))
+                return Regex.Replace(input, pattern, Backgrounds.Red) + TextFormats.Reset;
+            pattern = @"^##";
+             if (Regex.IsMatch(input, pattern))
+                return Regex.Replace(input, pattern, Backgrounds.Yellow) + TextFormats.Reset;
+            pattern = @"^#";
+            if (Regex.IsMatch(input, pattern))
+                return Regex.Replace(input, pattern, Backgrounds.Green) + TextFormats.Reset;
+            return input;      
         }
 
         public string Bold(string input)
