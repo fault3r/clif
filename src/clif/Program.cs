@@ -18,6 +18,7 @@ namespace clif_cli
             }
             if (args.Length == 1 && !string.IsNullOrEmpty(args[0]))
             {
+                //string file = @"/home/hamed-damavandi/Documents/clif/test.txt";
                 string file = args[0];
                 if (File.Exists(file))
                 {
