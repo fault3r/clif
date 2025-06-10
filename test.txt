@@ -1,26 +1,17 @@
-# apt
+this is **bold** and `this is not **bold**` and *italic*
 
-**Advanced %Package% Tool** > a %package% **management** system used by Debian-based Linux distributions.
----
+#Header #1
+##Header ##2
+###Header ###3
 
-` %apt% [COMMAND] [OPTION] `
----
+normal
+**bold** 
+*italic*
+***bold & italic***
+__underline__ 
+___strike___
+_dim_
+
+>Blockquote
 
 
-###TEsts
-| ***COMMAND*** | *description* |
-|:---:|:---:|
-| **update** | **update the local package __index__ with the latest ___information___** |
-| **upgrade** | **upgrade installed packages to their latest versions** |
-| **list** | **list of all %available packages% <br> pass `--installed` to see just the installed packages** |
-| **show [PACKAGE]** | **show information of a package** |
-
-> quote test this is hamed ___fault3r.___ testing purposes...
-sddsdsd 
-
-##Examples
-` sudo apt update -y `
-
-` sudo apt update -y && sudo apt upgrade -y `
-
-` sudo apt install neofetch `
