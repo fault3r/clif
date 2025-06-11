@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cliFa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84c245ecadda5945e8f6c64a8a6fda8af153e5cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+899399c2f866ae46d5bef1630e167534eabb4449")]
 [assembly: System.Reflection.AssemblyProductAttribute("cliFa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cliFa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

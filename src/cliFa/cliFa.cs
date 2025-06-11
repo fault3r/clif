@@ -7,7 +7,7 @@ namespace clif
     public class cliFa
     {
         private string[] codes = new string[1];
-        
+
         private string Encode(string line)
         {
             Regex regex = new Regex(@"`(.*?)`", RegexOptions.Compiled);
@@ -38,6 +38,7 @@ namespace clif
             line = Styles(line);
             line = Blockquote(line);
             line = Decode(line);
+            line = Code(line);
             return line;
         }
 
@@ -95,9 +96,18 @@ namespace clif
             string pattern = @"^>";              // > Blockquote
             if (Regex.IsMatch(line, pattern))
                 return Regex.Replace(line, pattern,
-                    $"{Backgrounds.Cyan} {Backgrounds.Reset}{Backgrounds.White}{Foregrounds.Black}\"") + $"\"{TextFormats.Reset}";
+                    $"{Backgrounds.Magenta} {Backgrounds.Reset}{Backgrounds.BrightBlack}{Foregrounds.White}\"") + $"\"{TextFormats.Reset}";
             return line;
         }
 
+        private string Code(string line)
+        {
+            string pattern = @"`(.*?)`";
+                line = Regex.Replace(line, pattern, match =>
+                    $"{Backgrounds.BrightBlack} {Backgrounds.Reset}{Backgrounds.Cyan}"+
+                        $"{Foregrounds.Black}{match.Groups[1].Value}{TextFormats.Reset}" +
+                        $"{Backgrounds.BrightBlack} {Backgrounds.Reset}");
+            return line;
+        }
     }
 }
