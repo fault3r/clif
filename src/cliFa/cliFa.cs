@@ -6,8 +6,9 @@ namespace clif
 {
     public class cliFa
     {
+        private string[] Codes = new string[1];
         public string Render(string line)
-        {            
+        {
             string rendered = line;
             rendered = Header(rendered);
             rendered = Styles(rendered);
@@ -34,7 +35,7 @@ namespace clif
         private string Styles(string line)
         {
             string pattern = string.Empty;
-             pattern =  @"\*\*\*(.+?)\*\*\*";  
+            pattern = @"\*\*\*(.+?)\*\*\*";    // **Bold & Italic**
             if (Regex.IsMatch(line, pattern))
                 line = Regex.Replace(line, pattern, match =>
                     $"{TextFormats.Bold}{TextFormats.Italic}{match.Groups[1].Value}{TextFormats.ItalicOff}{TextFormats.BoldOff}");
@@ -74,14 +75,36 @@ namespace clif
             return line;
         }
 
-        private string Code(string line)
-        {
-            string pattern = @"`([^`]*)`";
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, "aa");
-            return line;
 
+
+        public string Encode(string line)
+        {
+            line = "this `is` **bold** and `it is not **bold**` finish `fucking` regex";
+            Regex regex = new Regex(@"`(.*?)`", RegexOptions.Compiled);
+            var matches = regex.Matches(line);
+            int count = matches.Count;
+            Codes = new string[count];
+            int i = 0;
+            foreach (Match match in matches)
+            {
+                Codes[i] = match.Value;
+                line = line.Replace(Codes[i], $"[[[code{i++}]]]");
+            }
+
+            line = Decode(line);
+            return line;
+          
         }
 
+        public string Decode(string line)
+        {
+            Regex regex = new Regex(@"\[\[\[code\d+\]\]\]", RegexOptions.Compiled);
+            var matches = regex.Matches(line);
+            for (int i = 0; i < Codes.Length; i++)
+            {
+                line=line.Replace(matches[i].Value,Codes[i]);
+            }
+            return line;
+        }
     }
 }
