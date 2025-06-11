@@ -1,0 +1,12 @@
+/home/hamed-damavandi/Documents/clif/src/cliFa/bin/Debug/net8.0/cliFa.deps.json
+/home/hamed-damavandi/Documents/clif/src/cliFa/bin/Debug/net8.0/cliFa.dll
+/home/hamed-damavandi/Documents/clif/src/cliFa/bin/Debug/net8.0/cliFa.pdb
+/home/hamed-damavandi/Documents/clif/src/cliFa/obj/Debug/net8.0/cliFa.GeneratedMSBuildEditorConfig.editorconfig
+/home/hamed-damavandi/Documents/clif/src/cliFa/obj/Debug/net8.0/cliFa.AssemblyInfoInputs.cache
+/home/hamed-damavandi/Documents/clif/src/cliFa/obj/Debug/net8.0/cliFa.AssemblyInfo.cs
+/home/hamed-damavandi/Documents/clif/src/cliFa/obj/Debug/net8.0/cliFa.csproj.CoreCompileInputs.cache
+/home/hamed-damavandi/Documents/clif/src/cliFa/obj/Debug/net8.0/cliFa.sourcelink.json
+/home/hamed-damavandi/Documents/clif/src/cliFa/obj/Debug/net8.0/cliFa.dll
+/home/hamed-damavandi/Documents/clif/src/cliFa/obj/Debug/net8.0/refint/cliFa.dll
+/home/hamed-damavandi/Documents/clif/src/cliFa/obj/Debug/net8.0/cliFa.pdb
+/home/hamed-damavandi/Documents/clif/src/cliFa/obj/Debug/net8.0/ref/cliFa.dll

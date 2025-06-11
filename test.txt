@@ -1,4 +1,4 @@
-ooooo `inside the box` out 'in' end
+**bold** `inside **not bold** *not italic* and not __underline__ box` out **bold** _dim_ ` and again **not bold**` ___stiiiiike___
 
 #Header #1
 ##Header ##2
