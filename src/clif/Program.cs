@@ -9,8 +9,6 @@ namespace clif_cli
 
         public static void Main(string[] args)
         {
-
-            
             string output = string.Empty;
             if (args.Length == 0)
             {

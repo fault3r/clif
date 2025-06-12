@@ -1,27 +1,24 @@
-##unit test;0: ___boldItalic___ this **bold** ***bold italic*** `this __not bold__` ~undeline~ and ~~~_italic dim_~~~ italic and *italic* a %`%blink code%`% and some ~~~dim~~~ ` ~~~not dim~~~ ` **bold**
 
 #Header #1
-##Header ##2
-###Header ###3
+##Header #2
+###Header #3
 
-normal
-**bold** & __bold__
-*italic* & _italic_
-***bold & italic*** & ___bold & italic___
-~underline~
-~~strike~~
-~~~dim~~~
+Normal
+**Bold**
+*Italic*
+***Bold & Italic***
+~Underline~
+~~Strike~~
+~~~Dim~~~
 %Blink%
 
 >Blockquote
 
 `Code`
 
-sdf
-jkjjk
-kjl;
-lkh
-#header **bold** _italic_ `code` ***bold italic*** normal ~~~dim~~~
->test __bold__ `code` aaa ~~~dim~~~
-kjhgkjgkj
-###test ~~~dim~~~ `code block` **bold**stst st st s `dgdfgdgd` sdfsdf 
+
+###Tests:
+#This is a **Header1** test.
+##test for `in Code Block` and ~~strike~~ test.
+>much that once was, is %lost%. for none now _live_ who ~~~***remember***~~~ it.    `-tolkien`
+End

@@ -8,6 +8,9 @@ namespace clif
     {
         private string[] codes = new string[1];
 
+        private string? currentBackground;
+        private string? currentForeground;
+
         private string encode(string line)
         {
             Regex regex = new Regex(@"`(.*?)`", RegexOptions.Compiled);
@@ -39,8 +42,6 @@ namespace clif
                     RegexOptions.Compiled);
         }
 
-        private string? currentBackground;
-        private string? currentForeground;
         private string currentColors()
         {
             return string.IsNullOrEmpty(currentBackground) ? TextFormats.Reset : currentBackground + currentForeground;
@@ -58,33 +59,36 @@ namespace clif
             return line;
         }
 
-
         private string header(string line)
         {
-            string pattern = @"^###";
-            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+            bool isHeader = false;
+            string pattern = string.Empty;
+            string[] patterns = [@"^###", @"^##", @"^#"];
+            for (int i = 0; i < patterns.Length; i++)
             {
-                currentBackground = Backgrounds.Red;
-                currentForeground = Foregrounds.Black;
-                return render(line, pattern, $"{currentBackground}{currentForeground}", "") + TextFormats.Reset;
+                pattern = patterns[i];
+                if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                {
+                    isHeader = true;
+                    switch (i)
+                    {
+                        case 0:
+                            currentBackground = Backgrounds.Red;
+                            currentForeground = Foregrounds.White;
+                            break;
+                        case 1:
+                            currentBackground = Backgrounds.Yellow;
+                            currentForeground = Foregrounds.Black;
+                            break;
+                        case 2:
+                            currentBackground = Backgrounds.Green;
+                            currentForeground = Foregrounds.Black;
+                            break;
+                    }
+                    break;
+                }
             }
-
-            pattern = @"^##";
-            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-            {
-                currentBackground = Backgrounds.Yellow;
-                currentForeground = Foregrounds.Black;
-                return render(line, pattern, $"{currentBackground}{currentForeground}", "") + TextFormats.Reset;
-            }
-
-            pattern = @"^#";
-            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-            {
-                currentBackground = Backgrounds.Green;
-                currentForeground = Foregrounds.Black;
-                return render(line, pattern, $"{currentBackground}{currentForeground}", "") + TextFormats.Reset;
-            }
-            return line;
+            return isHeader ? render(line, pattern, $"{currentBackground}{currentForeground}", "") + TextFormats.Reset : line;
         }
 
         private string emphasis(string line)

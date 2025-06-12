@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("clif")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47b4f776a4ebd2b153cf6717e25f151e3258994a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37d13439ab4918e6d613844d97a68efb1f2d4303")]
 [assembly: System.Reflection.AssemblyProductAttribute("clif")]
 [assembly: System.Reflection.AssemblyTitleAttribute("clif")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
