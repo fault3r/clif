@@ -1,0 +1,3 @@
+/home/hamed-damavandi/Documents/clif/src/cliFa/bin/Release/net8.0/publish/cliFa.dll
+/home/hamed-damavandi/Documents/clif/src/cliFa/bin/Release/net8.0/publish/cliFa.deps.json
+/home/hamed-damavandi/Documents/clif/src/cliFa/bin/Release/net8.0/publish/cliFa.pdb

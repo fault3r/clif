@@ -16,9 +16,17 @@ Normal
 
 `Code`
 
+--- rule
 
 ###Tests:
-#This is a **Header1** test.
-##test for `in Code Block` and ~~strike~~ test.
->much that once was, is %lost%. for none now _live_ who ~~~***remember***~~~ it.    `-tolkien`
+~~~dim~~~ ___bold italic___ for `in Code Block` and ~~strike~~ test.
+---
+#~~~dim~~~ ***bold italic*** for `in Code Block` and ~~strike~~ test.
+
+##~~~dim~~~ _italic_ for %`in Code Block`% and **bold** test.
+
+###~~~dim~~~ normal **for** `in ~~Code Block` and ~underline~ **test**.
+
+>**Talk** is ~~~Cheap~~~, show me the ~Code~. `-linus`
+
 End

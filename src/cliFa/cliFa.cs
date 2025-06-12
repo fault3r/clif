@@ -46,13 +46,14 @@ namespace clif
         {
             return string.IsNullOrEmpty(currentBackground) ? TextFormats.Reset : currentBackground + currentForeground;
         }
-        
+
         public string Render(string line)
         {
             line = encode(line);
             line = header(line);
             line = emphasis(line);
             line = blockquote(line);
+            line = rule(line);
             line = decode(line);
             line = code(line);
             currentBackground = currentForeground = null;
@@ -73,15 +74,15 @@ namespace clif
                     switch (i)
                     {
                         case 0:
-                            currentBackground = Backgrounds.Red;
-                            currentForeground = Foregrounds.White;
+                            currentBackground = Backgrounds.BrightYellow;
+                            currentForeground = Foregrounds.Black;
                             break;
                         case 1:
-                            currentBackground = Backgrounds.Yellow;
+                            currentBackground = Backgrounds.BrightCyan;
                             currentForeground = Foregrounds.Black;
                             break;
                         case 2:
-                            currentBackground = Backgrounds.Green;
+                            currentBackground = Backgrounds.BrightGreen;
                             currentForeground = Foregrounds.Black;
                             break;
                     }
@@ -95,40 +96,40 @@ namespace clif
         {
             string pattern = @"\*\*\*(.+?)\*\*\*";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern, $"{TextFormats.Bold}{TextFormats.Italic}", $"{TextFormats.ItalicOff}{TextFormats.BoldOff}");            
+                line = render(line, pattern, $"{TextFormats.Bold}{TextFormats.Italic}", $"{TextFormats.ItalicOff}{TextFormats.BoldOff}");
             pattern = @"___(.+?)___";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern, $"{TextFormats.Bold}{TextFormats.Italic}", $"{TextFormats.ItalicOff}{TextFormats.BoldOff}");            
-        
-            pattern =  @"\*\*(.+?)\*\*";
-            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern, TextFormats.Bold, TextFormats.BoldOff);            
-            pattern =  @"__(.+?)__";
-            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern, TextFormats.Bold, TextFormats.BoldOff); 
+                line = render(line, pattern, $"{TextFormats.Bold}{TextFormats.Italic}", $"{TextFormats.ItalicOff}{TextFormats.BoldOff}");
 
-            pattern =  @"\*(.+?)\*";
+            pattern = @"\*\*(.+?)\*\*";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern, TextFormats.Italic, TextFormats.ItalicOff);            
-            pattern =  @"_(.+?)_";
+                line = render(line, pattern, TextFormats.Bold, TextFormats.BoldOff);
+            pattern = @"__(.+?)__";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern, TextFormats.Bold, TextFormats.BoldOff);
+
+            pattern = @"\*(.+?)\*";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern, TextFormats.Italic, TextFormats.ItalicOff);
+            pattern = @"_(.+?)_";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = render(line, pattern, TextFormats.Italic, TextFormats.ItalicOff);
 
             pattern = @"~~~(.*?)~~~";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern,TextFormats.Dim, TextFormats.DimOff);
+                line = render(line, pattern, TextFormats.Dim, TextFormats.DimOff);
 
             pattern = @"~~(.*?)~~";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern,TextFormats.Strike, TextFormats.StrikeOff);
+                line = render(line, pattern, TextFormats.Strike, TextFormats.StrikeOff);
 
             pattern = @"~(.*?)~";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern,TextFormats.Underline, TextFormats.UnderlineOff);
+                line = render(line, pattern, TextFormats.Underline, TextFormats.UnderlineOff);
 
             pattern = @"%(.*?)%";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern,TextFormats.Blink, TextFormats.BlinkOff);
+                line = render(line, pattern, TextFormats.Blink, TextFormats.BlinkOff);
 
             return line;
         }
@@ -139,7 +140,7 @@ namespace clif
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
             {
                 currentBackground = Backgrounds.BrightBlack;
-                currentForeground = Foregrounds.White;
+                currentForeground = Foregrounds.BrightWhite;
                 return render(line, pattern, $"{Backgrounds.Magenta} {currentBackground}{currentForeground}\"", "")
                     + $"\"{TextFormats.Reset}";
             }
@@ -151,8 +152,19 @@ namespace clif
             string pattern = @"`(.*?)`";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 return render(line, pattern,
-                    $"{Backgrounds.BrightBlack} {Backgrounds.Cyan}{Foregrounds.Black}",
-                    $"{Backgrounds.BrightBlack} {currentColors()}");
+                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{Backgrounds.BrightRed}",
+                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{currentColors()}");
+            return line;
+        }
+
+        private string rule(string line)
+        {
+            string pattern = @"^---+";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+            {
+                string hRule = "────────────────────────────────────────────────────";
+                return render(line, pattern, $"{Foregrounds.BrightWhite}{hRule}{Foregrounds.Reset}", "");
+            }
             return line;
         }
     }
