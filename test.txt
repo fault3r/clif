@@ -4,14 +4,14 @@
 ###Header ###3
 
 normal
-**bold** 
-*italic*
-***bold & italic***
-__underline__ 
-___strike___
-_dim_
+**bold** & __bold__
+*italic* & _italic_
+***bold & italic*** & ___bold & italic___
+~underline~
+~~strike~~
+~~~dim~~~
+%Blink%
 
 >Blockquote
 
 `Code`
-

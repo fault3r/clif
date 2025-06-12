@@ -60,30 +60,36 @@ namespace clif
         private string Styles(string line)
         {
             string pattern = string.Empty;
-            pattern = @"\*\*\*(.+?)\*\*\*";      // **Bold & Italic**
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, match =>
-                    $"{TextFormats.Bold}{TextFormats.Italic}{match.Groups[1].Value}{TextFormats.ItalicOff}{TextFormats.BoldOff}");
-            pattern = @"\*\*(.+?)\*\*";          // **Bold**
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, match =>
-                    $"{TextFormats.Bold}{match.Groups[1].Value}{TextFormats.BoldOff}");
-            pattern = @"\*(.+?)\*";              // *Italic*
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, match =>
-                    $"{TextFormats.Italic}{match.Groups[1].Value}{TextFormats.ItalicOff}");
-            pattern = @"___(.*?)___";            // ___Strike___
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, match =>
-                    $"{TextFormats.Strike}{match.Groups[1].Value}{TextFormats.StrikeOff}");
-            pattern = @"__(.*?)__";              // __Underline__
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, match =>
-                    $"{TextFormats.Underline}{match.Groups[1].Value}{TextFormats.UnderlineOff}");
-            pattern = @"_(.*?)_";                // _Dim_
+            pattern = @"\*\*\*(.+?)\*\*\*|___(.+?)___";      // **Bold & Italic**
+            Regex regex = new Regex(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            foreach (Match match in matches)
+                line = regex.Replace(line, $"{TextFormats.Bold}{TextFormats.Italic}{match.Groups[1].Value}{TextFormats.ItalicOff}{TextFormats.BoldOff}");
+                
+            pattern = @"\*\*(.+?)\*\*|__(.+?)__";          // **Bold**
+            regex = new Regex(pattern, RegexOptions.Compiled);
+            matches = regex.Matches(line);
+            foreach (Match match in matches)
+                line = regex.Replace(line, $"{TextFormats.Bold}{match.Groups[1].Value}{TextFormats.BoldOff}");
+
+            pattern = @"\*(.+?)\*|_(.+?)_";          // **Italic**
+            regex = new Regex(pattern, RegexOptions.Compiled);
+            matches = regex.Matches(line);
+            foreach (Match match in matches)
+                line = regex.Replace(line, $"{TextFormats.Italic}{match.Groups[1].Value}{TextFormats.ItalicOff}");
+                
+            pattern = @"~~~(.*?)~~~";            // ~~Dim~~
             if (Regex.IsMatch(line, pattern))
                 line = Regex.Replace(line, pattern, match =>
                     $"{TextFormats.Dim}{match.Groups[1].Value}{TextFormats.DimOff}");
+            pattern = @"~~(.*?)~~";              // Strikethrough
+            if (Regex.IsMatch(line, pattern))
+                line = Regex.Replace(line, pattern, match =>
+                    $"{TextFormats.Strike}{match.Groups[1].Value}{TextFormats.StrikeOff}");
+            pattern = @"~(.*?)~";                // _Underline_
+            if (Regex.IsMatch(line, pattern))
+                line = Regex.Replace(line, pattern, match =>
+                    $"{TextFormats.Underline}{match.Groups[1].Value}{TextFormats.UnderlineOff}");
             pattern = @"%(.*?)%";                // %Blink%
             if (Regex.IsMatch(line, pattern))
                 line = Regex.Replace(line, pattern, match =>
