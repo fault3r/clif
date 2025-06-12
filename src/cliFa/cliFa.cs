@@ -39,6 +39,13 @@ namespace clif
                     RegexOptions.Compiled);
         }
 
+        private string? currentBackground;
+        private string? currentForeground;
+        private string currentColors()
+        {
+            return string.IsNullOrEmpty(currentBackground) ? TextFormats.Reset : currentBackground + currentForeground;
+        }
+        
         public string Render(string line)
         {
             line = encode(line);
@@ -47,22 +54,36 @@ namespace clif
             line = blockquote(line);
             line = decode(line);
             line = code(line);
+            currentBackground = currentForeground = null;
             return line;
         }
+
 
         private string header(string line)
         {
             string pattern = @"^###";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                return render(line, pattern, $"{Backgrounds.Red}{Foregrounds.Black}", "") + TextFormats.Reset;
+            {
+                currentBackground = Backgrounds.Red;
+                currentForeground = Foregrounds.Black;
+                return render(line, pattern, $"{currentBackground}{currentForeground}", "") + TextFormats.Reset;
+            }
 
             pattern = @"^##";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                return render(line, pattern, $"{Backgrounds.Yellow}{Foregrounds.Black}", "") + TextFormats.Reset;
+            {
+                currentBackground = Backgrounds.Yellow;
+                currentForeground = Foregrounds.Black;
+                return render(line, pattern, $"{currentBackground}{currentForeground}", "") + TextFormats.Reset;
+            }
 
-            pattern = @"^#"; 
+            pattern = @"^#";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                return render(line, pattern, $"{Backgrounds.Green}{Foregrounds.Black}", "") + TextFormats.Reset;
+            {
+                currentBackground = Backgrounds.Green;
+                currentForeground = Foregrounds.Black;
+                return render(line, pattern, $"{currentBackground}{currentForeground}", "") + TextFormats.Reset;
+            }
             return line;
         }
 
@@ -112,8 +133,12 @@ namespace clif
         {
             string pattern = @"^>";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                return render(line, pattern, $"{Backgrounds.Magenta} {Backgrounds.Reset}{Backgrounds.BrightBlack}{Foregrounds.White}\"", "")
+            {
+                currentBackground = Backgrounds.BrightBlack;
+                currentForeground = Foregrounds.White;
+                return render(line, pattern, $"{Backgrounds.Magenta} {currentBackground}{currentForeground}\"", "")
                     + $"\"{TextFormats.Reset}";
+            }
             return line;
         }
 
@@ -122,8 +147,8 @@ namespace clif
             string pattern = @"`(.*?)`";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 return render(line, pattern,
-                    $"{Backgrounds.BrightBlack} {Backgrounds.Reset}{Backgrounds.Cyan}{Foregrounds.Black}",
-                    $"{Backgrounds.BrightBlack} {Backgrounds.Reset}{TextFormats.Reset}");
+                    $"{Backgrounds.BrightBlack} {Backgrounds.Cyan}{Foregrounds.Black}",
+                    $"{Backgrounds.BrightBlack} {currentColors()}");
             return line;
         }
     }
