@@ -15,3 +15,8 @@ normal
 >Blockquote
 
 `Code`
+
+unit test;0: ___boldItalic___ this **bold** ***bold italic*** `this __not bold__` ~undeline~ and ~~~_italic dim_~~~ italic and *italic* a %`%blink code%`% and some ~~~dim~~~ ` ~~~not dim~~~ ` **bold**
+
+#header **bold** test
+>test __bold__

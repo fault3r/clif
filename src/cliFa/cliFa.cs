@@ -8,7 +8,7 @@ namespace clif
     {
         private string[] codes = new string[1];
 
-        private string Encode(string line)
+        private string encode(string line)
         {
             Regex regex = new Regex(@"`(.*?)`", RegexOptions.Compiled);
             var matches = regex.Matches(line);
@@ -17,102 +17,113 @@ namespace clif
             foreach (Match match in matches)
             {
                 codes[i] = match.Value;
-                line = line.Replace(codes[i], $"[[[code{i++}]]]");
+                line = line.Replace(codes[i], $"[][code{i++}][]");
             }
             return line;
         }
 
-        private string Decode(string line)
+        private string decode(string line)
         {
-            Regex regex = new Regex(@"\[\[\[code\d+\]\]\]", RegexOptions.Compiled);
+            Regex regex = new Regex(@"\[\]\[code\d+\]\[\]", RegexOptions.Compiled);
             var matches = regex.Matches(line);
             for (int i = 0; i < codes.Length; i++)
                 line = line.Replace(matches[i].Value, codes[i]);
             return line;
         }
 
+        private string render(string line, string pattern, string start, string end)
+        {
+            return Regex.Replace(line,
+                    pattern,
+                    match => $"{start}{match.Groups[1].Value}{end}",
+                    RegexOptions.Compiled);
+        }
+
         public string Render(string line)
         {
-            line = Encode(line);
-            line = Header(line);
-            line = Styles(line);
-            line = Blockquote(line);
-            line = Decode(line);
-            line = Code(line);
+            line = encode(line);
+            line = header(line);
+            line = emphasis(line);
+            line = blockquote(line);
+            line = decode(line);
+            line = code(line);
             return line;
         }
 
-        private string Header(string line)
+        private string header(string line)
         {
-            string pattern = string.Empty;
-            pattern = @"^###";                   // #Header3
-            if (Regex.IsMatch(line, pattern))
-                return Regex.Replace(line, pattern, $"{Backgrounds.Red}{Foregrounds.Black}") + TextFormats.Reset;
-            pattern = @"^##";                    //Header2
-            if (Regex.IsMatch(line, pattern))
-                return Regex.Replace(line, pattern, $"{Backgrounds.Yellow}{Foregrounds.Black}") + TextFormats.Reset;
-            pattern = @"^#";                     //Header1
-            if (Regex.IsMatch(line, pattern))
-                return Regex.Replace(line, pattern, $"{Backgrounds.Green}{Foregrounds.Black}") + TextFormats.Reset;
+            string pattern = @"^###";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                return render(line, pattern, $"{Backgrounds.Red}{Foregrounds.Black}", "") + TextFormats.Reset;
+
+            pattern = @"^##";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                return render(line, pattern, $"{Backgrounds.Yellow}{Foregrounds.Black}", "") + TextFormats.Reset;
+
+            pattern = @"^#"; 
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                return render(line, pattern, $"{Backgrounds.Green}{Foregrounds.Black}", "") + TextFormats.Reset;
             return line;
         }
 
-        private string Styles(string line)
+        private string emphasis(string line)
         {
-            string pattern = string.Empty;
-            pattern = @"\*\*\*(.+?)\*\*\*|___(.+?)___";      // **Bold & Italic**
-            Regex regex = new Regex(pattern, RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
-            foreach (Match match in matches)
-                line = regex.Replace(line, $"{TextFormats.Bold}{TextFormats.Italic}{match.Groups[1].Value}{TextFormats.ItalicOff}{TextFormats.BoldOff}");
-                
-            pattern = @"\*\*(.+?)\*\*|__(.+?)__";          // **Bold**
-            regex = new Regex(pattern, RegexOptions.Compiled);
-            matches = regex.Matches(line);
-            foreach (Match match in matches)
-                line = regex.Replace(line, $"{TextFormats.Bold}{match.Groups[1].Value}{TextFormats.BoldOff}");
+            string pattern = @"\*\*\*(.+?)\*\*\*";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern, $"{TextFormats.Bold}{TextFormats.Italic}", $"{TextFormats.ItalicOff}{TextFormats.BoldOff}");            
+            pattern = @"___(.+?)___";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern, $"{TextFormats.Bold}{TextFormats.Italic}", $"{TextFormats.ItalicOff}{TextFormats.BoldOff}");            
+        
+            pattern =  @"\*\*(.+?)\*\*";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern, TextFormats.Bold, TextFormats.BoldOff);            
+            pattern =  @"__(.+?)__";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern, TextFormats.Bold, TextFormats.BoldOff); 
 
-            pattern = @"\*(.+?)\*|_(.+?)_";          // **Italic**
-            regex = new Regex(pattern, RegexOptions.Compiled);
-            matches = regex.Matches(line);
-            foreach (Match match in matches)
-                line = regex.Replace(line, $"{TextFormats.Italic}{match.Groups[1].Value}{TextFormats.ItalicOff}");
-                
-            pattern = @"~~~(.*?)~~~";            // ~~Dim~~
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, match =>
-                    $"{TextFormats.Dim}{match.Groups[1].Value}{TextFormats.DimOff}");
-            pattern = @"~~(.*?)~~";              // Strikethrough
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, match =>
-                    $"{TextFormats.Strike}{match.Groups[1].Value}{TextFormats.StrikeOff}");
-            pattern = @"~(.*?)~";                // _Underline_
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, match =>
-                    $"{TextFormats.Underline}{match.Groups[1].Value}{TextFormats.UnderlineOff}");
-            pattern = @"%(.*?)%";                // %Blink%
-            if (Regex.IsMatch(line, pattern))
-                line = Regex.Replace(line, pattern, match =>
-                    $"{TextFormats.Blink}{match.Groups[1].Value}{TextFormats.BlinkOff}");
+            pattern =  @"\*(.+?)\*";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern, TextFormats.Italic, TextFormats.ItalicOff);            
+            pattern =  @"_(.+?)_";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern, TextFormats.Italic, TextFormats.ItalicOff);
+
+            pattern = @"~~~(.*?)~~~";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern,TextFormats.Dim, TextFormats.DimOff);
+
+            pattern = @"~~(.*?)~~";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern,TextFormats.Strike, TextFormats.StrikeOff);
+
+            pattern = @"~(.*?)~";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern,TextFormats.Underline, TextFormats.UnderlineOff);
+
+            pattern = @"%(.*?)%";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = render(line, pattern,TextFormats.Blink, TextFormats.BlinkOff);
+
             return line;
         }
 
-        private string Blockquote(string line)
+        private string blockquote(string line)
         {
-            string pattern = @"^>";              // > Blockquote
-            if (Regex.IsMatch(line, pattern))
-                return Regex.Replace(line, pattern,
-                    $"{Backgrounds.Magenta} {Backgrounds.Reset}{Backgrounds.BrightBlack}{Foregrounds.White}\"") + $"\"{TextFormats.Reset}";
+            string pattern = @"^>";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                return render(line, pattern, $"{Backgrounds.Magenta} {Backgrounds.Reset}{Backgrounds.BrightBlack}{Foregrounds.White}\"", "")
+                    + $"\"{TextFormats.Reset}";
             return line;
         }
 
-        private string Code(string line)
+        private string code(string line)
         {
             string pattern = @"`(.*?)`";
-                line = Regex.Replace(line, pattern, match =>
-                    $"{Backgrounds.BrightBlack} {Backgrounds.Reset}{Backgrounds.Cyan}"+
-                        $"{Foregrounds.Black}{match.Groups[1].Value}{TextFormats.Reset}" +
-                        $"{Backgrounds.BrightBlack} {Backgrounds.Reset}");
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                return render(line, pattern,
+                    $"{Backgrounds.BrightBlack} {Backgrounds.Reset}{Backgrounds.Cyan}{Foregrounds.Black}",
+                    $"{Backgrounds.BrightBlack} {Backgrounds.Reset}{TextFormats.Reset}");
             return line;
         }
     }
