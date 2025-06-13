@@ -9,7 +9,7 @@ namespace clif
         private string[] codes = new string[1];
 
         private string? currentBackground;
-        private string? currentForeground;
+        private string? currentForeground = Foregrounds.White;
 
         private string encode(string line)
         {
@@ -20,14 +20,14 @@ namespace clif
             foreach (Match match in matches)
             {
                 codes[i] = match.Value;
-                line = line.Replace(codes[i], $"[][code{i++}][]");
+                line = line.Replace(codes[i], $"!?!code{i++}?!?");
             }
             return line;
         }
 
         private string decode(string line)
         {
-            Regex regex = new Regex(@"\[\]\[code\d+\]\[\]", RegexOptions.Compiled);
+            Regex regex = new Regex(@"\!\?\!(code\d+)\?\!\?", RegexOptions.Compiled);
             var matches = regex.Matches(line);
             for (int i = 0; i < codes.Length; i++)
                 line = line.Replace(matches[i].Value, codes[i]);
@@ -52,6 +52,7 @@ namespace clif
             line = encode(line);
             line = header(line);
             line = blockquote(line);
+            line = link(line);
             line = emphasis(line);
             line = highlight(line);
             line = rule(line);
@@ -59,7 +60,7 @@ namespace clif
             line = decode(line);
             line = code(line);
             currentBackground = currentForeground = null;
-            return line;
+            return line.Replace("🫱🏻", "[").Replace("🫷🏻","]"); //;0
         }
 
         private string header(string line)
@@ -104,6 +105,15 @@ namespace clif
                 return render(line, pattern, $"{Backgrounds.Magenta} {currentBackground}{currentForeground}\"", "")
                     + $"\"{TextFormats.Reset}";
             }
+            return line;
+        }
+
+        private string link(string line)
+        {
+            string pattern =  @"\[(.*?)\]\((.*?)\)";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                    line = Regex.Replace(line, pattern, match =>
+                        $"{Foregrounds.BrightBlue}{Other.Link(match.Groups[2].Value, match.Groups[1].Value)}{currentColors()}");
             return line;
         }
 
@@ -157,16 +167,6 @@ namespace clif
             return line;
         }
 
-        private string code(string line)
-        {
-            string pattern = @"`(.*?)`";
-            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                return render(line, pattern,
-                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{Backgrounds.BrightRed}",
-                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{currentColors()}");
-            return line;
-        }
-
         private string rule(string line)
         {
             string pattern = @"^---+";
@@ -177,5 +177,17 @@ namespace clif
             }
             return line;
         }
+
+        private string code(string line)
+        {
+            string pattern = @"`(.*?)`";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                return render(line, pattern,
+                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{Backgrounds.BrightRed}",
+                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{currentColors()}");
+            return line;
+        }
+
+
     }
 }

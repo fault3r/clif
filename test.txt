@@ -1,4 +1,3 @@
-
 #Header #1
 ##Header #2
 ###Header #3
@@ -27,8 +26,15 @@ Normal
 
 ##~~~dim~~~ _italic_ for %`in Code Block`% and **bold** ==highlight== test.
 
-###~~~dim~~~ normal **for** `in ~~Code Block` and ~underline~ **test**.
+###~~~dim~~~ [kjjj](j) normal **for** `in ~~Code Block` and ~underline~ **test**.
 
 >**Talk** is ~~~Cheap~~~, show ==me== the ~Code~. `-linus`
 
+#[alt](url) and [alt2](link2)
+
+[`~~Hamed Damavandi~~`](http://fault3r.com)
+test a [~~Hamed Damavandi~~](http://fault3r.com) after link
+> this is a link [**~~Hamed Damavandi~~**](http://fault3r.com) after link [another](http://aaa.com)
+##test [altText](Linkaddress) asda sdasd 
+test a ==[highlight link](ffff)== aaaaa
 End
