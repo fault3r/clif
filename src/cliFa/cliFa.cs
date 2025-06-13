@@ -9,12 +9,12 @@ namespace clif
         private string[] codes = new string[1];
 
         private string? currentBackground;
-        private string? currentForeground = Foregrounds.White;
+        private string? currentForeground;
 
         private string encode(string line)
         {
             Regex regex = new Regex(@"`(.*?)`", RegexOptions.Compiled);
-            var matches = regex.Matches(line);
+            MatchCollection matches = regex.Matches(line);
             codes = new string[matches.Count];
             int i = 0;
             foreach (Match match in matches)
@@ -28,7 +28,7 @@ namespace clif
         private string decode(string line)
         {
             Regex regex = new Regex(@"\!\?\!(code\d+)\?\!\?", RegexOptions.Compiled);
-            var matches = regex.Matches(line);
+            MatchCollection matches = regex.Matches(line);
             for (int i = 0; i < codes.Length; i++)
                 line = line.Replace(matches[i].Value, codes[i]);
             return line;
@@ -60,7 +60,7 @@ namespace clif
             line = decode(line);
             line = code(line);
             currentBackground = currentForeground = null;
-            return line.Replace("🫱🏻", "[").Replace("🫷🏻","]"); //;0
+            return line.Replace("🫱🏻", "[").Replace("🫷🏻", "]"); //;0
         }
 
         private string header(string line)
@@ -110,33 +110,33 @@ namespace clif
 
         private string link(string line)
         {
-            string pattern =  @"\[(.*?)\]\((.*?)\)";
+            string pattern = @"\[(.*?)\]\((.*?)\)";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                    line = Regex.Replace(line, pattern, match =>
-                        $"{Foregrounds.BrightBlue}{Other.Link(match.Groups[2].Value, match.Groups[1].Value)}{currentColors()}");
+                line = Regex.Replace(line, pattern, match =>
+                    $"{Foregrounds.BrightBlue}{Other.Link(match.Groups[2].Value, match.Groups[1].Value)}{currentColors()}");
             return line;
         }
 
         private string emphasis(string line)
         {
-            string pattern = @"\*\*\*(.+?)\*\*\*";
+            string pattern = @"\*\*\*(.*?)\*\*\*";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = render(line, pattern, $"{TextFormats.Bold}{TextFormats.Italic}", $"{TextFormats.ItalicOff}{TextFormats.BoldOff}");
-            pattern = @"___(.+?)___";
+            pattern = @"___(.*?)___";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = render(line, pattern, $"{TextFormats.Bold}{TextFormats.Italic}", $"{TextFormats.ItalicOff}{TextFormats.BoldOff}");
 
-            pattern = @"\*\*(.+?)\*\*";
+            pattern = @"\*\*(.*?)\*\*";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = render(line, pattern, TextFormats.Bold, TextFormats.BoldOff);
-            pattern = @"__(.+?)__";
+            pattern = @"__(.*?)__";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = render(line, pattern, TextFormats.Bold, TextFormats.BoldOff);
 
-            pattern = @"\*(.+?)\*";
+            pattern = @"\*(.*?)\*";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = render(line, pattern, TextFormats.Italic, TextFormats.ItalicOff);
-            pattern = @"_(.+?)_";
+            pattern = @"_(.*?)_";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = render(line, pattern, TextFormats.Italic, TextFormats.ItalicOff);
 
@@ -152,7 +152,7 @@ namespace clif
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = render(line, pattern, TextFormats.Underline, TextFormats.UnderlineOff);
 
-            pattern = @"%(.*?)%";
+            pattern = @"\%(.*?)\%";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = render(line, pattern, TextFormats.Blink, TextFormats.BlinkOff);
 
@@ -187,7 +187,5 @@ namespace clif
                     $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{currentColors()}");
             return line;
         }
-
-
     }
 }

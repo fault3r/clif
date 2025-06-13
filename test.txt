@@ -1,40 +1,32 @@
-#Header #1
-##Header #2
-###Header #3
 
-Normal
-**Bold**
-*Italic*
-***Bold & Italic***
-~Underline~
-~~Strike~~
-~~~Dim~~~
-%Blink%
+#Header 1      `#Header 1`
+##Header 2      `##Header 2`
+###Header 3      `###Header 3`
 
-==Highlight==
+Normal        `Normal`
+*Italic*        `*Italic* or _Italic_`
+**Bold**          `**Bold** or __Bold__`
+***Bold-Italic***   `***Bold-Italic*** or ___Bold-Italic___`
+~Underline~     `~Underline~`
+~~Strike~~        `~~Strike~~`
+~~~Dim~~~           `~~~Dim~~~`
+%Blink%         `%Blink%`
 
->Blockquote
+==Highlight==     `==Highlight==`
 
-`Code`
+>Blockquote  `>Blockquote`
 
---- Rule
+`Code`        `'Code'`
 
-###Tests:
-~~~dim~~~ ___bold italic___ for `in Code Block` and ~~strike~~ test.
+[Link](http://url.com)          `[Link](http://url.com)`
+
+--- `--- or more`
+
+###*Tests:
+----------
+>**Talk** is ~~~~~Cheap~~~~~, show ~me~ the ==Code==. [`-linus`](http://linux.kernel)
+
+##___Code___ is ==ART== that does %SOMETHING%. [GitHub](http://github.com)
+
+#use ~~~**` clif `**~~~ to open [MarkDown](link) files in __==linux==__ terminal.
 ---
-#~~~dim~~~ ***bold italic*** for `in Code Block` and ~~strike~~ test.
-
-##~~~dim~~~ _italic_ for %`in Code Block`% and **bold** ==highlight== test.
-
-###~~~dim~~~ [kjjj](j) normal **for** `in ~~Code Block` and ~underline~ **test**.
-
->**Talk** is ~~~Cheap~~~, show ==me== the ~Code~. `-linus`
-
-#[alt](url) and [alt2](link2)
-
-[`~~Hamed Damavandi~~`](http://fault3r.com)
-test a [~~Hamed Damavandi~~](http://fault3r.com) after link
-> this is a link [**~~Hamed Damavandi~~**](http://fault3r.com) after link [another](http://aaa.com)
-##test [altText](Linkaddress) asda sdasd 
-test a ==[highlight link](ffff)== aaaaa
-End
