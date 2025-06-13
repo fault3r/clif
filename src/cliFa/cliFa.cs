@@ -51,9 +51,11 @@ namespace clif
         {
             line = encode(line);
             line = header(line);
-            line = emphasis(line);
             line = blockquote(line);
+            line = emphasis(line);
+            line = highlight(line);
             line = rule(line);
+            //more...
             line = decode(line);
             line = code(line);
             currentBackground = currentForeground = null;
@@ -90,6 +92,19 @@ namespace clif
                 }
             }
             return isHeader ? render(line, pattern, $"{currentBackground}{currentForeground}", "") + TextFormats.Reset : line;
+        }
+
+        private string blockquote(string line)
+        {
+            string pattern = @"^>";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+            {
+                currentBackground = Backgrounds.BrightBlack;
+                currentForeground = Foregrounds.BrightWhite;
+                return render(line, pattern, $"{Backgrounds.Magenta} {currentBackground}{currentForeground}\"", "")
+                    + $"\"{TextFormats.Reset}";
+            }
+            return line;
         }
 
         private string emphasis(string line)
@@ -134,16 +149,11 @@ namespace clif
             return line;
         }
 
-        private string blockquote(string line)
+        private string highlight(string line)
         {
-            string pattern = @"^>";
+            string pattern = @"==(.*?)==";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-            {
-                currentBackground = Backgrounds.BrightBlack;
-                currentForeground = Foregrounds.BrightWhite;
-                return render(line, pattern, $"{Backgrounds.Magenta} {currentBackground}{currentForeground}\"", "")
-                    + $"\"{TextFormats.Reset}";
-            }
+                line = render(line, pattern, $"{Backgrounds.BrightWhite}{Foregrounds.Black}", currentColors());
             return line;
         }
 
@@ -162,7 +172,7 @@ namespace clif
             string pattern = @"^---+";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
             {
-                string hRule = "────────────────────────────────────────────────────";
+                string hRule = "─────────────────────────────────────────────";
                 return render(line, pattern, $"{Foregrounds.BrightWhite}{hRule}{Foregrounds.Reset}", "");
             }
             return line;

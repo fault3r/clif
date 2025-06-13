@@ -12,21 +12,23 @@ Normal
 ~~~Dim~~~
 %Blink%
 
+==Highlight==
+
 >Blockquote
 
 `Code`
 
---- rule
+--- Rule
 
 ###Tests:
 ~~~dim~~~ ___bold italic___ for `in Code Block` and ~~strike~~ test.
 ---
 #~~~dim~~~ ***bold italic*** for `in Code Block` and ~~strike~~ test.
 
-##~~~dim~~~ _italic_ for %`in Code Block`% and **bold** test.
+##~~~dim~~~ _italic_ for %`in Code Block`% and **bold** ==highlight== test.
 
 ###~~~dim~~~ normal **for** `in ~~Code Block` and ~underline~ **test**.
 
->**Talk** is ~~~Cheap~~~, show me the ~Code~. `-linus`
+>**Talk** is ~~~Cheap~~~, show ==me== the ~Code~. `-linus`
 
 End
