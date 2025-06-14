@@ -39,14 +39,16 @@ namespace clif
         private string render(string line, string pattern, string start, string end)
         {
             return Regex.Replace(line,
-                    pattern,
-                    match => $"{start}{match.Groups[1].Value}{end}",
-                    RegexOptions.Compiled);
+                pattern,
+                match => $"{start}{match.Groups[1].Value}{end}",
+                RegexOptions.Compiled);
         }
 
         private string currentColors()
         {
-            return string.IsNullOrEmpty(currentBackground) ? TextFormats.Reset : currentBackground + currentForeground;
+            return string.IsNullOrEmpty(currentBackground) ?
+                TextFormats.Reset :
+                currentBackground + currentForeground;
         }
 
         public string Render(string line)
@@ -122,9 +124,37 @@ namespace clif
                 line = Regex.Replace(line, pattern, match =>
                     $"{Foregrounds.Magenta}{match.Groups[1].Value}{currentColors()}");
                 line += $"\n{getImage(matches[i].Groups[2].Value).Result}" +
-                    $"{Foregrounds.Magenta}{TextFormats.Bold}-{matches[i].Groups[1].Value}-{TextFormats.BoldOff}{currentColors()}";
+                    $"{Foregrounds.Magenta}{TextFormats.Bold}{matches[i].Groups[1].Value}⤴ {TextFormats.BoldOff}[🖼 ]({matches[i].Groups[2].Value})" +
+                    currentColors();
             }
             return line;
+        }
+
+        static async Task<string> getImage(string path)
+        {
+            string command = $"jp2a {path} --color --fill --border --width=35";
+            var psi = new ProcessStartInfo
+            {
+                FileName = "/bin/bash",
+                Arguments = $"-c \"{command}\"",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+            };
+            Process ps = new()
+            {
+                StartInfo = psi,
+            };
+            ps.Start();
+            await ps.WaitForExitAsync();
+            string res = string.Empty;
+            string rout = ps.StandardOutput.ReadToEnd();
+            string rerror = ps.StandardError.ReadToEnd();
+            if (!string.IsNullOrEmpty(rout))
+                res += rout;
+            else if (!string.IsNullOrEmpty(rerror))
+                res += "-Error Loading Image-\n";
+            return res.Replace("[", "🫱🏻").Replace("]", "🫷🏻");
         }
 
         private string link(string line)
@@ -205,33 +235,6 @@ namespace clif
                     $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{Foregrounds.Black}{Backgrounds.BrightRed}",
                     $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{currentColors()}");
             return line;
-        }
-
-        static async Task<string> getImage(string path)
-        {
-            string command = $"jp2a {path} --color -b --width=35";
-            var psi = new ProcessStartInfo
-            {
-                FileName = "/bin/bash",
-                Arguments = $"-c \"{command}\"",
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-            };
-            Process ps = new()
-            {
-                StartInfo = psi,
-            };
-            ps.Start();
-            await ps.WaitForExitAsync();
-            string res = string.Empty;
-            string rout = ps.StandardOutput.ReadToEnd();
-            string rerror = ps.StandardError.ReadToEnd();
-            if (!string.IsNullOrEmpty(rout))
-                res += rout;
-            else if (!string.IsNullOrEmpty(rerror))
-                res += "-Error Loading Image-\n";
-            return res.Replace("[", "🫱🏻").Replace("]", "🫷🏻");
         }
     }
 }
