@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+using System.Runtime;
 using System.Text.RegularExpressions;
 using EscapeCodes;
 
@@ -52,6 +54,7 @@ namespace clif
             line = encode(line);
             line = header(line);
             line = blockquote(line);
+            line = image(line);
             line = link(line);
             line = emphasis(line);
             line = highlight(line);
@@ -104,6 +107,22 @@ namespace clif
                 currentForeground = Foregrounds.BrightWhite;
                 return render(line, pattern, $"{Backgrounds.Magenta} {currentBackground}{currentForeground}\"", "")
                     + $"\"{TextFormats.Reset}";
+            }
+            return line;
+        }
+
+        private string image(string line)
+        {
+            string pattern = @"\!\[(.*?)\]\((.*?)\)";
+            Regex regex = new Regex(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            string[] images = new string[matches.Count];
+            for (int i = 0; i < images.Length; i++)
+            {
+                line = Regex.Replace(line, pattern, match =>
+                    $"{Foregrounds.Magenta}{match.Groups[1].Value}{currentColors()}");
+                line += $"\n{getImage(matches[i].Groups[2].Value).Result}" +
+                    $"{Foregrounds.Magenta}{TextFormats.Bold}-{matches[i].Groups[1].Value}-{TextFormats.BoldOff}{currentColors()}";
             }
             return line;
         }
@@ -183,9 +202,36 @@ namespace clif
             string pattern = @"`(.*?)`";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 return render(line, pattern,
-                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{Backgrounds.BrightRed}",
+                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{Foregrounds.Black}{Backgrounds.BrightRed}",
                     $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{currentColors()}");
             return line;
+        }
+
+        static async Task<string> getImage(string path)
+        {
+            string command = $"jp2a {path} --color -b --width=35";
+            var psi = new ProcessStartInfo
+            {
+                FileName = "/bin/bash",
+                Arguments = $"-c \"{command}\"",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+            };
+            Process ps = new()
+            {
+                StartInfo = psi,
+            };
+            ps.Start();
+            await ps.WaitForExitAsync();
+            string res = string.Empty;
+            string rout = ps.StandardOutput.ReadToEnd();
+            string rerror = ps.StandardError.ReadToEnd();
+            if (!string.IsNullOrEmpty(rout))
+                res += rout;
+            else if (!string.IsNullOrEmpty(rerror))
+                res += "-Error Loading Image-\n";
+            return res.Replace("[", "🫱🏻").Replace("]", "🫷🏻");
         }
     }
 }

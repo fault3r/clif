@@ -19,7 +19,7 @@ namespace clif_cli
             // if (args.Length == 1 && !string.IsNullOrEmpty(args[0]))
             // {
                 // string file = args[0];
-                string file = @"/home/hamed-damavandi/Documents/clif/test.txt";
+                string file = @"/home/hamed-damavandi/Documents/clif/test.clf";
                 if (File.Exists(file))
                 {
                     string[]? lines = File.ReadAllLines(file);
