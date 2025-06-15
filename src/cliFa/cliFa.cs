@@ -124,7 +124,8 @@ namespace clif
                 line = Regex.Replace(line, pattern, match =>
                     $"{Foregrounds.Magenta}{match.Groups[1].Value}{currentColors()}");
                 line += $"\n{getImage(matches[i].Groups[2].Value).Result}" +
-                    $"{Foregrounds.Magenta}{TextFormats.Bold}{matches[i].Groups[1].Value}⤴ {TextFormats.BoldOff}[🖼 ]({matches[i].Groups[2].Value})" +
+                    $"{Foregrounds.Magenta}{TextFormats.Bold}{matches[i].Groups[1].Value}⤴ " +
+                    $"{TextFormats.BoldOff}[🖼 ](file://{matches[i].Groups[2].Value})" +
                     currentColors();
             }
             return line;
@@ -133,17 +134,16 @@ namespace clif
         static async Task<string> getImage(string path)
         {
             string command = $"jp2a {path} --color --fill --border --width=35";
-            var psi = new ProcessStartInfo
-            {
-                FileName = "/bin/bash",
-                Arguments = $"-c \"{command}\"",
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-            };
             Process ps = new()
             {
-                StartInfo = psi,
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "/bin/bash",
+                    Arguments = $"-c \"{command}\"",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                },
             };
             ps.Start();
             await ps.WaitForExitAsync();
