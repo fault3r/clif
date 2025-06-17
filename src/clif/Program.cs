@@ -1,25 +1,24 @@
-﻿using clif;
-using EscapeCodes;
+﻿using System;
+using clifCore.Application;
+using clifCore.Common;
 
-namespace clif_cli
+namespace clif.CLI
 {
     public class Program
     {
-        private static cliFa clif = new();
+        private static readonly Clif clif = new();
 
         public static void Main(string[] args)
         {
-            string output = string.Empty;
             if (args.Length == 0)
             {
-            //     output = clif.Render("#clif Readme");
-            //     Console.WriteLine(output);
-            //     return;
-            // }
-            // if (args.Length == 1 && !string.IsNullOrEmpty(args[0]))
-            // {
-                // string file = args[0];
-                string file = @"/home/hamed-damavandi/Documents/clif/test.clf";
+                Console.WriteLine(clifCLI.Readme());
+                return;
+            }
+                if (args.Length == 1 && !string.IsNullOrEmpty(args[0]))
+                {
+                // string file = @"/home/hamed-damavandi/Documents/clif/test.clf";
+                string file = args[0];
                 if (File.Exists(file))
                 {
                     string[]? lines = File.ReadAllLines(file);

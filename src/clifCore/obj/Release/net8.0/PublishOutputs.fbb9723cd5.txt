@@ -1,0 +1,3 @@
+/home/hamed-damavandi/Documents/clif/src/clifCore/bin/Release/net8.0/publish/clifCore.dll
+/home/hamed-damavandi/Documents/clif/src/clifCore/bin/Release/net8.0/publish/clifCore.deps.json
+/home/hamed-damavandi/Documents/clif/src/clifCore/bin/Release/net8.0/publish/clifCore.pdb

@@ -3,8 +3,6 @@
 /home/hamed-damavandi/Documents/clif/src/clif/bin/Debug/net8.0/clif.runtimeconfig.json
 /home/hamed-damavandi/Documents/clif/src/clif/bin/Debug/net8.0/clif.dll
 /home/hamed-damavandi/Documents/clif/src/clif/bin/Debug/net8.0/clif.pdb
-/home/hamed-damavandi/Documents/clif/src/clif/bin/Debug/net8.0/cliFa.dll
-/home/hamed-damavandi/Documents/clif/src/clif/bin/Debug/net8.0/cliFa.pdb
 /home/hamed-damavandi/Documents/clif/src/clif/obj/Debug/net8.0/clif.csproj.AssemblyReference.cache
 /home/hamed-damavandi/Documents/clif/src/clif/obj/Debug/net8.0/clif.GeneratedMSBuildEditorConfig.editorconfig
 /home/hamed-damavandi/Documents/clif/src/clif/obj/Debug/net8.0/clif.AssemblyInfoInputs.cache
@@ -17,3 +15,5 @@
 /home/hamed-damavandi/Documents/clif/src/clif/obj/Debug/net8.0/clif.pdb
 /home/hamed-damavandi/Documents/clif/src/clif/obj/Debug/net8.0/clif.genruntimeconfig.cache
 /home/hamed-damavandi/Documents/clif/src/clif/obj/Debug/net8.0/ref/clif.dll
+/home/hamed-damavandi/Documents/clif/src/clif/bin/Debug/net8.0/clifCore.dll
+/home/hamed-damavandi/Documents/clif/src/clif/bin/Debug/net8.0/clifCore.pdb

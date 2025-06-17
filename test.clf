@@ -1,3 +1,4 @@
+who you?
 
 #Header 1      `#Header 1`
 ##Header 2      `##Header 2`
@@ -20,7 +21,7 @@ Normal        `Normal`
 
 [Link](http://url.com)          `[Link](http://url.com)`
 
-![Image](/home/hamed-damavandi/Documents/clif/clif.png)  `![Image](clif.png)`
+![Image](/home/hamed-damavandi/Documents/clif/clif.png)         `![Image](clif.png)`
 
               `--- or more`
 ---
@@ -35,4 +36,3 @@ Normal        `Normal`
 
 Hi, It's me -> ![Hamed](/home/hamed-damavandi/Documents/clif/HamedDamavandi.jpg), my [Github](https://github.com/fault3r)
 -------
-![the one ring](/home/hamed-damavandi/Documents/clif/test.jpg)
