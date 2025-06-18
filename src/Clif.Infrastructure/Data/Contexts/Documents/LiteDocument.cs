@@ -1,10 +1,12 @@
 using System;
+using LiteDB;
 
-namespace Clif.Domain.Entities
+namespace Clif.Infrastructure.Data.Contexts.Documents
 {
-    public class Document
+    public class LiteDocument
     {
-        public int Id { get; set; }
+        [BsonId]
+        public ObjectId? Id { get; set; }
 
         public required string Title { get; set; }
 
@@ -13,5 +15,6 @@ namespace Clif.Domain.Entities
         public DateTime Updated { get; set; }
 
         public required string Group {get; set; }
+        
     }
 }

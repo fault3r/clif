@@ -26,6 +26,16 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "Clif.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Clif.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Clif.Domain.dll": {}
+        }
       }
     }
   },
@@ -93,10 +103,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Clif.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Clif.Domain/Clif.Domain.csproj",
+      "msbuildProject": "../Clif.Domain/Clif.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Clif.Domain >= 1.0.0",
       "LiteDB >= 5.0.21"
     ]
   },
@@ -125,7 +141,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/hamed-damavandi/Documents/clif/src/Clif.Domain/Clif.Domain.csproj": {
+              "projectPath": "/home/hamed-damavandi/Documents/clif/src/Clif.Domain/Clif.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
