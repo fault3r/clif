@@ -9,6 +9,7 @@ namespace clifCore.Common
         {
             int count = input.Length;
             int block = input.Length / 5;
+            block = block == 0 ? ++block : block;           
             int size = block;
             int color = 0;
             string output = Foregrounds.Clif[color];

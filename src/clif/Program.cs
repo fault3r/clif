@@ -6,30 +6,44 @@ namespace clif.CLI
 {
     public class Program
     {
-        private static readonly Clif clif = new();
+        private static readonly ClifCLI clif = new();
 
         public static void Main(string[] args)
         {
             if (args.Length == 0)
             {
-                Console.WriteLine(clifCLI.Readme());
+                Console.WriteLine(clif.Readme);
                 return;
             }
-                if (args.Length == 1 && !string.IsNullOrEmpty(args[0]))
-                {
-                // string file = @"/home/hamed-damavandi/Documents/clif/test.clf";
-                string file = args[0];
-                if (File.Exists(file))
-                {
-                    string[]? lines = File.ReadAllLines(file);
-                    foreach (string line in lines)
-                        Console.WriteLine(clif.Render(line));
-                }
-                else
-                    Console.WriteLine(clif.Render("###File not found!"));
-            }
             else
-                Console.WriteLine(clif.Render("##Invalid command!"));
+            {
+                string arg = args[0];
+                switch (arg)
+                {
+                    case "--markdown":
+                    case "-m":
+                        Console.WriteLine(clif.Markdown);
+                        break;
+                    case "--file":
+                    case "-f":
+                        string? file = args.Length > 1 ? args[1] : null;
+                        if (!string.IsNullOrEmpty(file) && File.Exists(file))
+                        {
+                            Console.WriteLine("it is ready to open file.");
+                        }
+                        else
+                            Console.WriteLine("clif: error loading file");
+                        break;
+                    case "--help":
+                    case "-h":
+                            Console.WriteLine(clif.Help);
+                        break;
+                    default:
+                        Console.WriteLine($"clif: invalid option - '{arg}'\n" +
+                            "try 'clif -h' for more information.");
+                        break;
+                }
+            }
         }
     }
 }

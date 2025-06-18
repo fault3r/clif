@@ -42,7 +42,7 @@ namespace clifCore.Domain.EscapeCodes
         public const string BrightMagenta = "\x1B🫱🏻95m";
         public const string BrightCyan = "\x1B🫱🏻96m";
         public const string BrightWhite = "\x1B🫱🏻97m";
-        public static string[] Clif = ["\x1B🫱🏻38;5;48m", "\x1B🫱🏻38;5;49m", "\x1B🫱🏻38;5;51m", "\x1B🫱🏻38;5;39m", "\x1B🫱🏻38;5;27m"];
+        public static string[] Clif => ["\x1B🫱🏻38;5;48m", "\x1B🫱🏻38;5;49m", "\x1B🫱🏻38;5;51m", "\x1B🫱🏻38;5;39m", "\x1B🫱🏻38;5;27m"];
     }
 
     public class Backgrounds

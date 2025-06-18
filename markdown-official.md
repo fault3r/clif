@@ -117,3 +117,16 @@ H~2~O
 ### Superscript
 
 X^2^
+----
+----
+
+###*Tests:
+---
+>**Talk** is ~~~~~Cheap~~~~~, show ~me~ the ==Code==. [`-linus`](http://linux.kernel)
+
+##___Code___ is ==ART== that does %SOMETHING%. [GitHub](http://github.com)
+
+#use ~~~**` clif `**~~~ to open [MarkDown](link) files in __==linux==__ terminal.
+
+Hi, It's me -> ![Hamed](/home/hamed-damavandi/Documents/clif/HamedDamavandi.jpg), my [Github](https://github.com/fault3r)
+-------
