@@ -4,14 +4,17 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
         {
-            "name": "C#: clif",
+            "name": "C#: Clif Debug",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/src/clif/clif.csproj",
-            "launchConfigurationId": "TargetFramework=;clif",
+            "projectPath": "${workspaceFolder}/src/Clif/Clif.csproj"
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
         }
-        
+
     ]
 }

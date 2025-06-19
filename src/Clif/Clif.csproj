@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="LiteDB" Version="5.0.21" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Clif.Application/Clif.Application.csproj" />
+    <ProjectReference Include="../Clif.Infrastructure/Clif.Infrastructure.csproj" />
+  </ItemGroup>
+  
 </Project>

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../Clif.Domain/Clif.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
