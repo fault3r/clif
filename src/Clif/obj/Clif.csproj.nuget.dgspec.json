@@ -29,6 +29,9 @@
             "projectReferences": {
               "/home/hamed-damavandi/Documents/clif/src/Clif.Domain/Clif.Domain.csproj": {
                 "projectPath": "/home/hamed-damavandi/Documents/clif/src/Clif.Domain/Clif.Domain.csproj"
+              },
+              "/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/Clif.Infrastructure.csproj": {
+                "projectPath": "/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/Clif.Infrastructure.csproj"
               }
             }
           }
@@ -223,6 +226,9 @@
             "projectReferences": {
               "/home/hamed-damavandi/Documents/clif/src/Clif.Application/Clif.Application.csproj": {
                 "projectPath": "/home/hamed-damavandi/Documents/clif/src/Clif.Application/Clif.Application.csproj"
+              },
+              "/home/hamed-damavandi/Documents/clif/src/Clif.Domain/Clif.Domain.csproj": {
+                "projectPath": "/home/hamed-damavandi/Documents/clif/src/Clif.Domain/Clif.Domain.csproj"
               },
               "/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/Clif.Infrastructure.csproj": {
                 "projectPath": "/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/Clif.Infrastructure.csproj"

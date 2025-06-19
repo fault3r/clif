@@ -1,31 +1,43 @@
 ﻿using System;
-using Clif.Application.DTOs;
+using Clif.Application;
 using Clif.Application.Interfaces;
-using Clif.Application.Services;
-using Clif.Domain.Interfaces;
-using Clif.Infrastructure.Data.Contexts;
-using Clif.Infrastructure.Repositories;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Clif
 {
-    public class Program
+    class Program
     {
+        private static ClifCli? _clifCli = new();
+
         public static void Main(string[] args)
         {
-            var services = new ServiceCollection()
-                .AddSingleton<LiteDbContext>(provider => new LiteDbContext("ClifDb.db", "Documents"))
-                .AddSingleton<IDocumentRepository, DocumentRepository>()
-                .AddSingleton<IDocumentService, DocumentService>()
-                .BuildServiceProvider();
-            var _documentService = services.GetService<IDocumentService>();
-            var added = _documentService?.Add(new AddDocumentDto(
-                "test title", "__test content__", DateTime.UtcNow, "Main"));
-            Console.WriteLine("\n"+added?.Documents?.FirstOrDefault()?.Id.ToString() + " was added");
-            var result = _documentService?.GetAll();
-            foreach (var item in result.Documents)
+            IDocumentService? clif = _clifCli?.DocumentService;
+            Console.Clear();
+
+            // Console.WriteLine(clif?.Delete("6853fc2d59447f040f294c67").Message);
+
+            // string id = "685401b9d7fb2401ddba9033";
+            // clif?.Update(id, new NewDocumentDto(
+            //     "Hamed Damavandi", "Hello, It's me.", DateTime.UtcNow, "Test"));
+
+            // Console.WriteLine(clif?.GetById(id).Documents?.First().Title+ "\n");
+            
+            Console.WriteLine(_clifCli?.Readme);
+            Console.WriteLine(_clifCli?.Markdown);
+
+            // Console.WriteLine(_clifCli?.MarkdownService?.Render("#Hello World"));
+
+            //var added = clif.Add(new AddDocumentDto($"Title {new Random().Next(100, 200).ToString()}", "content", DateTime.UtcNow, "Main"));
+            //Console.WriteLine(added.Documents?.First().Id + " <- added to the document list.");
+
+            var docs = clif?.GetAll().Documents;
+            if (docs != null)
             {
-                Console.WriteLine(item.Title);
+                Console.WriteLine("List of all documents:");
+                foreach (var doc in docs)
+                {
+                    string item = $"\nId: {doc.Id}\nTitle: {doc.Title}\nContent: {doc.Content}\nUpdated: {doc.Updated}\nGroup: {doc.Group}";
+                    Console.WriteLine(item);
+                }
             }
         }
     }

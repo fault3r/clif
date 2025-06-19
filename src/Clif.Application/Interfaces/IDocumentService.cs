@@ -9,7 +9,9 @@ namespace Clif.Application.Interfaces
 
         ServiceResult GetById(string id);
 
-        ServiceResult Add(AddDocumentDto document);
+        ServiceResult Add(NewDocumentDto document);
+
+        ServiceResult Update(string id, NewDocumentDto document);
 
         ServiceResult Delete(string id);
     }

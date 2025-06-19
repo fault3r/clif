@@ -42,11 +42,23 @@ namespace Clif.Application.Services
             return mapToServiceDto(_documentRepository.GetById(id));
         }
 
-        public ServiceResult Add(AddDocumentDto document)
+        public ServiceResult Add(NewDocumentDto document)
         {
             return mapToServiceDto(_documentRepository.Add(new Document
             {
-                Id = "[new id]",
+                Id = null,
+                Title = document.Title,
+                Content = document.Content,
+                Updated = document.Updated,
+                Group = document.Group,
+            }));
+        }
+
+        public ServiceResult Update(string id, NewDocumentDto document)
+        {
+            return mapToServiceDto(_documentRepository.Update(id, new Document
+            {
+                Id = null,
                 Title = document.Title,
                 Content = document.Content,
                 Updated = document.Updated,

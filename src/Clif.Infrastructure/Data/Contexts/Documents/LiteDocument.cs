@@ -6,7 +6,7 @@ namespace Clif.Infrastructure.Data.Contexts.Documents
     public class LiteDocument
     {
         [BsonId]
-        public ObjectId? Id { get; set; }
+        public required ObjectId? Id { get; set; }
 
         public required string Title { get; set; }
 
@@ -15,6 +15,5 @@ namespace Clif.Infrastructure.Data.Contexts.Documents
         public DateTime Updated { get; set; }
 
         public required string Group {get; set; }
-        
     }
 }

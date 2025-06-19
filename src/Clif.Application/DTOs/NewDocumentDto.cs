@@ -2,6 +2,6 @@ using System;
 
 namespace Clif.Application.DTOs
 {
-    public record AddDocumentDto(
+    public record NewDocumentDto(
         string Title, string? Content, DateTime Updated, string Group);
 }
