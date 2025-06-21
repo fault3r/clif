@@ -14,5 +14,7 @@ namespace Clif.Application.Interfaces
         ServiceResult Update(string id, NewDocumentDto document);
 
         ServiceResult Delete(string id);
+
+        bool Exists(string title);
     }
 }

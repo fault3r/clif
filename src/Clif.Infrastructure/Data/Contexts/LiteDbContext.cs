@@ -1,5 +1,6 @@
 using System;
 using Clif.Domain.Entities;
+using Clif.Infrastructure.Configurations;
 using Clif.Infrastructure.Data.Contexts.Documents;
 using LiteDB;
 
@@ -9,18 +10,15 @@ public class LiteDbContext
 {
     private readonly ILiteDatabase _liteDatabase;
 
-    private readonly string _database;
-    private readonly string _collection;
+    private readonly ILiteCollection<LiteDocument> _documents;
 
-    public LiteDbContext(string database, string collection)
+    public LiteDbContext(LiteDbSettings settings)
     {
-        _database = database;
-        _collection = collection;
-        _liteDatabase = new LiteDatabase(_database);
+        _liteDatabase = new LiteDatabase(settings.ConnectionString);
+
+        _documents = _liteDatabase.GetCollection<LiteDocument>(settings.CollectionName);
+        _documents.EnsureIndex(p => p.Title, unique: true);
     }
 
-    public ILiteCollection<LiteDocument> Documents => _liteDatabase.GetCollection<LiteDocument>(_collection);
-
-    public string Database { get { return _database; } }
-    public string Collection { get { return _collection; } }
+    public ILiteCollection<LiteDocument> Documents => _documents;
 }

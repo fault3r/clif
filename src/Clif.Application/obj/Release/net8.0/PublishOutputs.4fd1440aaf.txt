@@ -1,0 +1,8 @@
+/home/hamed-damavandi/Documents/clif/src/Clif.Application/bin/Release/net8.0/publish/Clif.Application.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Application/bin/Release/net8.0/publish/Clif.Application.deps.json
+/home/hamed-damavandi/Documents/clif/src/Clif.Application/bin/Release/net8.0/publish/Clif.Application.pdb
+/home/hamed-damavandi/Documents/clif/src/Clif.Application/bin/Release/net8.0/publish/LiteDB.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Application/bin/Release/net8.0/publish/Clif.Domain.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Application/bin/Release/net8.0/publish/Clif.Infrastructure.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Application/bin/Release/net8.0/publish/Clif.Domain.pdb
+/home/hamed-damavandi/Documents/clif/src/Clif.Application/bin/Release/net8.0/publish/Clif.Infrastructure.pdb

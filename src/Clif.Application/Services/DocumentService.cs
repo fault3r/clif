@@ -70,5 +70,7 @@ namespace Clif.Application.Services
         {
             return mapToServiceDto(_documentRepository.Delete(id));
         }
+
+        public bool Exists(string title) => _documentRepository.Exists(title);
     }
 }

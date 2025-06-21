@@ -1,0 +1,3 @@
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/bin/Release/net8.0/publish/Clif.Domain.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/bin/Release/net8.0/publish/Clif.Domain.deps.json
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/bin/Release/net8.0/publish/Clif.Domain.pdb

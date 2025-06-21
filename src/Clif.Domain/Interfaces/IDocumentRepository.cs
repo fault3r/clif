@@ -11,9 +11,11 @@ namespace Clif.Domain.Interfaces
         RepositoryResult GetById(string id);
 
         RepositoryResult Add(Document document);
-        
+
         RepositoryResult Update(string id, Document document);
 
         RepositoryResult Delete(string id);
+
+        bool Exists(string title);
     }
 }

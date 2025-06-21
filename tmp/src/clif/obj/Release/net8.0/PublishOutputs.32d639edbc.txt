@@ -1,7 +1,0 @@
-/home/hamed-damavandi/Documents/clif/src/clif/bin/Release/net8.0/publish/clif
-/home/hamed-damavandi/Documents/clif/src/clif/bin/Release/net8.0/publish/clif.dll
-/home/hamed-damavandi/Documents/clif/src/clif/bin/Release/net8.0/publish/clif.deps.json
-/home/hamed-damavandi/Documents/clif/src/clif/bin/Release/net8.0/publish/clif.runtimeconfig.json
-/home/hamed-damavandi/Documents/clif/src/clif/bin/Release/net8.0/publish/clif.pdb
-/home/hamed-damavandi/Documents/clif/src/clif/bin/Release/net8.0/publish/clifCore.dll
-/home/hamed-damavandi/Documents/clif/src/clif/bin/Release/net8.0/publish/clifCore.pdb

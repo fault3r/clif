@@ -16,7 +16,6 @@
     <ProjectReference Include="../Clif.Application/Clif.Application.csproj" />
     <ProjectReference Include="../Clif.Domain/Clif.Domain.csproj" />
     <ProjectReference Include="../Clif.Infrastructure/Clif.Infrastructure.csproj" />
-    <ProjectReference Include="../Clif.Markdown/Clif.Markdown.csproj" />
   </ItemGroup>
   
 </Project>
