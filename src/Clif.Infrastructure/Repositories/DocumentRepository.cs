@@ -71,6 +71,8 @@ namespace Clif.Infrastructure.Repositories
             }
         }
 
+
+
         public RepositoryResult Add(Document document)
         {
             try
@@ -158,5 +160,10 @@ namespace Clif.Infrastructure.Repositories
         public bool Exists(string title) =>
             _context.Documents.Exists(p => p.Title.Equals(
                 title.Trim(), StringComparison.CurrentCultureIgnoreCase));
+
+        public string? GetId(string title)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

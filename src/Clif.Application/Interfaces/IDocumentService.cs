@@ -15,6 +15,8 @@ namespace Clif.Application.Interfaces
 
         ServiceResult Delete(string id);
 
+        string? GetId(string title);
+
         bool Exists(string title);
     }
 }

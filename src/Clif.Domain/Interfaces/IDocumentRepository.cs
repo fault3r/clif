@@ -16,6 +16,8 @@ namespace Clif.Domain.Interfaces
 
         RepositoryResult Delete(string id);
 
+        string? GetId(string title);
+
         bool Exists(string title);
     }
 }
