@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Clif.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f10bb331116db4500b8a8211ade66d1e22cf4a27")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ad68354110be9025f13ad47ba4140fad0f6a1df")]
 [assembly: System.Reflection.AssemblyProductAttribute("Clif.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Clif.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
