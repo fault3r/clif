@@ -7,7 +7,7 @@ namespace Clif.Infrastructure.Data.Contexts.Documents
     public class LiteDocument
     {
         [BsonId(true)]
-        public required ObjectId? Id { get; set; }
+        public Int32 Id { get; set; }
 
         public required string Title { get; set; }
 

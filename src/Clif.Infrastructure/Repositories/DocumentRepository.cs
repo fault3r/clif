@@ -6,6 +6,7 @@ using Clif.Domain.Interfaces;
 using Clif.Infrastructure.Data.Contexts;
 using Clif.Infrastructure.Data.Contexts.Documents;
 using LiteDB;
+using static Clif.Domain.Interfaces.IDocumentRepository;
 
 namespace Clif.Infrastructure.Repositories
 {
@@ -20,15 +21,45 @@ namespace Clif.Infrastructure.Repositories
 
         private Document mapToDocument(LiteDocument liteDocument)
         {
-            var document = new Document
+             return new Document
             {
-                Id = liteDocument.Id?.ToString() ?? null,
+                Id = liteDocument.Id,
                 Title = liteDocument.Title,
                 Content = liteDocument.Content,
                 Updated = liteDocument.Updated,
                 Group = liteDocument.Group,
             };
-            return document;
+        }
+
+        public RepositoryResult Find(FindFilter field, string search)
+        {
+            try
+            {
+                LiteDocument? document = null;
+                switch (field)
+                {
+                    case FindFilter.Id:
+                        document = _context.Documents.FindById(new ObjectId(search));
+                        break;
+                    case FindFilter.Title:
+                        document = _context.Documents.Find(p => p.Title.Equals(search.Trim(), StringComparison.CurrentCultureIgnoreCase))
+                            .First();
+                        break;
+                }
+                if (document is null)
+                    return new RepositoryResult { Message = "document not found!" };
+                else
+                    return new RepositoryResult
+                    {
+                        Success = true,
+                        Message = "success.",
+                        Documents = [mapToDocument(document)],
+                    };
+            }
+            catch (Exception ex)
+            {
+                return new RepositoryResult { Message = $"error: {ex.Message}" };
+            }
         }
 
         public RepositoryResult GetAll()
@@ -50,20 +81,21 @@ namespace Clif.Infrastructure.Repositories
             }
         }
 
-        public RepositoryResult GetById(string id)
+        public RepositoryResult GetByTitle(string title)
         {
             try
             {
-                var document = _context.Documents.FindById(new ObjectId(id));
-                if (document is null)
-                    return new RepositoryResult { Message = "document not found!" };
-                else
+                var document = _context.Documents.Find(p => p.Title.Equals(title.Trim(), StringComparison.CurrentCultureIgnoreCase))
+                    .FirstOrDefault();
+                if (document != null)
                     return new RepositoryResult
                     {
                         Success = true,
                         Message = "success.",
                         Documents = [mapToDocument(document)],
                     };
+                else
+                    return new RepositoryResult { Message = "document not found!" };
             }
             catch (Exception ex)
             {
@@ -71,29 +103,24 @@ namespace Clif.Infrastructure.Repositories
             }
         }
 
-
-
         public RepositoryResult Add(Document document)
         {
             try
             {
                 var id = _context.Documents.Insert(new LiteDocument
                 {
-                    Id = null,
                     Title = document.Title.Trim(),
                     Content = document.Content,
                     Updated = document.Updated,
                     Group = document.Group,
                 });
                 if (id != null)
-                {
                     return new RepositoryResult
                     {
                         Success = true,
                         Message = "success.",
-                        Documents = GetById(id.AsObjectId.ToString()).Documents,
+                        Documents = GetByTitle(document.Title).Documents,
                     };
-                }
                 else
                     return new RepositoryResult { Message = "an unexpected error accured!" };
 
@@ -106,11 +133,11 @@ namespace Clif.Infrastructure.Repositories
             }
         }
 
-        public RepositoryResult Update(string id, Document document)
+        public RepositoryResult Update(string title, Document document)
         {
             try
             {
-                var update = GetById(id).Documents?.First();
+                var update = GetByTitle(title).Documents?.First();
                 if (update is null)
                     return new RepositoryResult { Message = "can not find the document!" };
                 else
@@ -161,9 +188,5 @@ namespace Clif.Infrastructure.Repositories
             _context.Documents.Exists(p => p.Title.Equals(
                 title.Trim(), StringComparison.CurrentCultureIgnoreCase));
 
-        public string? GetId(string title)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
