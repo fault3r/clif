@@ -42,7 +42,7 @@ namespace Clif.Application.Services
             mapToServiceDto(_documentRepository.Find(FindFilter.Id, id.ToString()));    
 
         public ServiceResult GetByTitle(string title) =>
-            mapToServiceDto(_documentRepository.Find(FindFilter.Id, title));    
+            mapToServiceDto(_documentRepository.Find(FindFilter.Title, title));    
 
         public ServiceResult Add(NewDocumentDto document)
         {

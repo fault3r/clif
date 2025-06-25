@@ -1,4 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
 using Clif.Application.DTOs;
 using Clif.Application.Interfaces;
 using Clif.Application.Services;
@@ -41,7 +40,7 @@ namespace Clif.Application
 
         public void Run(string[] args)
         {
-            // args = ["-a", "testing"];
+            // args = ["-i", "test"];
             if (args.Length > 0)
             {
                 string arg = args[0];
@@ -88,11 +87,11 @@ namespace Clif.Application
         {
             Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Documents List")}__"));
             var documents = DocumentService.GetAll().Documents;
-            if (documents?.Count() > 0)
+            if (documents?.Any()??false)
                 foreach (var document in documents)
-                    Console.WriteLine($"Title: {document.Title}\nContent: {document.Content}\nUpdated: {document.Updated}\nGroup: {document.Group}\n");
+                    Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
             else
-                Console.WriteLine("the document not found!");
+                Console.WriteLine("no documents found!");
         }
 
         private void Title(string[] args)
@@ -101,12 +100,9 @@ namespace Clif.Application
             {
                 Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Document")}__"));
                 string title = args[1];
-                var id = DocumentService.GetById(DocumentService.GetId(title) ?? ReturnTypeEncoder);
-                if (id != null)
-                {
-                    var document = DocumentService.GetById(id).Documents?.First();
-                    Console.WriteLine($"Title: {document.Title}\nContent: {document.Content}\nUpdated: {document.Updated}\nGroup: {document.Group}\n");
-                }
+                var document = DocumentService.GetByTitle(title).Documents?.FirstOrDefault();
+                if (document != null)
+                    Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
                 else
                     Console.WriteLine("the document not found!");
             }
@@ -127,11 +123,11 @@ namespace Clif.Application
                 Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("New Document")}__"));
                 Console.Write("Content: ");
                 var content = Console.ReadLine(); //fix
-                Console.Write("Group: ");
-                var group = Console.ReadLine();
-                group = group?.Trim() == "" ? null : group;
+                Console.Write("Category: ");
+                var category = Console.ReadLine();
+                category = category?.Trim() == "" ? null : category;
                 var result = DocumentService.Add(new NewDocumentDto(
-                    title, content, DateTime.UtcNow, group ?? "main"));
+                    title, content, category));
                 Console.WriteLine(result.Message);
             }
             else
@@ -160,15 +156,12 @@ namespace Clif.Application
                         Console.WriteLine("\naborted!");
                         return;
                     }
-                }                
-                var id = DocumentService.GetId(title);
-                if (id is null)
-                    Console.WriteLine("\nclif: an unexpected error accured!");
-                else
-                {
-                    var result = DocumentService.Delete(id);
-                    Console.WriteLine((yes ? "" : "\n") + result.Message);
                 }
+                var result = DocumentService.Delete(title);
+                if (result.Success)
+                    Console.WriteLine("res");
+                else
+                    Console.WriteLine("\nclif: an unexpected error accured!");
             }
             else
                 Console.WriteLine("clif: invalid '--delete' option command!");
