@@ -29,21 +29,21 @@ namespace Clif.Tests
             // foreach (var doc in docs)
             //     Console.WriteLine($"Id: {doc.Id} | Title: {doc.Title}");
 
-            DocumentRepository repo = new(new LiteDbContext(new LiteDbSettings
-            {
-                ConnectionString = "testdb.db",
-                CollectionName = "Documents",
-            }));
-            var res = repo.Update(new Domain.Entities.Document
-            {
-                Title = "test two",
-                Content = "aaaa",
-                Category = "dddddd",
-            });
-            var docs = repo.GetAll();
-            foreach (var doc in docs.Documents)
-                Console.WriteLine(doc.Id + " " + doc.Title);
-            Console.WriteLine(docs.Message);
+            // DocumentRepository repo = new(new LiteDbContext(new LiteDbSettings
+            // {
+            //     ConnectionString = "testdb.db",
+            //     CollectionName = "Documents",
+            // }));
+            // var res = repo.Update(new Domain.Entities.Document
+            // {
+            //     Title = "test two",
+            //     Content = "aaaa",
+            //     Category = "dddddd",
+            // });
+            // var docs = repo.GetAll();
+            // foreach (var doc in docs.Documents)
+            //     Console.WriteLine(doc.Id + " " + doc.Title);
+            // Console.WriteLine(docs.Message);
             // var res2 = repo.Delete(res.Documents.First().Id);
         }
     }

@@ -40,7 +40,7 @@ namespace Clif.Application
 
         public void Run(string[] args)
         {
-            // args = ["-i", "test"];
+            // args = ["-t", "test"];
             if (args.Length > 0)
             {
                 string arg = args[0];
@@ -87,11 +87,15 @@ namespace Clif.Application
         {
             Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Documents List")}__"));
             var documents = DocumentService.GetAll().Documents;
-            if (documents?.Any()??false)
+            if (documents?.Count() > 0)
+            {                
                 foreach (var document in documents)
                     Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
+                Console.WriteLine($"count: {documents.Count()}");
+                Console.WriteLine("clif: success.");
+            }
             else
-                Console.WriteLine("no documents found!");
+                Console.WriteLine("clif: no documents found!");
         }
 
         private void Title(string[] args)
@@ -102,9 +106,10 @@ namespace Clif.Application
                 string title = args[1];
                 var document = DocumentService.GetByTitle(title).Documents?.FirstOrDefault();
                 if (document != null)
-                    Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
+                    Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n"+
+                        "\nclif: success.");
                 else
-                    Console.WriteLine("the document not found!");
+                    Console.WriteLine("clif: the document not found!");
             }
             else
                 Console.WriteLine("clif: invalid '--title' option command!");
@@ -120,7 +125,7 @@ namespace Clif.Application
                     Console.WriteLine("clif: the document already exists!");
                     return;
                 }
-                Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("New Document")}__"));
+                Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Add Document")}__"));
                 Console.Write("Content: ");
                 var content = Console.ReadLine(); //fix
                 Console.Write("Category: ");
@@ -128,7 +133,7 @@ namespace Clif.Application
                 category = category?.Trim() == "" ? null : category;
                 var result = DocumentService.Add(new NewDocumentDto(
                     title, content, category));
-                Console.WriteLine(result.Message);
+                Console.WriteLine($"clif: {result.Message}");
             }
             else
                 Console.WriteLine("clif: invalid '--add' option command!");
@@ -150,18 +155,15 @@ namespace Clif.Application
                 Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Delete Document")}__"));
                 if (!yes)
                 {
-                    Console.Write("are you sure? (y/n): ");
+                    Console.Write("clif: are you sure? (y/n): ");
                     if (Console.ReadKey().Key != ConsoleKey.Y)
                     {
-                        Console.WriteLine("\naborted!");
+                        Console.WriteLine("\nclif: aborted!");
                         return;
                     }
                 }
                 var result = DocumentService.Delete(title);
-                if (result.Success)
-                    Console.WriteLine("res");
-                else
-                    Console.WriteLine("\nclif: an unexpected error accured!");
+                Console.WriteLine($"\nclif: {result.Message}");
             }
             else
                 Console.WriteLine("clif: invalid '--delete' option command!");
@@ -187,7 +189,7 @@ namespace Clif.Application
 
         private void Invalid(string arg) =>
             Console.WriteLine($"clif: invalid option! - '{arg}'\n" +
-                "try 'clif --help' for more information");
+                "clif: try '--help' for more information");
 
         private string Readme =>
             MarkdownService.Render($"__{MarkdownService.Gradient("Clif.")}__ " +
