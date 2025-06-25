@@ -1,6 +1,0 @@
-/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.csproj.AssemblyReference.cache
-/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.AssemblyInfoInputs.cache
-/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.AssemblyInfo.cs
-/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.csproj.CoreCompileInputs.cache
-/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.sourcelink.json

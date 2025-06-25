@@ -7,15 +7,15 @@ namespace Clif.Application.Interfaces
     {
         ServiceResult GetAll();
 
-        ServiceResult GetById(string id);
+        ServiceResult GetById(int id);
 
+        ServiceResult GetByTitle(string title);
+        
         ServiceResult Add(NewDocumentDto document);
 
-        ServiceResult Update(string id, NewDocumentDto document);
+        ServiceResult Update(string title, NewDocumentDto document);
 
-        ServiceResult Delete(string id);
-
-        string? GetId(string title);
+        ServiceResult Delete(string title);
 
         bool Exists(string title);
     }

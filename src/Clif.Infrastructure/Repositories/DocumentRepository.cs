@@ -21,52 +21,22 @@ namespace Clif.Infrastructure.Repositories
 
         private Document mapToDocument(LiteDocument liteDocument)
         {
-             return new Document
+            return new Document
             {
                 Id = liteDocument.Id,
                 Title = liteDocument.Title,
                 Content = liteDocument.Content,
-                Updated = liteDocument.Updated,
-                Group = liteDocument.Group,
+                Modified = liteDocument.Modified,
+                Category = liteDocument.Category,
             };
-        }
-
-        public RepositoryResult Find(FindFilter field, string search)
-        {
-            try
-            {
-                LiteDocument? document = null;
-                switch (field)
-                {
-                    case FindFilter.Id:
-                        document = _context.Documents.FindById(new ObjectId(search));
-                        break;
-                    case FindFilter.Title:
-                        document = _context.Documents.Find(p => p.Title.Equals(search.Trim(), StringComparison.CurrentCultureIgnoreCase))
-                            .First();
-                        break;
-                }
-                if (document is null)
-                    return new RepositoryResult { Message = "document not found!" };
-                else
-                    return new RepositoryResult
-                    {
-                        Success = true,
-                        Message = "success.",
-                        Documents = [mapToDocument(document)],
-                    };
-            }
-            catch (Exception ex)
-            {
-                return new RepositoryResult { Message = $"error: {ex.Message}" };
-            }
         }
 
         public RepositoryResult GetAll()
         {
             try
             {
-                var documents = _context.Documents.FindAll().OrderBy(p => p.Updated)
+                var documents = _context.Documents.FindAll()
+                    .OrderBy(p => p.Modified)
                     .Select(mapToDocument);
                 return new RepositoryResult
                 {
@@ -75,31 +45,33 @@ namespace Clif.Infrastructure.Repositories
                     Documents = documents,
                 };
             }
-            catch (Exception ex)
+            catch
             {
-                return new RepositoryResult { Message = $"error: {ex.Message}" };
+                return new RepositoryResult { Message = "an unexpected error accured!" };
             }
         }
 
-        public RepositoryResult GetByTitle(string title)
+        public RepositoryResult Find(FindFilter key, string value)
         {
             try
             {
-                var document = _context.Documents.Find(p => p.Title.Equals(title.Trim(), StringComparison.CurrentCultureIgnoreCase))
-                    .FirstOrDefault();
-                if (document != null)
-                    return new RepositoryResult
-                    {
-                        Success = true,
-                        Message = "success.",
-                        Documents = [mapToDocument(document)],
-                    };
-                else
-                    return new RepositoryResult { Message = "document not found!" };
+                var liteDocuments = key switch
+                {
+                    FindFilter.Id => _context.Documents.Find(p => p.Id == Convert.ToInt32(value)),
+                    FindFilter.Title => _context.Documents.Find(p => p.Title.Equals(value.Trim(), StringComparison.CurrentCultureIgnoreCase)),
+                    FindFilter.Category => _context.Documents.Find(p => p.Category == value.Trim()),
+                    _ => [],
+                };
+                return new RepositoryResult
+                {
+                    Success = true,
+                    Message = "success.",
+                    Documents = liteDocuments.Select(mapToDocument),
+                };
             }
-            catch (Exception ex)
+            catch
             {
-                return new RepositoryResult { Message = $"error: {ex.Message}" };
+                return new RepositoryResult { Message = "an unexpected error accured!" };
             }
         }
 
@@ -111,82 +83,85 @@ namespace Clif.Infrastructure.Repositories
                 {
                     Title = document.Title.Trim(),
                     Content = document.Content,
-                    Updated = document.Updated,
-                    Group = document.Group,
+                    Modified = DateTime.UtcNow,
+                    Category = document.Category,
                 });
-                if (id != null)
-                    return new RepositoryResult
-                    {
-                        Success = true,
-                        Message = "success.",
-                        Documents = GetByTitle(document.Title).Documents,
-                    };
-                else
-                    return new RepositoryResult { Message = "an unexpected error accured!" };
-
+                return new RepositoryResult
+                {
+                    Success = true,
+                    Message = "success.",
+                    Documents = Find(FindFilter.Id, id.AsInt32.ToString()).Documents,
+                };
             }
             catch (Exception ex)
             {
                 if (ex.Message.IndexOf("insert duplicate key") > -1)
-                    return new RepositoryResult { Message = "title field must be unique, choose a different title!" };
-                return new RepositoryResult { Message = $"error: {ex.Message}" };
+                    return new RepositoryResult { Message = "title field nust be unique!" };
+                return new RepositoryResult { Message = "an unexpected error accured!" };
             }
         }
 
-        public RepositoryResult Update(string title, Document document)
+        public RepositoryResult Update(int id, Document document)
         {
             try
             {
-                var update = GetByTitle(title).Documents?.First();
-                if (update is null)
-                    return new RepositoryResult { Message = "can not find the document!" };
-                else
+                var update = Find(FindFilter.Id, id.ToString()).Documents?.First();
+                if (update != null)
                 {
-                    _context.Documents.Update(new ObjectId(update.Id), new LiteDocument
+                    bool result = _context.Documents.Update(id, new LiteDocument
                     {
-                        Id = null,
                         Title = document.Title.Trim(),
                         Content = document.Content,
-                        Updated = document.Updated,
-                        Group = document.Group,
+                        Modified = DateTime.UtcNow,
+                        Category = document.Category,
                     });
-                    return new RepositoryResult
-                    {
-                        Success = true,
-                        Message = "success.",
-                        Documents = GetById(id).Documents,
-                    };
+                    if (result)
+                        return new RepositoryResult
+                        {
+                            Success = true,
+                            Message = "success.",
+                            Documents = Find(FindFilter.Id, id.ToString()).Documents,
+                        };
+                    else
+                        return new RepositoryResult { Message = "cannot update the document!" };
                 }
+                else
+                    return new RepositoryResult { Message = "no document found to update!" };
             }
-            catch (Exception ex)
+            catch
             {
-                return new RepositoryResult { Message = ex.Message };
+                return new RepositoryResult { Message = "an unexpected error accured!" };
             }
         }
 
-        public RepositoryResult Delete(string id)
+        public RepositoryResult Delete(int id)
         {
             try
             {
-                var result = _context.Documents.Delete(new ObjectId(id));
-                if (!result)
-                    return new RepositoryResult { Message = "can not delete the document!" };
+                var delete = Find(FindFilter.Id, id.ToString()).Documents?.First();
+                if (delete != null)
+                {
+                    bool result = _context.Documents.Delete(id);
+                    if (result)
+                        return new RepositoryResult
+                        {
+                            Success = true,
+                            Message = "success.",
+                        };
+                    else
+                        return new RepositoryResult { Message = "cannot delete the document!" };
+                }
                 else
-                    return new RepositoryResult
-                    {
-                        Success = true,
-                        Message = "success.",
-                    };
+                    return new RepositoryResult { Message = "no document found to delete!" };
             }
-            catch (Exception ex)
+            catch
             {
-                return new RepositoryResult { Message = ex.Message };
+                return new RepositoryResult { Message = "an unexpected error accured!" };
             }
         }
 
         public bool Exists(string title) =>
             _context.Documents.Exists(p => p.Title.Equals(
                 title.Trim(), StringComparison.CurrentCultureIgnoreCase));
-
     }
 }

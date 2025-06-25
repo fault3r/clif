@@ -3,5 +3,5 @@ using System;
 namespace Clif.Application.DTOs
 {
     public record DocumentDto(
-        string? Id, string Title, string? Content, DateTime Updated, string Group);
+        Int32 Id, string Title, string? Content, DateTime Modified, string Category);
 }

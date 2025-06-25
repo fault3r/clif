@@ -4,6 +4,7 @@ using Clif.Application.Interfaces;
 using Clif.Domain.Interfaces;
 using Clif.Domain.Entities;
 using Clif.Domain.DTOs;
+using static Clif.Domain.Interfaces.IDocumentRepository;
 
 namespace Clif.Application.Services
 {
@@ -19,7 +20,7 @@ namespace Clif.Application.Services
         private DocumentDto mapToDocumentDto(Document document)
         {
             return new DocumentDto(
-                document.Id, document.Title, document.Content, document.Updated, document.Group);
+                document.Id, document.Title, document.Content, document.Modified, document.Category);
         }
 
         private ServiceResult mapToServiceDto(RepositoryResult repositoryResult)
@@ -37,42 +38,43 @@ namespace Clif.Application.Services
             return mapToServiceDto(_documentRepository.GetAll());
         }
 
-        public ServiceResult GetById(string id)
-        {
-            return mapToServiceDto(_documentRepository.GetById(id));
-        }
+        public ServiceResult GetById(int id) =>
+            mapToServiceDto(_documentRepository.Find(FindFilter.Id, id.ToString()));    
+
+        public ServiceResult GetByTitle(string title) =>
+            mapToServiceDto(_documentRepository.Find(FindFilter.Id, title));    
 
         public ServiceResult Add(NewDocumentDto document)
         {
             return mapToServiceDto(_documentRepository.Add(new Document
             {
-                Id = null,
                 Title = document.Title,
                 Content = document.Content,
-                Updated = document.Updated,
-                Group = document.Group,
+                Category = document.Category ?? "white",
             }));
         }
 
-        public ServiceResult Update(string id, NewDocumentDto document)
+        public ServiceResult Update(string title, NewDocumentDto document)
         {
-            return mapToServiceDto(_documentRepository.Update(id, new Document
+            return mapToServiceDto(_documentRepository.Update(getId(title), new Document
             {
-                Id = null,
                 Title = document.Title,
                 Content = document.Content,
-                Updated = document.Updated,
-                Group = document.Group,
+                Category = document.Category ?? "white",
             }));
         }
 
-        public ServiceResult Delete(string id)
+        public ServiceResult Delete(string title)
         {
-            return mapToServiceDto(_documentRepository.Delete(id));
+            return mapToServiceDto(_documentRepository.Delete(getId(title)));
         }
-
-        public string? GetId(string title) => _documentRepository.GetId(title);
 
         public bool Exists(string title) => _documentRepository.Exists(title);
+
+        private int getId(string title)
+        {
+            var document = _documentRepository.Find(FindFilter.Title, title).Documents?.First();
+            return document is null ? 0 : document.Id;
+        }
     }
 }

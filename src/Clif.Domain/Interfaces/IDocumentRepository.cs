@@ -6,11 +6,9 @@ namespace Clif.Domain.Interfaces
 {
     public interface IDocumentRepository
     {
-        RepositoryResult Find(FindFilter field, string search);
-
         RepositoryResult GetAll();
 
-        RepositoryResult GetByTitle(string title);
+        RepositoryResult Find(FindFilter key, string value);
 
         RepositoryResult Add(Document document);
 
@@ -24,6 +22,7 @@ namespace Clif.Domain.Interfaces
         {
             Id,
             Title,
+            Category,
         }
     }
 }

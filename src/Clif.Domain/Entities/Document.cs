@@ -10,8 +10,8 @@ namespace Clif.Domain.Entities
 
         public string? Content { get; set; }
 
-        public DateTime Updated { get; set; }
+        public DateTime Modified { get; set; }
 
-        public required string Group {get; set; }
+        public required string Category {get; set; }
     }
 }
