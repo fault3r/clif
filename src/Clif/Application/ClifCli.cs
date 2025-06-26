@@ -40,7 +40,6 @@ namespace Clif.Application
 
         public void Run(string[] args)
         {
-            // args = ["-s", "h"];
             if (args.Length > 0)
             {
                 string arg = args[0];
@@ -213,7 +212,7 @@ namespace Clif.Application
                 $"clif: invalid option! - '{arg}'") ;
 
         private string Readme =>
-            MarkdownService.Render($"__{MarkdownService.Gradient("Clif.")}__\n" +
+            MarkdownService.Render($"__{MarkdownService.Gradient("Clif.")}__ " +
                 "~terminal~-base ==**Document Library**== in __Markdown__ format.\n") +
                 "usage: clif [OPTION]...";
 

@@ -17,13 +17,18 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = emphasis(line);
             line = highlight(line);
             line = rule(line);
-            //more...
+            line = tasklist(line);
+            line = unordered(line);
+            line = ordered(line);
+            //more... 
             line = decode(line);
             line = code(line);
             line = ready(false, line);
             background = foreground = null;
             return line;
         }
+
+        private bool isComplex = false;
 
         private string? background;
         private string? foreground;
@@ -130,7 +135,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             string[] images = new string[matches.Count];
             for (int i = 0; i < images.Length; i++)
             {
-                string mode = matches[i].Groups[2].Value.IndexOf("http") == -1 ? "file://" : "";
+                string mode = !matches[i].Groups[2].Value.Contains("http") ? "file://" : "";
                 line = Regex.Replace(line, pattern, match =>
                     $"{Foregrounds.Magenta}{match.Groups[1].Value}{colors()}");
                 line += $"\n{toJP2A(matches[i].Groups[2].Value)}" +
@@ -214,6 +219,37 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 string hRule = "─────────────────────────────────────────────";
                 return render(line, pattern, $"{Foregrounds.BrightWhite}{hRule}{Foregrounds.Reset}", "");
             }
+            return line;
+        }
+
+        private string tasklist(string line)
+        {
+            string pattern = @"- \[[ x]\]";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = Regex.Replace(line, pattern, match =>
+                    $"{Foregrounds.Green}   " +
+                    (match.Groups[0].Value == "- [ ]" ? "✗ " : "✔ ") +
+                    $"\t{Foregrounds.Reset}");
+            return line;
+        }
+
+        private string unordered(string line)
+        {
+            string pattern = @"^-+";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+            {
+                string bullet = $"   {Foregrounds.Green}❂ {Foregrounds.Reset}";
+                return render(line, pattern, $"{Foregrounds.BrightWhite}{bullet}\t{Foregrounds.Reset}", "");
+            }
+            return line;
+        }
+
+        private string ordered(string line)
+        {
+            string pattern = @"^\d+\.";
+            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                line = Regex.Replace(line, pattern, match =>
+                    $"{Foregrounds.Green}   {match.Groups[0].Value}\t{Foregrounds.Reset}");
             return line;
         }
 
