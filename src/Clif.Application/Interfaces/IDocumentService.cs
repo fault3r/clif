@@ -7,10 +7,10 @@ namespace Clif.Application.Interfaces
     {
         ServiceResult GetAll();
 
-        ServiceResult GetById(int id);
-
         ServiceResult GetByTitle(string title);
         
+        ServiceResult FindByTitle(string title);
+
         ServiceResult Add(NewDocumentDto document);
 
         ServiceResult Update(string title, NewDocumentDto document);

@@ -9,6 +9,6 @@ namespace Clif.Domain.DTOs
 
         public required string Message { get; set; }
 
-        public IEnumerable<Document>? Documents { get; set; }
+        public IEnumerable<Document> Documents { get; set; } = [];
     }
 }

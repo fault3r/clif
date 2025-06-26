@@ -8,7 +8,7 @@ namespace Clif.Domain.Interfaces
     {
         RepositoryResult GetAll();
 
-        RepositoryResult Find(FindFilter key, string value);
+        RepositoryResult GetBy(FindFilter key, string value);
 
         RepositoryResult Add(Document document);
 
@@ -23,6 +23,7 @@ namespace Clif.Domain.Interfaces
             Id,
             Title,
             Category,
+            Find,
         }
     }
 }

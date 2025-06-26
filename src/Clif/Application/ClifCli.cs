@@ -40,7 +40,7 @@ namespace Clif.Application
 
         public void Run(string[] args)
         {
-            // args = ["-t", "test"];
+            // args = ["-s", "h"];
             if (args.Length > 0)
             {
                 string arg = args[0];
@@ -66,6 +66,10 @@ namespace Clif.Application
                     case "-t":
                         Title(args);
                         break;
+                    case "--search":
+                    case "-s":
+                        Search(args);
+                        break;
                     case "--add":
                     case "-a":
                         Add(args);
@@ -86,16 +90,14 @@ namespace Clif.Application
         private void List()
         {
             Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Documents List")}__"));
-            var documents = DocumentService.GetAll().Documents;
-            if (documents?.Count() > 0)
-            {                
-                foreach (var document in documents)
+            var result = DocumentService.GetAll();
+            if (result.Success)
+            {
+                foreach (var document in result.Documents)
                     Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
-                Console.WriteLine($"count: {documents.Count()}");
-                Console.WriteLine("clif: success.");
+                Console.WriteLine($"count: {result.Documents.Count()}");
             }
-            else
-                Console.WriteLine("clif: no documents found!");
+            Console.WriteLine($"clif: {result.Message}");
         }
 
         private void Title(string[] args)
@@ -104,15 +106,33 @@ namespace Clif.Application
             {
                 Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Document")}__"));
                 string title = args[1];
-                var document = DocumentService.GetByTitle(title).Documents?.FirstOrDefault();
-                if (document != null)
-                    Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n"+
-                        "\nclif: success.");
-                else
-                    Console.WriteLine("clif: the document not found!");
+                var result = DocumentService.GetByTitle(title);
+                if (result.Success)
+                    foreach (var document in result.Documents)
+                        Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
+                Console.WriteLine($"clif: {result.Message}");
             }
             else
                 Console.WriteLine("clif: invalid '--title' option command!");
+        }
+
+        private void Search(string[] args)
+        {
+            if (args.Length > 1)
+            {
+                Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Search Documents")}__"));
+                string text = args[1];
+                var result = DocumentService.FindByTitle(text);
+                if (result.Success)
+                {
+                    foreach (var document in result.Documents)
+                        Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
+                    Console.WriteLine($"count: {result.Documents.Count()}");
+                }
+                Console.WriteLine($"clif: {result.Message}");
+            }
+            else
+                Console.WriteLine("clif: invalid '--search' option command!");
         }
 
         private void Add(string[] args)
@@ -144,16 +164,13 @@ namespace Clif.Application
             if (args.Length > 1)
             {
                 string title = args[1];
-                bool yes = false;
-                if (args.Length > 2 && (args[2] == "-y" || args[2] == "--yes"))
-                    yes = true;
                 if (!DocumentService.Exists(title))
                 {
                     Console.WriteLine("clif: the document not found!");
                     return;
                 }
                 Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Delete Document")}__"));
-                if (!yes)
+                if (!(args.Length > 2 && (args[2] == "-y" || args[2] == "--yes")))
                 {
                     Console.Write("clif: are you sure? (y/n): ");
                     if (Console.ReadKey().Key != ConsoleKey.Y)

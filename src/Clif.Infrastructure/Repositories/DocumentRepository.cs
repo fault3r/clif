@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Immutable;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 using Clif.Domain.DTOs;
 using Clif.Domain.Entities;
 using Clif.Domain.Interfaces;
@@ -38,12 +40,15 @@ namespace Clif.Infrastructure.Repositories
                 var documents = _context.Documents.FindAll()
                     .OrderBy(p => p.Modified)
                     .Select(mapToDocument);
-                return new RepositoryResult
-                {
-                    Success = true,
-                    Message = "success.",
-                    Documents = documents,
-                };
+                if (documents.Any())
+                    return new RepositoryResult
+                    {
+                        Success = true,
+                        Message = "success.",
+                        Documents = documents,
+                    };
+                else
+                    return new RepositoryResult { Message = "no documents found!" };
             }
             catch
             {
@@ -51,23 +56,27 @@ namespace Clif.Infrastructure.Repositories
             }
         }
 
-        public RepositoryResult Find(FindFilter key, string value)
+        public RepositoryResult GetBy(FindFilter key, string value)
         {
             try
             {
                 var liteDocuments = key switch
                 {
                     FindFilter.Id => _context.Documents.Find(p => p.Id == Convert.ToInt32(value)),
-                    FindFilter.Title => _context.Documents.Find(p => p.Title.Equals(value.Trim(), StringComparison.CurrentCultureIgnoreCase)),
-                    FindFilter.Category => _context.Documents.Find(p => p.Category == value.Trim()),
+                    FindFilter.Title => _context.Documents.Find(p => p.Title.Equals(value, StringComparison.CurrentCultureIgnoreCase)),
+                    FindFilter.Category => _context.Documents.Find(p => p.Category == value),
+                    FindFilter.Find => _context.Documents.Find(p => p.Title.Contains(value)),
                     _ => [],
                 };
-                return new RepositoryResult
-                {
-                    Success = true,
-                    Message = "success.",
-                    Documents = liteDocuments.Select(mapToDocument),
-                };
+                if (liteDocuments.Any())
+                    return new RepositoryResult
+                    {
+                        Success = true,
+                        Message = "success.",
+                        Documents = liteDocuments.Select(mapToDocument),
+                    };
+                else
+                    return new RepositoryResult { Message = "no documents found!" };
             }
             catch
             {
@@ -90,13 +99,13 @@ namespace Clif.Infrastructure.Repositories
                 {
                     Success = true,
                     Message = "success.",
-                    Documents = Find(FindFilter.Id, id.AsInt32.ToString()).Documents,
+                    Documents = GetBy(FindFilter.Id, id.AsInt32.ToString()).Documents,
                 };
             }
             catch (Exception ex)
             {
-                if (ex.Message.IndexOf("insert duplicate key") > -1)
-                    return new RepositoryResult { Message = "title field nust be unique!" };
+                if (ex.Message.Contains("insert duplicate key"))
+                    return new RepositoryResult { Message = "the document already exists!" };
                 return new RepositoryResult { Message = "an unexpected error accured!" };
             }
         }
@@ -105,7 +114,7 @@ namespace Clif.Infrastructure.Repositories
         {
             try
             {
-                var update = Find(FindFilter.Id, id.ToString()).Documents?.First();
+                var update = GetBy(FindFilter.Id, id.ToString()).Documents?.First();
                 if (update != null)
                 {
                     bool result = _context.Documents.Update(id, new LiteDocument
@@ -120,13 +129,13 @@ namespace Clif.Infrastructure.Repositories
                         {
                             Success = true,
                             Message = "success.",
-                            Documents = Find(FindFilter.Id, id.ToString()).Documents,
+                            Documents = GetBy(FindFilter.Id, id.ToString()).Documents,
                         };
                     else
                         return new RepositoryResult { Message = "cannot update the document!" };
                 }
                 else
-                    return new RepositoryResult { Message = "no document found to update!" };
+                    return new RepositoryResult { Message = "the document not found!" };
             }
             catch
             {
@@ -138,7 +147,7 @@ namespace Clif.Infrastructure.Repositories
         {
             try
             {
-                var delete = Find(FindFilter.Id, id.ToString()).Documents?.First();
+                var delete = GetBy(FindFilter.Id, id.ToString()).Documents?.First();
                 if (delete != null)
                 {
                     bool result = _context.Documents.Delete(id);
@@ -152,7 +161,7 @@ namespace Clif.Infrastructure.Repositories
                         return new RepositoryResult { Message = "cannot delete the document!" };
                 }
                 else
-                    return new RepositoryResult { Message = "no document found to delete!" };
+                    return new RepositoryResult { Message = "the document not found!" };
             }
             catch
             {

@@ -8,6 +8,6 @@ namespace Clif.Application.DTOs
 
         public required string Message { get; set; }
 
-        public IEnumerable<DocumentDto>? Documents { get; set; }
+        public IEnumerable<DocumentDto> Documents { get; set; } = [];
     }
 }

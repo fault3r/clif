@@ -29,7 +29,7 @@ namespace Clif.Application.Services
             {
                 Success = repositoryResult.Success,
                 Message = repositoryResult.Message,
-                Documents = repositoryResult.Documents?.Select(mapToDocumentDto),
+                Documents = repositoryResult.Documents.Select(mapToDocumentDto),
             };
         }
 
@@ -37,12 +37,12 @@ namespace Clif.Application.Services
         {
             return mapToServiceDto(_documentRepository.GetAll());
         }
-
-        public ServiceResult GetById(int id) =>
-            mapToServiceDto(_documentRepository.Find(FindFilter.Id, id.ToString()));    
-
+        
         public ServiceResult GetByTitle(string title) =>
-            mapToServiceDto(_documentRepository.Find(FindFilter.Title, title));    
+            mapToServiceDto(_documentRepository.GetBy(FindFilter.Title, title));    
+
+        public ServiceResult FindByTitle(string title) =>
+            mapToServiceDto(_documentRepository.GetBy(FindFilter.Find, title));    
 
         public ServiceResult Add(NewDocumentDto document)
         {
@@ -73,7 +73,7 @@ namespace Clif.Application.Services
 
         private int getId(string title)
         {
-            var document = _documentRepository.Find(FindFilter.Title, title).Documents?.First();
+            var document = _documentRepository.GetBy(FindFilter.Title, title).Documents.First();
             return document is null ? 0 : document.Id;
         }
     }
