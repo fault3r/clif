@@ -87,14 +87,19 @@ namespace Clif.Application
                 Console.WriteLine(Readme);
         }
 
+        private void writeDocuments(IEnumerable<DocumentDto> documents)
+        {
+            foreach (var document in documents)
+                Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
+        }
+
         private void List()
         {
             Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Documents List")}__"));
             var result = DocumentService.GetAll();
             if (result.Success)
             {
-                foreach (var document in result.Documents)
-                    Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
+                writeDocuments(result.Documents);
                 Console.WriteLine($"count: {result.Documents.Count()}");
             }
             Console.WriteLine($"clif: {result.Message}");
@@ -108,8 +113,7 @@ namespace Clif.Application
                 string title = args[1];
                 var result = DocumentService.GetByTitle(title);
                 if (result.Success)
-                    foreach (var document in result.Documents)
-                        Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
+                    writeDocuments(result.Documents);
                 Console.WriteLine($"clif: {result.Message}");
             }
             else
@@ -125,8 +129,7 @@ namespace Clif.Application
                 var result = DocumentService.FindByTitle(text);
                 if (result.Success)
                 {
-                    foreach (var document in result.Documents)
-                        Console.WriteLine($"Id: {document.Id}\nTitle: {document.Title}\nContent: {document.Content}\nModified: {document.Modified}\nCategory: {document.Category}\n");
+                    writeDocuments(result.Documents);
                     Console.WriteLine($"count: {result.Documents.Count()}");
                 }
                 Console.WriteLine($"clif: {result.Message}");
@@ -205,11 +208,12 @@ namespace Clif.Application
         }
 
         private void Invalid(string arg) =>
-            Console.WriteLine($"clif: invalid option! - '{arg}'\n" +
-                "clif: try '--help' for more information");
+            Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Error")}__\n") +
+                "clif: try '--help' for more information\n"+
+                $"clif: invalid option! - '{arg}'") ;
 
         private string Readme =>
-            MarkdownService.Render($"__{MarkdownService.Gradient("Clif.")}__ " +
+            MarkdownService.Render($"__{MarkdownService.Gradient("Clif.")}__\n" +
                 "~terminal~-base ==**Document Library**== in __Markdown__ format.\n") +
                 "usage: clif [OPTION]...";
 
