@@ -9,8 +9,8 @@ namespace Clif.Infrastructure.Services.Markdown.Application
     {
         public string Render(string line)
         {
-            line = encode(line);
-            line = header(line);
+            line = Encode(line);
+            line = Header(line);
             line = blockquote(line);
             line = image(line);
             line = link(line);
@@ -21,24 +21,26 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = unordered(line);
             line = ordered(line);
             //more... 
-            line = decode(line);
+            line = Decode(line);
             line = code(line);
-            line = ready(false, line);
+            line = getReady(false, line);
             background = foreground = null;
             return line;
         }
-
-        private bool isComplex = false;
 
         private string? background;
         private string? foreground;
 
         private string[] codes = new string[1];
 
-        private string encode(string line)
+        private MatchCollection getMatches(string line, string pattern)
         {
-            Regex regex = new Regex(@"`(.*?)`", RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            return regex.Matches(line);
+        }
+        private string Encode(string line)
+        {
+            var matches = getMatches(line, @"`(.*?)`");
             codes = new string[matches.Count];
             int i = 0;
             foreach (Match match in matches)
@@ -49,16 +51,15 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             return line;
         }
 
-        private string decode(string line)
+        private string Decode(string line)
         {
-            Regex regex = new Regex(@"\!\?\!(code\d+)\?\!\?", RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
+            var matches = getMatches(line, @"\!\?\!(code\d+)\?\!\?");
             for (int i = 0; i < codes.Length; i++)
                 line = line.Replace(matches[i].Value, codes[i]);
             return line;
         }
 
-        private string ready(bool mode, string line)
+        private string getReady(bool mode, string line)
         {
             if (mode)
                 line = line.Replace("[", "⤀").Replace("]", "⤙");
@@ -75,18 +76,16 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 RegexOptions.Compiled);
         }
 
-        private string colors()
-        {
-            return string.IsNullOrEmpty(background) ?
+        private string currentColors() =>
+                string.IsNullOrEmpty(background) ?
                 TextFormats.Reset :
                 background + foreground;
-        }
 
-        private string header(string line)
+        private string Header(string line)
         {
+            string[] patterns = [@"^###", @"^##", @"^#"];
             bool isHeader = false;
             string pattern = string.Empty;
-            string[] patterns = [@"^###", @"^##", @"^#"];
             for (int i = 0; i < patterns.Length; i++)
             {
                 pattern = patterns[i];
@@ -137,11 +136,11 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             {
                 string mode = !matches[i].Groups[2].Value.Contains("http") ? "file://" : "";
                 line = Regex.Replace(line, pattern, match =>
-                    $"{Foregrounds.Magenta}{match.Groups[1].Value}{colors()}");
+                    $"{Foregrounds.Magenta}{match.Groups[1].Value}{currentColors()}");
                 line += $"\n{toJP2A(matches[i].Groups[2].Value)}" +
                     $"{Foregrounds.Magenta}{TextFormats.Bold}{matches[i].Groups[1].Value}⤴ " +
                     $"{TextFormats.BoldOff}[🖼 ]({mode}{matches[i].Groups[2].Value})" +
-                    colors();
+                    currentColors();
             }
             return line;
         }
@@ -149,7 +148,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         private string toJP2A(string image)
         {
             string jp2a = AsciiArt.ToJP2A(image).Result;
-            return ready(true, jp2a);
+            return getReady(true, jp2a);
         }
 
         private string link(string line)
@@ -157,7 +156,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             string pattern = @"\[(.*?)\]\((.*?)\)";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 line = Regex.Replace(line, pattern, match =>
-                    $"{Foregrounds.BrightBlue}{Other.Link(match.Groups[2].Value, match.Groups[1].Value)}{colors()}");
+                    $"{Foregrounds.BrightBlue}{Other.Link(match.Groups[2].Value, match.Groups[1].Value)}{currentColors()}");
             return line;
         }
 
@@ -207,7 +206,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         {
             string pattern = @"==(.*?)==";
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-                line = render(line, pattern, $"{Backgrounds.BrightWhite}{Foregrounds.Black}", colors());
+                line = render(line, pattern, $"{Backgrounds.BrightWhite}{Foregrounds.Black}", currentColors());
             return line;
         }
 
@@ -259,7 +258,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
                 return render(line, pattern,
                     $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{Foregrounds.Black}{Backgrounds.BrightRed}",
-                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{colors()}");
+                    $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{currentColors()}");
             return line;
         }
     }

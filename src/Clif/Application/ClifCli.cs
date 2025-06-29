@@ -40,6 +40,7 @@ namespace Clif.Application
 
         public void Run(string[] args)
         {
+            args = ["-m"];
             if (args.Length > 0)
             {
                 string arg = args[0];
@@ -208,8 +209,8 @@ namespace Clif.Application
 
         private void Invalid(string arg) =>
             Console.WriteLine(MarkdownService.Render($"__{MarkdownService.Gradient("Error")}__\n") +
-                "clif: try '--help' for more information\n"+
-                $"clif: invalid option! - '{arg}'") ;
+                "clif: try '--help' for more information\n" +
+                $"clif: invalid option! - '{arg}'");
 
         private string Readme =>
             MarkdownService.Render($"__{MarkdownService.Gradient("Clif.")}__ " +
@@ -238,6 +239,18 @@ namespace Clif.Application
                 MarkdownService.Render("`Code`") + "           `Code`\n\n" +
                 MarkdownService.Render("[Link](http://url.com)") + "             [Link](http://url.com)\n\n" +
                 MarkdownService.Render("![Image](clif.png)") + "        ![Image](clif.png)\n\n" +
+                MarkdownService.Render("Unordered List\n") +
+                MarkdownService.Render("-Item1") + "    - Item1\n" +
+                MarkdownService.Render("-Item2") + "    - Item2\n" +
+                MarkdownService.Render("-Item3") + "    - Item3\n\n" +
+                MarkdownService.Render("Ordered List\n") +
+                MarkdownService.Render("1.Item1") + "    1. Item1\n" +
+                MarkdownService.Render("2.Item2") + "    2. Item2\n" +
+                MarkdownService.Render("3.Item3") + "    3. Item3\n\n" +
+                MarkdownService.Render("Task List\n") +
+                MarkdownService.Render("- [x]Item1") + "    - [x] Item1\n" +
+                MarkdownService.Render("- [ ]Item2") + "    - [ ] Item2\n" +
+                MarkdownService.Render("- [ ]Item3") + "    - [ ] Item3\n\n" +
                 "                 --- Horizontal-Rule\n" + MarkdownService.Render("---");
     }
 }
