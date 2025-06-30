@@ -22,7 +22,9 @@ this `code0` `code1` `code2` `code3` `code4` test for my `tastst` asdad
 #header
 
 
-
+--- test
+--------
+----------------
 ###*Tests:
 ---
 >**Talk** is ~~~~~Cheap~~~~~, show ~me~ the ==Code==. [`-linus`](http://linux.kernel)
@@ -49,5 +51,19 @@ Hi, ![Hamed](/home/hamed-dam) It's me -> ![Hamed](/home/hamed-damavandi/Document
 >blovkjb ![test link](/hamed/damavandi/file.jpg)  vrtd [`code`](http://adadasda.com) jhkjh.![test link](clif.png)
 noramal tesxt
 
-normal **bold** ***bold italic*** *italic* _italic_
+normal **bold** ==high== h ==high====high== ***bold italic*** *italic* _italic_
 ___bold italic___ __bold__
+
+-test
+--test
+---test
+-hhj
+-hamed
+--hjghjg
+----ghjghjgj
+12.dfdhdhdh
+766.hjghjgjh
+566. ghgfg
+
+- [ ]ghhjghj
+- [x]ghhjghj
