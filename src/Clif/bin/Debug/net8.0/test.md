@@ -1,8 +1,10 @@
-this `code` `code` `code` `code` `code` test for my `tastst` asdad
+>blovkjb **![test link](/hamed/damavandi/file.jpg)**  vrtd [`code`](http://adadasda.com) jhkjh.
+this `code0` `code1` `code2` `code3` `code4` test for my `tastst` asdad
+##this `code` `code` `code` `code` `code` test for my `tastst` asdad
 - [x] Write the press release
 - [ ] Update the website
 - [ ] Contact the media
-
+###ggg#hjhg
 - test1
 - test2
 - test3
@@ -23,8 +25,7 @@ this `code` `code` `code` `code` `code` test for my `tastst` asdad
 
 ###*Tests:
 ---
->**Talk** is ~~~~~Cheap~~~~~, show ~me~ the ==Code==. [`-linus`](http://
-linux.kernel)
+>**Talk** is ~~~~~Cheap~~~~~, show ~me~ the ==Code==. [`-linus`](http://linux.kernel)
 
 ##___Code___ is ==ART== that does %SOMETHING%. [GitHub](http://github.com)
 
@@ -39,4 +40,14 @@ Hi, ![Hamed](/home/hamed-dam) It's me -> ![Hamed](/home/hamed-damavandi/Document
 
 `code` `code`
 
-[hamed](us.com)[hamed](iran.com)
+[hamed](us.com) [hamed](iran.com)
+
+![hamed](clif.png)![hamed](clif.png)![hamed](asdasd.png)![ali](clif.png)
+
+
+
+>blovkjb ![test link](/hamed/damavandi/file.jpg)  vrtd [`code`](http://adadasda.com) jhkjh.![test link](clif.png)
+noramal tesxt
+
+normal **bold** ***bold italic*** *italic* _italic_
+___bold italic___ __bold__
