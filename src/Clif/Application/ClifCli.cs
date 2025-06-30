@@ -40,7 +40,7 @@ namespace Clif.Application
 
         public void Run(string[] args)
         {
-            args = ["-m"];
+            args = ["-f","test.md"];
             if (args.Length > 0)
             {
                 string arg = args[0];

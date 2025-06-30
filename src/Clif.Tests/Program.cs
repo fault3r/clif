@@ -11,6 +11,8 @@ namespace Clif.Tests
             string pattern = @"`(.*?)`";
             Regex regex = new(pattern, RegexOptions.Compiled);
             MatchCollection matches = regex.Matches(line);
+            foreach (Match match in matches)
+                Console.WriteLine(match.Value);
 
         }
 

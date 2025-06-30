@@ -11,8 +11,8 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         {
             line = Encode(line);
             line = Header(line);
-            line = blockquote(line);
-            line = image(line);
+            line = Blockquote(line);
+            line = Image(line);
             line = link(line);
             line = emphasis(line);
             line = highlight(line);
@@ -40,20 +40,25 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         }
         private string Encode(string line)
         {
-            var matches = getMatches(line, @"`(.*?)`");
+            //this is ok, dont change it!
+            string pattern = @"`(.*?)`";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
             codes = new string[matches.Count];
-            int i = 0;
+            int c = 0;
             foreach (Match match in matches)
             {
-                codes[i] = match.Value;
-                line = line.Replace(codes[i], $"!?!code{i++}?!?");
+                codes[c] = match.Value;
+                line = regex.Replace(line, match => $"!?!code{c++}?!?", 1);
             }
             return line;
         }
 
         private string Decode(string line)
         {
-            var matches = getMatches(line, @"\!\?\!(code\d+)\?\!\?");
+            string pattern = @"\!\?\!(code\d+)\?\!\?";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
             for (int i = 0; i < codes.Length; i++)
                 line = line.Replace(matches[i].Value, codes[i]);
             return line;
@@ -84,14 +89,12 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         private string Header(string line)
         {
             string[] patterns = [@"^###", @"^##", @"^#"];
-            bool isHeader = false;
-            string pattern = string.Empty;
             for (int i = 0; i < patterns.Length; i++)
             {
-                pattern = patterns[i];
-                if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
+                string pattern = patterns[i];
+                var matches = getMatches(line, pattern);
+                foreach (Match match in matches)
                 {
-                    isHeader = true;
                     switch (i)
                     {
                         case 0:
@@ -107,39 +110,40 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                             foreground = Foregrounds.Black;
                             break;
                     }
-                    break;
+                    return line.Replace(match.Value, $"{background}{foreground}") +
+                        TextFormats.Reset;
                 }
-            }
-            return isHeader ? render(line, pattern, $"{background}{foreground}", "") + TextFormats.Reset : line;
-        }
-
-        private string blockquote(string line)
-        {
-            string pattern = @"^>";
-            if (Regex.IsMatch(line, pattern, RegexOptions.Compiled))
-            {
-                background = Backgrounds.BrightBlack;
-                foreground = Foregrounds.BrightWhite;
-                return render(line, pattern, $"{Backgrounds.Magenta} {background}{Foregrounds.Magenta}\"{foreground}", "")
-                    + $"{Foregrounds.Magenta}\"{TextFormats.Reset}";
             }
             return line;
         }
 
-        private string image(string line)
+        private string Blockquote(string line)
+        {
+            string pattern = @"^>";
+            var matches = getMatches(line, pattern);
+            foreach (Match match in matches)
+            {
+                background = Backgrounds.BrightBlack;
+                foreground = Foregrounds.BrightWhite;
+                return line.Replace(match.Value, $"{Backgrounds.Magenta} {background}{Foregrounds.Magenta}\"{foreground}") +
+                    $"{Foregrounds.Magenta}\"{TextFormats.Reset}";
+            }
+            return line;
+        }
+
+        private string Image(string line)
         {
             string pattern = @"\!\[(.*?)\]\((.*?)\)";
-            Regex regex = new Regex(pattern, RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
+            var matches = getMatches(line, pattern);
             string[] images = new string[matches.Count];
-            for (int i = 0; i < images.Length; i++)
+            foreach (Match match in matches)
             {
-                string mode = !matches[i].Groups[2].Value.Contains("http") ? "file://" : "";
+                string mode = !match.Groups[2].Value.Contains("http") ? "file://" : "";
                 line = Regex.Replace(line, pattern, match =>
                     $"{Foregrounds.Magenta}{match.Groups[1].Value}{currentColors()}");
-                line += $"\n{toJP2A(matches[i].Groups[2].Value)}" +
-                    $"{Foregrounds.Magenta}{TextFormats.Bold}{matches[i].Groups[1].Value}⤴ " +
-                    $"{TextFormats.BoldOff}[🖼 ]({mode}{matches[i].Groups[2].Value})" +
+                line += $"\n{toJP2A(match.Groups[2].Value)}" +
+                    $"{Foregrounds.Magenta}{TextFormats.Bold}{match.Groups[1].Value}⤴ " +
+                    $"{TextFormats.BoldOff}[🖼 ]({mode}{match.Groups[2].Value})" +
                     currentColors();
             }
             return line;
