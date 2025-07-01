@@ -12,8 +12,8 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = _Encode(line);
             line = Header(line);
             line = Blockquote(line);
-            line = Image(line);
             line = Tasklist(line);
+            line = Image(line);
             line = Link(line);
             line = Emphasis(line);
             line = Highlight(line);
@@ -241,18 +241,18 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string Tasklist(string line)
         {
-            string pattern = @"^- \[[ x]\]";
+            string pattern = @"^- \[[ x]\] ";
             line = Regex.Replace(
                 line,
                 pattern,
-                match => $"   {Foregrounds.Green}{(match.Value == "- [ ]" ? "✗ " : "✔ ")}\t{Foregrounds.Reset}",
+                match => $"   {Foregrounds.Green}{(match.Value == "- [ ] " ? "✗ " : "✔ ")}\t{Foregrounds.Reset}",
                 RegexOptions.Compiled);
             return line;
         }
 
         private string Unordered(string line)
         {
-            string pattern = @"^-";
+            string pattern = @"^- ";
             string bullet = $"{Foregrounds.Green}❂ {Foregrounds.Reset}";
             line = Regex.Replace(
                 line,
@@ -264,7 +264,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string Ordered(string line)
         {
-            string pattern = @"^\d+\.";
+            string pattern = @"^\d+\. ";
             line = Regex.Replace(
                 line,
                 pattern,
