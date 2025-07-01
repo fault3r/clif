@@ -13,11 +13,11 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = Header(line);
             line = Blockquote(line);
             line = Image(line);
+            line = Tasklist(line);
             line = Link(line);
             line = Emphasis(line);
             line = Highlight(line);
             line = Rule(line);
-            line = Tasklist(line);
             line = Unordered(line);
             line = Ordered(line);
             // More... 
@@ -71,7 +71,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string Header(string line)
         {
-            string[] patterns = [@"^###", @"^##", @"^#"];
+            string[] patterns = [@"^### ", @"^## ", @"^# "];
             for (int i = 0; i < patterns.Length; i++)
             {
                 string pattern = patterns[i];
@@ -103,7 +103,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string Blockquote(string line)
         {
-            string pattern = @"^>";
+            string pattern = @"^> ";
             Regex regex = new(pattern, RegexOptions.Compiled);
             MatchCollection matches = regex.Matches(line);
             foreach (Match match in matches)
@@ -230,18 +230,18 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         private string Rule(string line)
         {
             string pattern = @"^---+";
-            string hRule = "─────────────────────────────────────────────";
+            string rule = "─────────────────────────────────────────────";
             line = Regex.Replace(
                 line,
                 pattern,
-                match => $"{Foregrounds.BrightWhite}{hRule}{Foregrounds.Reset}{match.Groups[1].Value}",
+                match => $"{Foregrounds.BrightWhite}{rule}{Foregrounds.Reset}{match.Groups[1].Value}",
                 RegexOptions.Compiled);
             return line;
         }
 
         private string Tasklist(string line)
         {
-            string pattern = @"- \[[ x]\]";
+            string pattern = @"^- \[[ x]\]";
             line = Regex.Replace(
                 line,
                 pattern,
