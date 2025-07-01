@@ -1,0 +1,16 @@
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/bin/Debug/net8.0/Clif.Infrastructure.deps.json
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/bin/Debug/net8.0/Clif.Infrastructure.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/bin/Debug/net8.0/Clif.Infrastructure.pdb
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/bin/Debug/net8.0/Clif.Domain.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/bin/Debug/net8.0/Clif.Domain.pdb
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.csproj.AssemblyReference.cache
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.AssemblyInfoInputs.cache
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.AssemblyInfo.cs
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.csproj.CoreCompileInputs.cache
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.sourcelink.json
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Inf.62A69FE1.Up2Date
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/refint/Clif.Infrastructure.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/Clif.Infrastructure.pdb
+/home/hamed-damavandi/Documents/clif/src/Clif.Infrastructure/obj/Debug/net8.0/ref/Clif.Infrastructure.dll

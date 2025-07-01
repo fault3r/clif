@@ -1,0 +1,12 @@
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/bin/Debug/net8.0/Clif.Domain.deps.json
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/bin/Debug/net8.0/Clif.Domain.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/bin/Debug/net8.0/Clif.Domain.pdb
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/obj/Debug/net8.0/Clif.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/obj/Debug/net8.0/Clif.Domain.AssemblyInfoInputs.cache
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/obj/Debug/net8.0/Clif.Domain.AssemblyInfo.cs
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/obj/Debug/net8.0/Clif.Domain.csproj.CoreCompileInputs.cache
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/obj/Debug/net8.0/Clif.Domain.sourcelink.json
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/obj/Debug/net8.0/Clif.Domain.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/obj/Debug/net8.0/refint/Clif.Domain.dll
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/obj/Debug/net8.0/Clif.Domain.pdb
+/home/hamed-damavandi/Documents/clif/src/Clif.Domain/obj/Debug/net8.0/ref/Clif.Domain.dll
