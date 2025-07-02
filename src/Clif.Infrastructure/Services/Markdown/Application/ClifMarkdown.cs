@@ -10,19 +10,19 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         public string Render(string line)
         {
             line = _Encode(line);
-            line = Header(line);
-            line = Blockquote(line);
+            line = Header(line); //
+            line = Blockquote(line); //
             line = Tasklist(line);
             line = Image(line);
             line = Link(line);
             line = Emphasis(line);
-            line = Highlight(line);
+            line = Highlight(line); //
             line = Rule(line);
             line = Unordered(line);
             line = Ordered(line);
             // More... 
             line = _Decode(line);
-            line = Code(line);
+            line = Code(line); //
             line = _Ready(false, line);
             currentBackground = currentForeground = null;
             return line;
@@ -94,7 +94,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                             currentForeground = Foregrounds.Black;
                             break;
                     }
-                    return regex.Replace(line, match => $"{currentBackground}{currentForeground}", 1) +
+                    return regex.Replace(line, match => $"{currentBackground}{currentForeground}", 1) + 
                         TextFormats.Reset;
                 }
             }
@@ -245,7 +245,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = Regex.Replace(
                 line,
                 pattern,
-                match => $"   {Foregrounds.Green}{(match.Value == "- [ ] " ? "✗ " : "✔ ")}\t{Foregrounds.Reset}",
+                match => $"   {Foregrounds.BrightYellow}{(match.Value == "- [ ] " ? "✗ " : "✔ ")}\t{Foregrounds.Reset}",
                 RegexOptions.Compiled);
             return line;
         }
@@ -253,7 +253,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         private string Unordered(string line)
         {
             string pattern = @"^- ";
-            string bullet = $"{Foregrounds.Green}❂ {Foregrounds.Reset}";
+            string bullet = $"{Foregrounds.BrightGreen}❂ {Foregrounds.Reset}";
             line = Regex.Replace(
                 line,
                 pattern,
@@ -268,7 +268,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = Regex.Replace(
                 line,
                 pattern,
-                match => $"   {Foregrounds.Green}{match.Groups[0].Value}{Foregrounds.Reset}\t{match.Groups[1].Value}",
+                match => $"   {Foregrounds.BrightCyan}{match.Groups[0].Value}{Foregrounds.Reset}\t{match.Groups[1].Value}",
                 RegexOptions.Compiled);
             return line;
         }

@@ -40,7 +40,7 @@ namespace Clif.Application
 
         public void Run(string[] args)
         {
-            // args = ["-f","test.md"];
+            // args = ["-m"];
             if (args.Length > 0)
             {
                 string arg = args[0];
@@ -222,35 +222,35 @@ namespace Clif.Application
                 "[Help Document Here]");
 
         private string Markdown =>
-            MarkdownService.Render($"__{MarkdownService.Gradient("Markdown")}__\n\n") +
-                MarkdownService.Render("#Header 1") + "         #Header 1\n" +
-                MarkdownService.Render("##Header 2") + "         ##Header 2\n" +
-                MarkdownService.Render("###Header 3") + "         ###Header 3\n\n" +
-                MarkdownService.Render("Normal") + "           Normal\n" +
-                MarkdownService.Render("*Italic*") + "           *Italic* or _Italic_\n" +
-                MarkdownService.Render("**Bold**") + "             **Bold** or __Bold__\n" +
-                MarkdownService.Render("***Bold-Italic***") + "      ***Bold-Italic*** or ___Bold-Italic___\n" +
-                MarkdownService.Render("~Underline~") + "        ~Underline~\n" +
-                MarkdownService.Render("~~Strike~~") + "           ~~Strike~~\n" +
-                MarkdownService.Render("~~~Dim~~~") + "              ~~~Dim~~~\n" +
-                MarkdownService.Render("%Blink%") + "            %Blink%\n\n" +
-                MarkdownService.Render("==Highlight==") + "        ==Highlight==\n\n" +
-                MarkdownService.Render(">Blockquote") + "    >Blockquote\n\n" +
-                MarkdownService.Render("`Code`") + "           `Code`\n\n" +
-                MarkdownService.Render("[Link](http://url.com)") + "             [Link](http://url.com)\n\n" +
-                MarkdownService.Render("![Image](clif.png)") + "        ![Image](clif.png)\n\n" +
-                MarkdownService.Render("Unordered List\n") +
-                MarkdownService.Render("-Item1") + "    - Item1\n" +
-                MarkdownService.Render("-Item2") + "    - Item2\n" +
-                MarkdownService.Render("-Item3") + "    - Item3\n\n" +
-                MarkdownService.Render("Ordered List\n") +
-                MarkdownService.Render("1.Item1") + "    1. Item1\n" +
-                MarkdownService.Render("2.Item2") + "    2. Item2\n" +
-                MarkdownService.Render("3.Item3") + "    3. Item3\n\n" +
-                MarkdownService.Render("Task List\n") +
-                MarkdownService.Render("- [x]Item1") + "    - [x] Item1\n" +
-                MarkdownService.Render("- [ ]Item2") + "    - [ ] Item2\n" +
-                MarkdownService.Render("- [ ]Item3") + "    - [ ] Item3\n\n" +
+            MarkdownService.Render($"__{MarkdownService.Gradient("Markdown")}__") + "\n\n" +
+                MarkdownService.Render("# Header 1") + "         # Header 1" +"\n" +
+                MarkdownService.Render("## Header 2") + "         ## Header 2" +"\n" +
+                MarkdownService.Render("### Header 3") + "         ### Header 3" + "\n\n" +
+                MarkdownService.Render("Normal") + "           Normal" + "\n" +
+                MarkdownService.Render("*Italic*") + "           *Italic* or _Italic_" +"\n" +
+                MarkdownService.Render("**Bold**") + "             **Bold** or __Bold__" +"\n" +
+                MarkdownService.Render("***Bold-Italic***") + "      ***Bold-Italic*** or ___Bold-Italic__n" +"\n" +
+                MarkdownService.Render("~Underline~") + "        ~Underline~" +"\n" +
+                MarkdownService.Render("~~Strike~~") + "           ~~Strike~~" +"\n" +
+                MarkdownService.Render("~~~Dim~~~") + "              ~~~Dim~~~" +"\n" +
+                MarkdownService.Render("%Blink%") + "            %Blink%" +"\n\n" +
+                MarkdownService.Render("==Highlight==") + "        ==Highlight==" +"\n\n" +
+                MarkdownService.Render("> Blockquote") + "    > Blockquote" + "\n\n" +
+                MarkdownService.Render("`Code`") + "           `Code`" + "\n\n" +
+                MarkdownService.Render("[Link](http://url.com)") + "             [Link](http://url.com)" +"\n\n" +
+                MarkdownService.Render("![Image](clif.png)") + "        ![Image](clif.png)" +"\n\n" +
+                MarkdownService.Render("### Task List") + "\n" +
+                MarkdownService.Render("- [x] Item1") + "    - [x] Item1" +"\n" +
+                MarkdownService.Render("- [ ] Item2") + "    - [ ] Item2" +"\n" +
+                MarkdownService.Render("- [ ] Item3") + "    - [ ] Item3" + "\n\n" +
+                MarkdownService.Render("# Unordered List") +"\n" +
+                MarkdownService.Render("- Item1") + "    - Item1" + "\n" +
+                MarkdownService.Render("- Item2") + "    - Item2" +"\n" +
+                MarkdownService.Render("- Item3") + "    - Item3" +"\n\n" +
+                MarkdownService.Render("## Ordered List") +"\n" +
+                MarkdownService.Render("1. Item1") + "    1. Item1" +"\n" +
+                MarkdownService.Render("2. Item2") + "    2. Item2" +"\n" +
+                MarkdownService.Render("3. Item3") + "    3. Item3" +"\n\n" +
                 "                 --- Horizontal-Rule\n" + MarkdownService.Render("---");
     }
 }
