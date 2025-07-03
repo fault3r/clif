@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
 using Clif.Infrastructure.Services.Markdown.Infrastructure;
 using static Clif.Infrastructure.Services.Markdown.Domain.EscapeCodes;
@@ -20,9 +21,13 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = Rule(line);
             line = Unordered(line);
             line = Ordered(line);
+
+
+            line = Table(line);
             // More... 
             line = _Decode(line);
             line = Code(line); //
+
             line = _Ready(false, line);
             currentBackground = currentForeground = null;
             return line;
@@ -270,6 +275,40 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 pattern,
                 match => $"   {Foregrounds.BrightCyan}{match.Groups[0].Value}{Foregrounds.Reset}\t{match.Groups[1].Value}",
                 RegexOptions.Compiled);
+            return line;
+        }
+
+        private bool inTable = false;
+
+        private string Table(string line)
+        {
+
+            if (inTable)
+            {
+                string headerPattern = @"\| (-{3,}) \| (-{3,}) \|";
+                line = Regex.Replace(line, headerPattern, match => $"_______________________\n", RegexOptions.Compiled);
+            }
+
+            string pattern = @"^\| ([^|]+) \| ([^|]+) \|";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            if (matches.Count > 0)
+            {
+                foreach (Match match in matches) // pattern = @"\| (-{3,}) \| (-{3,}) \|";
+                {
+                    string li = "-------------------------------";
+                    line = li + "\n" + regex.Replace(line, match => $"l {match.Groups[1].Value} l {match.Groups[2].Value} l", 1);
+                    inTable = true;
+                }
+            }
+            else
+            {
+                if (inTable)
+                {
+                    line = "-------------------------------\n" + line ;
+                    inTable = false;
+                }
+            }
             return line;
         }
 
