@@ -11,23 +11,20 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         public string Render(string line)
         {
             line = _Encode(line);
-            line = Header(line); //
-            line = Blockquote(line); //
+            line = Header(line); 
+            line = Blockquote(line); 
             line = Tasklist(line);
             line = Image(line);
             line = Link(line);
             line = Emphasis(line);
-            line = Highlight(line); //
+            line = Highlight(line); 
             line = Rule(line);
             line = Unordered(line);
             line = Ordered(line);
-
-
             line = Table(line);
             // More... 
             line = _Decode(line);
-            line = Code(line); //
-
+            line = Code(line); 
             line = _Ready(false, line);
             currentBackground = currentForeground = null;
             return line;
@@ -47,6 +44,9 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line.Replace("⤀", "[").Replace("⤙", "]");
 
         private string[] codes = new string[1];
+
+        private bool inTable = false;
+        private bool isTableHeader = false;
 
         private string _Encode(string line)
         {
@@ -278,8 +278,6 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             return line;
         }
 
-        private bool inTable = false;
-
         private string Table(string line)
         {
             string pattern = @"^\| ([^|]+) \| ([^|]+) \|";
@@ -291,14 +289,20 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 if (Regex.IsMatch(line, headerPattern))
                 {
                     if (inTable)
-                        return line = Regex.Replace(line, headerPattern, match => $"_______________________\n", RegexOptions.Compiled);
+                    {
+                        isTableHeader = true;
+                        return line = Regex.Replace(line, headerPattern, match => $"_______________________________\n", RegexOptions.Compiled);
+                    }
                 }
                 else
                 {
-                    foreach (Match match in matches) 
+                    foreach (Match match in matches)
                     {
-                        string li = "-------------------------------";
-                        line = li + "\n" + regex.Replace(line, match => $"l {match.Groups[1].Value} l {match.Groups[2].Value} l", 1);
+                        line = regex.Replace(line, match => $"l {match.Groups[1].Value} l {match.Groups[2].Value} l", 1);
+                        if (isTableHeader)
+                            isTableHeader = false;
+                        else
+                            line = "-------------------------------\n" + line;
                         inTable = true;
                     }
                 }
@@ -307,7 +311,10 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             {
                 if (inTable)
                 {
-                    line = "-------------------------------\n" + line ;
+                    if (isTableHeader)
+                        isTableHeader = false;
+                    else
+                        line = "-------------------------------\n" + line;
                     inTable = false;
                 }
             }
