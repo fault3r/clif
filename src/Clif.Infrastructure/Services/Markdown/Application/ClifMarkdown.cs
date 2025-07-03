@@ -282,23 +282,25 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string Table(string line)
         {
-
-            if (inTable)
-            {
-                string headerPattern = @"\| (-{3,}) \| (-{3,}) \|";
-                line = Regex.Replace(line, headerPattern, match => $"_______________________\n", RegexOptions.Compiled);
-            }
-
             string pattern = @"^\| ([^|]+) \| ([^|]+) \|";
             Regex regex = new(pattern, RegexOptions.Compiled);
             MatchCollection matches = regex.Matches(line);
             if (matches.Count > 0)
             {
-                foreach (Match match in matches) // pattern = @"\| (-{3,}) \| (-{3,}) \|";
+                string headerPattern = @"\| (-{3,}) \| (-{3,}) \|";
+                if (Regex.IsMatch(line, headerPattern))
                 {
-                    string li = "-------------------------------";
-                    line = li + "\n" + regex.Replace(line, match => $"l {match.Groups[1].Value} l {match.Groups[2].Value} l", 1);
-                    inTable = true;
+                    if (inTable)
+                        return line = Regex.Replace(line, headerPattern, match => $"_______________________\n", RegexOptions.Compiled);
+                }
+                else
+                {
+                    foreach (Match match in matches) 
+                    {
+                        string li = "-------------------------------";
+                        line = li + "\n" + regex.Replace(line, match => $"l {match.Groups[1].Value} l {match.Groups[2].Value} l", 1);
+                        inTable = true;
+                    }
                 }
             }
             else
