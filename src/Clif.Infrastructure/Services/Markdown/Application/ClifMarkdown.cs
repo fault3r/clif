@@ -291,18 +291,18 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                     if (inTable)
                     {
                         isTableHeader = true;
-                        return line = Regex.Replace(line, headerPattern, match => $"_______________________________\n", RegexOptions.Compiled);
+                        return line = Regex.Replace(line, headerPattern, match => $"{GradientText.ToGradient("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――")}", RegexOptions.Compiled);
                     }
                 }
                 else
                 {
                     foreach (Match match in matches)
                     {
-                        line = regex.Replace(line, match => $"l {match.Groups[1].Value} l {match.Groups[2].Value} l", 1);
+                        line = regex.Replace(line, match => $"׀ {match.Groups[1].Value} ׀ {match.Groups[2].Value} ׀", 1);
                         if (isTableHeader)
                             isTableHeader = false;
                         else
-                            line = "-------------------------------\n" + line;
+                            line = "――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――\n" + line;
                         inTable = true;
                     }
                 }
@@ -314,7 +314,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                     if (isTableHeader)
                         isTableHeader = false;
                     else
-                        line = "-------------------------------\n" + line;
+                        line = "――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――\n" + line;
                     inTable = false;
                 }
             }
