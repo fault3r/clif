@@ -11,7 +11,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
     {
         public string Render(string line)
         {
-            line = Table(line);
+            line = Table(line);      
             line = _Encode(line);
             line = Header(line); 
             line = Blockquote(line); 
@@ -46,8 +46,8 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string[] codes = new string[1];
 
-
         private ConsoleTable table = new ConsoleTable();
+        string[] headers = [];
         private bool inTable = false;
 
         private string _Encode(string line)
@@ -280,7 +280,6 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             return line;
         }
 
-        string[] headers = [];
 
         private string Table(string line)
         {
@@ -297,7 +296,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                     {
                         for (int i = 0; i < matches.Count; i++)
                         {
-                            table.AddColumn([headers[i].Replace("*","")]);
+                            table.AddColumn([headers[i]]);
                         }
                         return nameof(inTable);
                     }
@@ -336,7 +335,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             {
                 if (inTable)
                 {
-                    inTable = false;   
+                    inTable = false;
                     line = $"{table.ToStringAlternative()}{this.Render(line)}";
                 }
             }

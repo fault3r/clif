@@ -7,6 +7,7 @@ using Clif.Infrastructure.Data.Contexts;
 using Clif.Infrastructure.Repositories;
 using Clif.Infrastructure.Services.Markdown.Application;
 using Microsoft.Extensions.DependencyInjection;
+using static Clif.Infrastructure.Services.Markdown.Domain.EscapeCodes;
 
 namespace Clif.Application
 {
@@ -199,7 +200,9 @@ namespace Clif.Application
                     string[] lines = File.ReadAllLines(file);
                     foreach (var line in lines)
                     {
-                        Console.WriteLine(MarkdownService.Render(line));
+                        string output = MarkdownService.Render(line);
+                        if (output != "inTable")
+                            Console.WriteLine(output);
                     }
                 }
                 else
