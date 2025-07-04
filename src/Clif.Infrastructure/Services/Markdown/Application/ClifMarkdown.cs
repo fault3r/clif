@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
 using Clif.Infrastructure.Services.Markdown.Infrastructure;
+using ConsoleTables;
 using static Clif.Infrastructure.Services.Markdown.Domain.EscapeCodes;
 
 namespace Clif.Infrastructure.Services.Markdown.Application
@@ -10,6 +11,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
     {
         public string Render(string line)
         {
+            line = Table(line);
             line = _Encode(line);
             line = Header(line); 
             line = Blockquote(line); 
@@ -21,7 +23,6 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = Rule(line);
             line = Unordered(line);
             line = Ordered(line);
-            line = Table(line);
             // More... 
             line = _Decode(line);
             line = Code(line); 
@@ -45,8 +46,9 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string[] codes = new string[1];
 
+
+        private ConsoleTable table = new ConsoleTable();
         private bool inTable = false;
-        private bool isTableHeader = false;
 
         private string _Encode(string line)
         {
@@ -278,32 +280,55 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             return line;
         }
 
+        string[] headers = [];
+
         private string Table(string line)
         {
-            string pattern = @"^\| ([^|]+) \| ([^|]+) \|";
+            // string pattern = @"(\| [^|]*)+ \|"; // match entire row
+            string pattern = @"\|([^|]+)";
             Regex regex = new(pattern, RegexOptions.Compiled);
             MatchCollection matches = regex.Matches(line);
             if (matches.Count > 0)
             {
-                string headerPattern = @"\| (-{3,}) \| (-{3,}) \|";
+                string headerPattern = @"^\| (\s*-{3,}\s* \|)+";
                 if (Regex.IsMatch(line, headerPattern))
                 {
                     if (inTable)
                     {
-                        isTableHeader = true;
-                        return line = Regex.Replace(line, headerPattern, match => $"{GradientText.ToGradient("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――")}", RegexOptions.Compiled);
+                        for (int i = 0; i < matches.Count; i++)
+                        {
+                            table.AddColumn([headers[i].Replace("*","")]);
+                        }
+                        return nameof(inTable);
+                    }
+                    else
+                    {
+                        return line;
                     }
                 }
                 else
                 {
-                    foreach (Match match in matches)
+                    if (!inTable)
                     {
-                        line = regex.Replace(line, match => $"׀ {match.Groups[1].Value} ׀ {match.Groups[2].Value} ׀", 1);
-                        if (isTableHeader)
-                            isTableHeader = false;
-                        else
-                            line = "――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――\n" + line;
+                        int c = 0;
+                        headers = new string[matches.Count];
+                        foreach (Match match in matches)
+                        {
+                            headers[c++] = match.Groups[1].Value.Trim();
+                        }
                         inTable = true;
+                        return nameof(inTable);
+                    }
+                    else
+                    {
+                        string[] contents = new string[headers.Length];
+                        int c = 0;
+                        foreach (Match match in matches)
+                        {
+                            contents[c++] = match.Groups[1].Value.Trim();
+                        }
+                        table.AddRow(contents);
+                        return nameof(inTable);
                     }
                 }
             }
@@ -311,11 +336,8 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             {
                 if (inTable)
                 {
-                    if (isTableHeader)
-                        isTableHeader = false;
-                    else
-                        line = "――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――\n" + line;
-                    inTable = false;
+                    inTable = false;   
+                    line = $"{table.ToStringAlternative()}{this.Render(line)}";
                 }
             }
             return line;
