@@ -47,8 +47,8 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 insertRow = false;
             }
             return mode ?
-            line.Replace("[", "⤀").Replace("]", "⤙") :
-            line.Replace("⤀", "[").Replace("⤙", "]");
+            line.Replace("[", "⤀").Replace("]", "⤛") :
+            line.Replace("⤀", "[").Replace("⤛", "]");
         }
 
         private string[] codes = new string[1];
@@ -302,7 +302,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                     if (inTable)
                     {
                         headersCount = headerMatches[0].Value.Count(c => c == '|') - 1;
-                        line= GradientText.ToGradient("∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎");
+                        line= GradientText.ToGradient("✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦");
                     }
                 }
                 else
@@ -315,7 +315,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                         foreach (Match match in matches)
                             headers[c++] = match.Groups[1].Value.Trim();
                         inTable = true;
-                        line = "---";
+                        line = GradientText.ToGradient("………………………………………………………………………………………………………………………");  
                     }
                     else
                     {
@@ -327,7 +327,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                                 row += GradientText.ToGradient(headers[i].PadLeft(20));
                             else
                                 row += GradientText.ToGradient($"[Column{i + 1}]".PadLeft(20));
-                            row += ": " + matches[i].Groups[1].Value.Trim() + "\n";
+                            row += $" {TextFormats.Bold}𑈺{TextFormats.BoldOff} {matches[i].Groups[1].Value.Trim()}\n";
                         }
                         line = row.Substring(0, row.Length - 1);
                         insertRow = true;
@@ -339,7 +339,8 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 if (inTable)
                 {
                     inTable = false;
-                    line = $"{Cursor.Up}{Render("---")}\n{Render(line)}";
+                    string hRule = "─────────────────────────────────────────────";
+                    line = $"{Cursor.Up}{GradientText.ToGradient(hRule)}\n{Render(line)}";
                 }
             }
             return line;

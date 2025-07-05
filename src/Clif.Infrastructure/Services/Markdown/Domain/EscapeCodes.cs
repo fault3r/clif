@@ -91,7 +91,7 @@ namespace Clif.Infrastructure.Services.Markdown.Domain
 
         public static class Other
         {
-            public static string Link(string url, string alt) => $"\x1B⤙8;;{url}\x1B\\{alt}\x1B⤙8;;\x1B\\";
+            public static string Link(string url, string alt) => $"\x1B⤛8;;{url}\x1B\\{alt}\x1B⤛8;;\x1B\\";
 
             public static string[] CColor => ["\x1B⤀38;5;48m", "\x1B⤀38;5;49m", "\x1B⤀38;5;51m", "\x1B⤀38;5;39m", "\x1B⤀38;5;27m"];
         }
