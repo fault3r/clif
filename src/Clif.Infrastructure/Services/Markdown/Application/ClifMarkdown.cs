@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 using Clif.Infrastructure.Services.Markdown.Infrastructure;
 using static Clif.Infrastructure.Services.Markdown.Domain.EscapeCodes;
 
@@ -24,7 +25,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = Ordered(line);
             // More... 
             line = _Decode(line);
-            line = Code(line); 
+            line = Code(line);
             line = _Ready(false, line);
             currentBackground = currentForeground = null;
             return line;
@@ -38,16 +39,24 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             TextFormats.Reset :
             currentBackground + currentForeground;
 
-        private string _Ready(bool mode, string line) =>
-            mode ?
+        private string _Ready(bool mode, string line)
+        {
+            if (insertRow)
+            {
+                line += "\n";
+                insertRow = false;
+            }
+            return mode ?
             line.Replace("[", "⤀").Replace("]", "⤙") :
             line.Replace("⤀", "[").Replace("⤙", "]");
+        }
 
         private string[] codes = new string[1];
 
         string[] headers = [];
         int headersCount = 0;
         private bool inTable = false;
+        private bool insertRow = false;
 
         private string _Encode(string line)
         {
@@ -279,7 +288,6 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             return line;
         }
 
-
         private string Table(string line)
         {
             string pattern = @"\|([^|]+)";
@@ -316,12 +324,13 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                         for (int i = 0; i < count; i++)
                         {
                             if (i < headers.Length)
-                                row += headers[i];
+                                row += GradientText.ToGradient(headers[i].PadLeft(20));
                             else
-                                row += $"[Title{i+1}]";
+                                row += GradientText.ToGradient($"[Column{i + 1}]".PadLeft(20));
                             row += ": " + matches[i].Groups[1].Value.Trim() + "\n";
                         }
-                        line = row;
+                        line = row.Substring(0, row.Length - 1);
+                        insertRow = true;
                     }
                 }
             }
