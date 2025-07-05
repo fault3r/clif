@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
 using Clif.Infrastructure.Services.Markdown.Infrastructure;
-using ConsoleTables;
+using ConsoleTableExt;
 using static Clif.Infrastructure.Services.Markdown.Domain.EscapeCodes;
 
 namespace Clif.Infrastructure.Services.Markdown.Application
@@ -11,7 +11,9 @@ namespace Clif.Infrastructure.Services.Markdown.Application
     {
         public string Render(string line)
         {
-            line = Table(line);      
+            line = Table(line);
+            if (inTable)
+                return line;
             line = _Encode(line);
             line = Header(line); 
             line = Blockquote(line); 
@@ -27,6 +29,17 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = _Decode(line);
             line = Code(line); 
             line = _Ready(false, line);
+            if (outTable)
+            {
+                string table = ConsoleTableBuilder.From(tableData).Export().ToString();
+                foreach (string header in headers.Cast<string>())
+                {
+                    int index = table.IndexOf(header);
+                    table = table.Remove(index, header.Length).Insert(index, _Ready(false,Foregrounds.BrightRed + header + Foregrounds.Reset));
+                }
+                line =table + line;
+                outTable = false;
+            }
             currentBackground = currentForeground = null;
             return line;
         }
@@ -46,9 +59,10 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string[] codes = new string[1];
 
-        private ConsoleTable table = new ConsoleTable();
-        string[] headers = [];
+        List<List<object>> tableData = [];
+        List<object> headers = [];
         private bool inTable = false;
+        private bool outTable = false;
 
         private string _Encode(string line)
         {
@@ -294,10 +308,12 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 {
                     if (inTable)
                     {
+                        List<object> column = new(10);
                         for (int i = 0; i < matches.Count; i++)
                         {
-                            table.AddColumn([headers[i]]);
+                            column.Add(headers[i]);
                         }
+                        tableData.Add(column);
                         return nameof(inTable);
                     }
                     else
@@ -309,24 +325,22 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 {
                     if (!inTable)
                     {
-                        int c = 0;
-                        headers = new string[matches.Count];
+                        headers = new(10);
                         foreach (Match match in matches)
                         {
-                            headers[c++] = match.Groups[1].Value.Trim();
+                            headers.Add(match.Groups[1].Value.Trim());
                         }
                         inTable = true;
                         return nameof(inTable);
                     }
                     else
                     {
-                        string[] contents = new string[headers.Length];
-                        int c = 0;
+                        List<object> contents = new(10);
                         foreach (Match match in matches)
                         {
-                            contents[c++] = match.Groups[1].Value.Trim();
+                            contents.Add(match.Groups[1].Value.Trim());
                         }
-                        table.AddRow(contents);
+                        tableData.Add(contents);
                         return nameof(inTable);
                     }
                 }
@@ -335,8 +349,9 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             {
                 if (inTable)
                 {
+
                     inTable = false;
-                    line = $"{table.ToStringAlternative()}{this.Render(line)}";
+                    outTable = true;
                 }
             }
             return line;

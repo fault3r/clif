@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ConsoleTableExt" Version="3.3.0" />
     <PackageReference Include="LiteDB" Version="5.0.21" />
-    <PackageReference Include="ConsoleTables" Version="2.4.2" />
   </ItemGroup>
 
   <ItemGroup>
