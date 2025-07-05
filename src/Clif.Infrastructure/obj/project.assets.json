@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "ConsoleTableExt/3.3.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/ConsoleTableExt.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/ConsoleTableExt.dll": {}
-        }
-      },
       "LiteDB/5.0.21": {
         "type": "package",
         "dependencies": {
@@ -49,21 +40,6 @@
     }
   },
   "libraries": {
-    "ConsoleTableExt/3.3.0": {
-      "sha512": "kQ1P7mgDQbvEDXGt1sheOQbu37TidLnOv7RjcSCqW8m/weFtu4adMkN75YQHp4mSqquokGdBJOAKGiegLx2Nhg==",
-      "type": "package",
-      "path": "consoletableext/3.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "consoletableext.3.3.0.nupkg.sha512",
-        "consoletableext.nuspec",
-        "lib/net35/ConsoleTableExt.dll",
-        "lib/net46/ConsoleTableExt.dll",
-        "lib/netstandard2.0/ConsoleTableExt.dll"
-      ]
-    },
     "LiteDB/5.0.21": {
       "sha512": "ykJ7ffFl7P9YQKR/PLci6zupiLrsSCNkOTiw6OtzntH7d2kCYp5L1+3a/pksKgTEHcJBoPXFtg7VZSGVBseN9w==",
       "type": "package",
@@ -137,7 +113,6 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Clif.Domain >= 1.0.0",
-      "ConsoleTableExt >= 3.3.0",
       "LiteDB >= 5.0.21"
     ]
   },
@@ -189,10 +164,6 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "ConsoleTableExt": {
-            "target": "Package",
-            "version": "[3.3.0, )"
-          },
           "LiteDB": {
             "target": "Package",
             "version": "[5.0.21, )"
@@ -217,5 +188,13 @@
         "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.106/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

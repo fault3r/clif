@@ -199,11 +199,7 @@ namespace Clif.Application
                 {
                     string[] lines = File.ReadAllLines(file);
                     foreach (var line in lines)
-                    {
-                        string output = MarkdownService.Render(line);
-                        if (output != "inTable")
-                            Console.WriteLine(output);
-                    }
+                        Console.WriteLine(MarkdownService.Render(line));
                 }
                 else
                     Console.WriteLine("clif: file not exist!");

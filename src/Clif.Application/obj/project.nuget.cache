@@ -1,12 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "Vmyeg28rxHA=",
+  "dgSpecHash": "QznMRFmIQ3U=",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Documents/clif/src/Clif.Application/Clif.Application.csproj",
   "expectedPackageFiles": [
-    "/home/hamed-damavandi/.nuget/packages/consoletableext/3.3.0/consoletableext.3.3.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/litedb/5.0.21/litedb.5.0.21.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

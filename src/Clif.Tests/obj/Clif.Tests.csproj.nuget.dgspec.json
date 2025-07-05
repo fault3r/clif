@@ -109,10 +109,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "ConsoleTableExt": {
-              "target": "Package",
-              "version": "[3.3.0, )"
-            },
             "LiteDB": {
               "target": "Package",
               "version": "[5.0.21, )"

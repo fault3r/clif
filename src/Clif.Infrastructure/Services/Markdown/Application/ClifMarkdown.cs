@@ -2,7 +2,6 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
 using Clif.Infrastructure.Services.Markdown.Infrastructure;
-using ConsoleTableExt;
 using static Clif.Infrastructure.Services.Markdown.Domain.EscapeCodes;
 
 namespace Clif.Infrastructure.Services.Markdown.Application
@@ -12,8 +11,6 @@ namespace Clif.Infrastructure.Services.Markdown.Application
         public string Render(string line)
         {
             line = Table(line);
-            if (inTable)
-                return line;
             line = _Encode(line);
             line = Header(line); 
             line = Blockquote(line); 
@@ -29,17 +26,6 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             line = _Decode(line);
             line = Code(line); 
             line = _Ready(false, line);
-            if (outTable)
-            {
-                string table = ConsoleTableBuilder.From(tableData).Export().ToString();
-                foreach (string header in headers.Cast<string>())
-                {
-                    int index = table.IndexOf(header);
-                    table = table.Remove(index, header.Length).Insert(index, _Ready(false,Foregrounds.BrightRed + header + Foregrounds.Reset));
-                }
-                line =table + line;
-                outTable = false;
-            }
             currentBackground = currentForeground = null;
             return line;
         }
@@ -59,10 +45,9 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string[] codes = new string[1];
 
-        List<List<object>> tableData = [];
-        List<object> headers = [];
+        string[] headers = [];
+        int headersCount = 0;
         private bool inTable = false;
-        private bool outTable = false;
 
         private string _Encode(string line)
         {
@@ -297,51 +282,46 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string Table(string line)
         {
-            // string pattern = @"(\| [^|]*)+ \|"; // match entire row
             string pattern = @"\|([^|]+)";
             Regex regex = new(pattern, RegexOptions.Compiled);
             MatchCollection matches = regex.Matches(line);
             if (matches.Count > 0)
             {
-                string headerPattern = @"^\| (\s*-{3,}\s* \|)+";
-                if (Regex.IsMatch(line, headerPattern))
+                string headerPattern = @"^\|(\s*-{3,}\s*\|)+";
+                var headerMatches = Regex.Matches(line, headerPattern);
+                if(headerMatches.Count>0)
                 {
                     if (inTable)
                     {
-                        List<object> column = new(10);
-                        for (int i = 0; i < matches.Count; i++)
-                        {
-                            column.Add(headers[i]);
-                        }
-                        tableData.Add(column);
-                        return nameof(inTable);
-                    }
-                    else
-                    {
-                        return line;
+                        headersCount = headerMatches[0].Value.Count(c => c == '|') - 1;
+                        line= GradientText.ToGradient("∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎");
                     }
                 }
                 else
                 {
                     if (!inTable)
                     {
-                        headers = new(10);
+                        headersCount = matches.Count;
+                        headers = new string[headersCount];
+                        int c = 0;
                         foreach (Match match in matches)
-                        {
-                            headers.Add(match.Groups[1].Value.Trim());
-                        }
+                            headers[c++] = match.Groups[1].Value.Trim();
                         inTable = true;
-                        return nameof(inTable);
+                        line = "---";
                     }
                     else
                     {
-                        List<object> contents = new(10);
-                        foreach (Match match in matches)
+                        string row = string.Empty;
+                        int count = matches.Count > headersCount ? headersCount : matches.Count;
+                        for (int i = 0; i < count; i++)
                         {
-                            contents.Add(match.Groups[1].Value.Trim());
+                            if (i < headers.Length)
+                                row += headers[i];
+                            else
+                                row += $"[Title{i+1}]";
+                            row += ": " + matches[i].Groups[1].Value.Trim() + "\n";
                         }
-                        tableData.Add(contents);
-                        return nameof(inTable);
+                        line = row;
                     }
                 }
             }
@@ -349,9 +329,8 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             {
                 if (inTable)
                 {
-
                     inTable = false;
-                    outTable = true;
+                    line = $"{Cursor.Up}{Render("---")}\n{Render(line)}";
                 }
             }
             return line;
