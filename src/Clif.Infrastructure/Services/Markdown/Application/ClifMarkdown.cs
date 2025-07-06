@@ -1,7 +1,5 @@
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
-using System.Xml.Serialization;
 using Clif.Infrastructure.Services.Markdown.Infrastructure;
 using static Clif.Infrastructure.Services.Markdown.Domain.EscapeCodes;
 
@@ -10,8 +8,17 @@ namespace Clif.Infrastructure.Services.Markdown.Application
     public class ClifMarkdown : IClifMarkdown
     {
         public string Render(string line)
-        {
+        {            
             line = Table(line);
+            line = Codeblock(line);
+            if (endCodeBlock)
+            {
+                inCodeBlock = endCodeBlock = false;
+                countCodeBlock = 0;
+                goto ready;
+            }
+            if (inCodeBlock)
+                goto ready;
             line = _Encode(line);
             line = Header(line); 
             line = Blockquote(line); 
@@ -26,6 +33,8 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             // More... 
             line = _Decode(line);
             line = Code(line);
+        ready:
+            line = _Table(line);
             line = _Ready(false, line);
             currentBackground = currentForeground = null;
             return line;
@@ -41,33 +50,33 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string _Ready(bool mode, string line)
         {
-            if (insertRow)
-            {
-                line += "\n";
-                insertRow = false;
-            }
             return mode ?
             line.Replace("[", "⤀").Replace("]", "⤛") :
             line.Replace("⤀", "[").Replace("⤛", "]");
         }
 
-        private string[] codes = new string[1];
+        private string[] inlineCodes = new string[1];
 
-        string[] headers = [];
-        int headersCount = 0;
+        private bool inCodeBlock = false;
+        private bool endCodeBlock = false;
+        private int countCodeBlock = 0;
+
+        string[] headersTable = [];
+        int countHeadersTable = 0;
         private bool inTable = false;
-        private bool insertRow = false;
+        private bool endTable = false;
+        private bool insertTable = false;
 
         private string _Encode(string line)
         {
             string pattern = @"`(.*?)`";
             Regex regex = new(pattern, RegexOptions.Compiled);
             MatchCollection matches = regex.Matches(line);
-            codes = new string[matches.Count];
+            inlineCodes = new string[matches.Count];
             int c = 0;
             foreach (Match match in matches)
             {
-                codes[c] = match.Value;
+                inlineCodes[c] = match.Value;
                 line = regex.Replace(line, match => $"!?!code{c++}?!?", 1);
             }
             return line;
@@ -80,7 +89,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             MatchCollection matches = regex.Matches(line);
             int c = 0;
             foreach (Match match in matches)
-                line = regex.Replace(line, match => codes[c++], 1);
+                line = regex.Replace(line, match => inlineCodes[c++], 1);
             return line;
         }
 
@@ -288,6 +297,53 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             return line;
         }
 
+        private string Codeblock(string line)
+        {
+            string pattern = @"^```";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            if (matches.Count > 0)
+            {
+                string title = string.Empty;
+                if (!inCodeBlock)
+                {
+                    title = "CodeBlock";
+                    inCodeBlock = true;
+                }
+                else
+                {
+                    title = "   ";
+                    endCodeBlock = true;
+                }
+                line = regex.Replace(
+                    line,
+                    match => _Ready(false, $"{Foregrounds.BrightRed}{Backgrounds.White}" +
+                        $"{TextFormats.Bold}{match.Value}{TextFormats.BoldOff}{title}{TextFormats.Reset}"),
+                    1);
+            }
+            else
+            {
+                if (inCodeBlock)
+                    line = _Ready(false, $"{Foregrounds.BrightRed}{Backgrounds.White}{(++countCodeBlock).ToString().PadLeft(3,'0')}{TextFormats.Reset} {line}");
+            } 
+            return line;
+        }
+        private string _Table(string line)
+        {
+            if (insertTable)
+            {
+                line += "\n";
+                insertTable = false;
+            }
+            if (endTable)
+                {
+                    string hRule = "─────────────────────────────────────────────";
+                    line = $"{Cursor.Up}{GradientText.ToGradient(hRule)}\n{line}";
+                    endTable = false;
+                }
+            return line;            
+        }
+
         private string Table(string line)
         {
             string pattern = @"\|([^|]+)";
@@ -297,40 +353,40 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             {
                 string headerPattern = @"^\|(\s*-{3,}\s*\|)+";
                 var headerMatches = Regex.Matches(line, headerPattern);
-                if(headerMatches.Count>0)
+                if (headerMatches.Count > 0)
                 {
                     if (inTable)
                     {
-                        headersCount = headerMatches[0].Value.Count(c => c == '|') - 1;
-                        line= GradientText.ToGradient("✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦");
+                        countHeadersTable = headerMatches[0].Value.Count(c => c == '|') - 1;
+                        line = GradientText.ToGradient("✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦");
                     }
                 }
                 else
                 {
                     if (!inTable)
                     {
-                        headersCount = matches.Count;
-                        headers = new string[headersCount];
+                        countHeadersTable = matches.Count;
+                        headersTable = new string[countHeadersTable];
                         int c = 0;
                         foreach (Match match in matches)
-                            headers[c++] = match.Groups[1].Value.Trim();
+                            headersTable[c++] = match.Groups[1].Value.Trim();
                         inTable = true;
-                        line = GradientText.ToGradient("………………………………………………………………………………………………………………………");  
+                        line = GradientText.ToGradient("………………………………………………………………………………………………………………………");
                     }
                     else
                     {
                         string row = string.Empty;
-                        int count = matches.Count > headersCount ? headersCount : matches.Count;
+                        int count = matches.Count > countHeadersTable ? countHeadersTable : matches.Count;
                         for (int i = 0; i < count; i++)
                         {
-                            if (i < headers.Length)
-                                row += GradientText.ToGradient(headers[i].PadLeft(20));
+                            if (i < headersTable.Length)
+                                row += GradientText.ToGradient(headersTable[i].PadLeft(20));
                             else
-                                row += GradientText.ToGradient($"[Column{i + 1}]".PadLeft(20));
-                            row += $" {TextFormats.Bold}𑈺{TextFormats.BoldOff} {matches[i].Groups[1].Value.Trim()}\n";
+                                row += GradientText.ToGradient($"(Column{i + 1})".PadLeft(20));
+                            row += $" {TextFormats.Bold}{Foregrounds.BrightYellow}𑈺{Foregrounds.Reset}{TextFormats.BoldOff} {matches[i].Groups[1].Value.Trim()}\n";
                         }
                         line = row.Substring(0, row.Length - 1);
-                        insertRow = true;
+                        insertTable = true;
                     }
                 }
             }
@@ -339,8 +395,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 if (inTable)
                 {
                     inTable = false;
-                    string hRule = "─────────────────────────────────────────────";
-                    line = $"{Cursor.Up}{GradientText.ToGradient(hRule)}\n{Render(line)}";
+                    endTable = true;
                 }
             }
             return line;

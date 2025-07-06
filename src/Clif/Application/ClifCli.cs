@@ -40,7 +40,7 @@ namespace Clif.Application
 
         public void Run(string[] args)
         {
-            args = ["-m"];
+            // args = ["-f","test1.md"];
             if (args.Length > 0)
             {
                 string arg = args[0];
@@ -237,6 +237,9 @@ namespace Clif.Application
                 MarkdownService.Render("==Highlight==") + "        ==Highlight==" + "\n\n" +
                 MarkdownService.Render("> Blockquote") + "    > Blockquote" + "\n\n" +
                 MarkdownService.Render("`Code`") + "           `Code`" + "\n\n" +
+                MarkdownService.Render("```") + "     ```" + "\n" +
+                MarkdownService.Render("Code Block") + "   Code Block" + "\n" +
+                MarkdownService.Render("```") + "           ```" + "\n\n" +
                 MarkdownService.Render("[Link](http://url.com)") + "             [Link](http://url.com)" + "\n\n" +
                 MarkdownService.Render("![Image](clif.png)") + "        ![Image](clif.png)" + "\n\n" +
                 MarkdownService.Render("### Task List") + "\n" +
@@ -254,10 +257,10 @@ namespace Clif.Application
                 "                 | Header1 | Header2 | Header3 |" + "\n" +
                 "                 | --- | --- | --- |" + "\n" +
                 "                 | Row1-1 | Row1-2 | Row1-3 |" + "\n" +
-                MarkdownService.Render("| Header1 | Header2 | Header3 |") + "\n" + 
-                MarkdownService.Render("| --- | --- | --- |") + "\n" + 
-                MarkdownService.Render("| Row1-1 | Row1-2 | Row1-3 |") +"\n" + 
-                MarkdownService.Render("")+
+                MarkdownService.Render("| Header1 | Header2 | Header3 |") + "\n" +
+                MarkdownService.Render("| --- | --- | --- |") + "\n" +
+                MarkdownService.Render("| Row1-1 | Row1-2 | Row1-3 |") + "\n" +
+                MarkdownService.Render("") +
                 "\n                 --- Horizontal-Rule\n" + MarkdownService.Render("---");
     }
 }
