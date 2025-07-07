@@ -237,9 +237,9 @@ namespace Clif.Application
                 MarkdownService.Render("==Highlight==") + "        ==Highlight==" + "\n\n" +
                 MarkdownService.Render("> Blockquote") + "    > Blockquote" + "\n\n" +
                 MarkdownService.Render("`Code`") + "           `Code`" + "\n\n" +
-                MarkdownService.Render("```") + "     ```" + "\n" +
+                MarkdownService.Render("```") + "             ```" + "\n" +
                 MarkdownService.Render("Code Block") + "   Code Block" + "\n" +
-                MarkdownService.Render("```") + "           ```" + "\n\n" +
+                MarkdownService.Render("```") + "             ```" + "\n\n" +
                 MarkdownService.Render("[Link](http://url.com)") + "             [Link](http://url.com)" + "\n\n" +
                 MarkdownService.Render("![Image](clif.png)") + "        ![Image](clif.png)" + "\n\n" +
                 MarkdownService.Render("### Task List") + "\n" +

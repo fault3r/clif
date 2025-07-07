@@ -8,7 +8,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
     public class ClifMarkdown : IClifMarkdown
     {
         public string Render(string line)
-        {            
+        {
             line = Table(line);
             line = Codeblock(line);
             if (endCodeBlock)
@@ -20,13 +20,13 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             if (inCodeBlock)
                 goto ready;
             line = _Encode(line);
-            line = Header(line); 
-            line = Blockquote(line); 
+            line = Header(line);
+            line = Blockquote(line);
             line = Tasklist(line);
             line = Image(line);
             line = Link(line);
             line = Emphasis(line);
-            line = Highlight(line); 
+            line = Highlight(line);
             line = Rule(line);
             line = Unordered(line);
             line = Ordered(line);
@@ -118,7 +118,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                             currentForeground = Foregrounds.Black;
                             break;
                     }
-                    return regex.Replace(line, match => $"{currentBackground}{currentForeground}", 1) + 
+                    return regex.Replace(line, match => $"{currentBackground}{currentForeground}", 1) +
                         TextFormats.Reset;
                 }
             }
@@ -304,28 +304,21 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             MatchCollection matches = regex.Matches(line);
             if (matches.Count > 0)
             {
-                string title = string.Empty;
                 if (!inCodeBlock)
-                {
-                    title = "CodeBlock";
                     inCodeBlock = true;
-                }
                 else
-                {
-                    title = "   ";
                     endCodeBlock = true;
-                }
                 line = regex.Replace(
                     line,
                     match => _Ready(false, $"{Foregrounds.BrightRed}{Backgrounds.White}" +
-                        $"{TextFormats.Bold}{match.Value}{TextFormats.BoldOff}{title}{TextFormats.Reset}"),
+                        $"{TextFormats.Bold}{match.Value} {TextFormats.Reset}"),
                     1);
             }
             else
             {
                 if (inCodeBlock)
-                    line = _Ready(false, $"{Foregrounds.BrightRed}{Backgrounds.White}{(++countCodeBlock).ToString().PadLeft(3,'0')}{TextFormats.Reset} {line}");
-            } 
+                    line = _Ready(false, $"{Foregrounds.BrightRed}{Backgrounds.White}{(++countCodeBlock).ToString().PadLeft(3, '0')}{TextFormats.Reset} {line}");
+            }
             return line;
         }
         private string _Table(string line)
@@ -336,12 +329,12 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 insertTable = false;
             }
             if (endTable)
-                {
-                    string hRule = "─────────────────────────────────────────────";
-                    line = $"{Cursor.Up}{GradientText.ToGradient(hRule)}\n{line}";
-                    endTable = false;
-                }
-            return line;            
+            {
+                string hRule = "─────────────────────────────────────────────";
+                line = $"{Cursor.Up}{GradientText.ToGradient(hRule)}\n{line}";
+                endTable = false;
+            }
+            return line;
         }
 
         private string Table(string line)
