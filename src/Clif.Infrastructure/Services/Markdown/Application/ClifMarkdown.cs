@@ -48,51 +48,6 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             TextFormats.Reset :
             currentBackground + currentForeground;
 
-        private string _Ready(bool mode, string line)
-        {
-            return mode ?
-            line.Replace("[", "⤀").Replace("]", "⤛") :
-            line.Replace("⤀", "[").Replace("⤛", "]");
-        }
-
-        private string[] inlineCodes = new string[1];
-
-        private bool inCodeBlock = false;
-        private bool endCodeBlock = false;
-        private int countCodeBlock = 0;
-
-        string[] headersTable = [];
-        int countHeadersTable = 0;
-        private bool inTable = false;
-        private bool endTable = false;
-        private bool insertTable = false;
-
-        private string _Encode(string line)
-        {
-            string pattern = @"`(.*?)`";
-            Regex regex = new(pattern, RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
-            inlineCodes = new string[matches.Count];
-            int c = 0;
-            foreach (Match match in matches)
-            {
-                inlineCodes[c] = match.Value;
-                line = regex.Replace(line, match => $"!?!code{c++}?!?", 1);
-            }
-            return line;
-        }
-
-        private string _Decode(string line)
-        {
-            string pattern = @"\!\?\!(code\d+)\?\!\?";
-            Regex regex = new(pattern, RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
-            int c = 0;
-            foreach (Match match in matches)
-                line = regex.Replace(line, match => inlineCodes[c++], 1);
-            return line;
-        }
-
         private string Header(string line)
         {
             string[] patterns = [@"^### ", @"^## ", @"^# "];
@@ -122,56 +77,6 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                         TextFormats.Reset;
                 }
             }
-            return line;
-        }
-
-        private string Blockquote(string line)
-        {
-            string pattern = @"^> ";
-            Regex regex = new(pattern, RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
-            foreach (Match match in matches)
-            {
-                currentBackground = Backgrounds.BrightBlack;
-                currentForeground = Foregrounds.BrightWhite;
-                return regex.Replace(
-                    line,
-                    match => $"{Backgrounds.Magenta} {currentBackground}{Foregrounds.Magenta}\"{currentForeground}",
-                    1) +
-                        $"{Foregrounds.Magenta}\"{TextFormats.Reset}";
-            }
-            return line;
-        }
-
-        private string Image(string line)
-        {
-            string pattern = @"\!\[(.*?)\]\((.*?)\)";
-            Regex regex = new(pattern, RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
-            foreach (Match match in matches)
-            {
-                line = regex.Replace(
-                    line,
-                    match => $"{Foregrounds.Magenta}{match.Groups[1].Value}{currentColors()}",
-                    1);
-                string mode = !match.Groups[2].Value.Contains("http") ? "file://" : "";
-                line += $"\n{AsciiArt.ToJP2A(match.Groups[2].Value).Result}" +
-                    $"{Foregrounds.Magenta}{TextFormats.Bold}{match.Groups[1].Value}⤴ " +
-                    $"{TextFormats.BoldOff}[🖼 ]({mode}{match.Groups[2].Value}){Backgrounds.Reset}{Foregrounds.Reset}";
-            }
-            return line;
-        }
-
-        private string Link(string line)
-        {
-            string pattern = @"\[(.*?)\]\((.*?)\)";
-            Regex regex = new(pattern, RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
-            foreach (Match match in matches)
-                line = regex.Replace(
-                    line,
-                    match => $"{Foregrounds.BrightBlue}{Other.Link(match.Groups[2].Value, match.Groups[1].Value)}{currentColors()}",
-                    1);
             return line;
         }
 
@@ -251,15 +156,122 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             return line;
         }
 
-        private string Rule(string line)
+        private string Blockquote(string line)
         {
-            string pattern = @"^---+";
-            string rule = "─────────────────────────────────────────────";
+            string pattern = @"^> ";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            foreach (Match match in matches)
+            {
+                currentBackground = Backgrounds.BrightBlack;
+                currentForeground = Foregrounds.BrightWhite;
+                return regex.Replace(
+                    line,
+                    match => $"{Backgrounds.Magenta} {currentBackground}{Foregrounds.Magenta}\"{currentForeground}",
+                    1) +
+                        $"{Foregrounds.Magenta}\"{TextFormats.Reset}";
+            }
+            return line;
+        }
+
+        private string[] inlineCodes = new string[1];
+
+        private string _Encode(string line)
+        {
+            string pattern = @"`(.*?)`";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            inlineCodes = new string[matches.Count];
+            int c = 0;
+            foreach (Match match in matches)
+            {
+                inlineCodes[c] = match.Value;
+                line = regex.Replace(line, match => $"!?!code{c++}?!?", 1);
+            }
+            return line;
+        }
+
+        private string _Decode(string line)
+        {
+            string pattern = @"\!\?\!(code\d+)\?\!\?";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            int c = 0;
+            foreach (Match match in matches)
+                line = regex.Replace(line, match => inlineCodes[c++], 1);
+            return line;
+        }
+
+        private string Code(string line)
+        {
+            string pattern = @"`(.*?)`";
             line = Regex.Replace(
                 line,
                 pattern,
-                match => $"{Foregrounds.BrightWhite}{rule}{Foregrounds.Reset}{match.Groups[1].Value}",
+                match => $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{Foregrounds.Black}{Backgrounds.BrightRed}" +
+                    $"{match.Groups[1].Value}{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{currentColors()}",
                 RegexOptions.Compiled);
+            return line;
+        }
+
+        private bool inCodeBlock = false;
+        private bool endCodeBlock = false;
+        private int countCodeBlock = 0;
+
+        private string Codeblock(string line)
+        {
+            string pattern = @"^```";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            if (matches.Count > 0)
+            {
+                if (!inCodeBlock)
+                    inCodeBlock = true;
+                else
+                    endCodeBlock = true;
+                line = regex.Replace(
+                    line,
+                    match => _Ready(false, $"{Foregrounds.BrightRed}{Backgrounds.White}" +
+                        $"{TextFormats.Bold}{match.Value} {TextFormats.Reset}"),
+                    1);
+            }
+            else
+            {
+                if (inCodeBlock)
+                    line = _Ready(false, $"{Foregrounds.BrightRed}{Backgrounds.White}{(++countCodeBlock).ToString().PadLeft(3, '0')}{TextFormats.Reset} {line}");
+            }
+            return line;
+        }
+
+        private string Link(string line)
+        {
+            string pattern = @"\[(.*?)\]\((.*?)\)";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            foreach (Match match in matches)
+                line = regex.Replace(
+                    line,
+                    match => $"{Foregrounds.BrightBlue}{Other.Link(match.Groups[2].Value, match.Groups[1].Value)}{currentColors()}",
+                    1);
+            return line;
+        }
+
+        private string Image(string line)
+        {
+            string pattern = @"\!\[(.*?)\]\((.*?)\)";
+            Regex regex = new(pattern, RegexOptions.Compiled);
+            MatchCollection matches = regex.Matches(line);
+            foreach (Match match in matches)
+            {
+                line = regex.Replace(
+                    line,
+                    match => $"{Foregrounds.Magenta}{match.Groups[1].Value}{currentColors()}",
+                    1);
+                string mode = !match.Groups[2].Value.Contains("http") ? "file://" : "";
+                line += $"\n{AsciiArt.ToJP2A(match.Groups[2].Value).Result}" +
+                    $"{Foregrounds.Magenta}{TextFormats.Bold}{match.Groups[1].Value}⤴ " +
+                    $"{TextFormats.BoldOff}[🖼 ]({mode}{match.Groups[2].Value}){Backgrounds.Reset}{Foregrounds.Reset}";
+            }
             return line;
         }
 
@@ -297,30 +309,12 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             return line;
         }
 
-        private string Codeblock(string line)
-        {
-            string pattern = @"^```";
-            Regex regex = new(pattern, RegexOptions.Compiled);
-            MatchCollection matches = regex.Matches(line);
-            if (matches.Count > 0)
-            {
-                if (!inCodeBlock)
-                    inCodeBlock = true;
-                else
-                    endCodeBlock = true;
-                line = regex.Replace(
-                    line,
-                    match => _Ready(false, $"{Foregrounds.BrightRed}{Backgrounds.White}" +
-                        $"{TextFormats.Bold}{match.Value} {TextFormats.Reset}"),
-                    1);
-            }
-            else
-            {
-                if (inCodeBlock)
-                    line = _Ready(false, $"{Foregrounds.BrightRed}{Backgrounds.White}{(++countCodeBlock).ToString().PadLeft(3, '0')}{TextFormats.Reset} {line}");
-            }
-            return line;
-        }
+        string[] headersTable = [];
+        int countHeadersTable = 0;
+        private bool inTable = false;
+        private bool endTable = false;
+        private bool insertTable = false;
+
         private string _Table(string line)
         {
             if (insertTable)
@@ -394,16 +388,23 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             return line;
         }
 
-        private string Code(string line)
+        private string Rule(string line)
         {
-            string pattern = @"`(.*?)`";
+            string pattern = @"^---+";
+            string rule = "─────────────────────────────────────────────";
             line = Regex.Replace(
                 line,
                 pattern,
-                match => $"{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{Foregrounds.Black}{Backgrounds.BrightRed}" +
-                    $"{match.Groups[1].Value}{Backgrounds.BrightBlack}{Foregrounds.BrightWhite}`{currentColors()}",
+                match => $"{Foregrounds.BrightWhite}{rule}{Foregrounds.Reset}{match.Groups[1].Value}",
                 RegexOptions.Compiled);
             return line;
+        }
+
+        private string _Ready(bool mode, string line)
+        {
+            return mode ?
+            line.Replace("[", "⤀").Replace("]", "⤛") :
+            line.Replace("⤀", "[").Replace("⤛", "]");
         }
     }
 }

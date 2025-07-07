@@ -229,7 +229,7 @@ namespace Clif.Application
                 MarkdownService.Render("Normal") + "           Normal" + "\n" +
                 MarkdownService.Render("*Italic*") + "           *Italic* or _Italic_" + "\n" +
                 MarkdownService.Render("**Bold**") + "             **Bold** or __Bold__" + "\n" +
-                MarkdownService.Render("***Bold-Italic***") + "      ***Bold-Italic*** or ___Bold-Italic__n" + "\n" +
+                MarkdownService.Render("***Bold-Italic***") + "      ***Bold-Italic*** or ___Bold-Italic__" + "\n" +
                 MarkdownService.Render("~Underline~") + "        ~Underline~" + "\n" +
                 MarkdownService.Render("~~Strike~~") + "           ~~Strike~~" + "\n" +
                 MarkdownService.Render("~~~Dim~~~") + "              ~~~Dim~~~" + "\n" +
