@@ -325,7 +325,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
             if (endTable)
             {
                 string hRule = "─────────────────────────────────────────────";
-                line = $"{Cursor.Up}{GradientText.ToGradient(hRule)}\n{line}";
+                line = $"{Cursor.Up}{hRule}\n{line}";
                 endTable = false;
             }
             return line;
@@ -358,7 +358,7 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                         foreach (Match match in matches)
                             headersTable[c++] = match.Groups[1].Value.Trim();
                         inTable = true;
-                        line = GradientText.ToGradient("………………………………………………………………………………………………………………………");
+                        line = "---";
                     }
                     else
                     {
