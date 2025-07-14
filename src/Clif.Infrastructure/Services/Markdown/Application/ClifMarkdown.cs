@@ -50,7 +50,13 @@ namespace Clif.Infrastructure.Services.Markdown.Application
 
         private string Header(string line)
         {
-            string[] patterns = [@"^### ", @"^## ", @"^# "];
+            string[] patterns = [
+                @"^###### ",
+                @"^##### ",
+                @"^#### ",
+                @"^### ",
+                @"^## ",
+                @"^# "];
             for (int i = 0; i < patterns.Length; i++)
             {
                 string pattern = patterns[i];
@@ -58,21 +64,17 @@ namespace Clif.Infrastructure.Services.Markdown.Application
                 MatchCollection matches = regex.Matches(line);
                 foreach (Match match in matches)
                 {
-                    switch (i)
+                    currentBackground = i switch
                     {
-                        case 0:
-                            currentBackground = Backgrounds.BrightYellow;
-                            currentForeground = Foregrounds.Black;
-                            break;
-                        case 1:
-                            currentBackground = Backgrounds.BrightCyan;
-                            currentForeground = Foregrounds.Black;
-                            break;
-                        case 2:
-                            currentBackground = Backgrounds.BrightGreen;
-                            currentForeground = Foregrounds.Black;
-                            break;
-                    }
+                        0 => Backgrounds.BrightMagenta,
+                        1 => Backgrounds.BrightBlue,
+                        2 => Backgrounds.BrightRed,
+                        3 => Backgrounds.BrightYellow,
+                        4 => Backgrounds.BrightCyan,
+                        5 => Backgrounds.BrightGreen,
+                        _ => null,
+                    };
+                    currentForeground = Foregrounds.Black;
                     return regex.Replace(line, match => $"{currentBackground}{currentForeground}", 1) +
                         TextFormats.Reset;
                 }

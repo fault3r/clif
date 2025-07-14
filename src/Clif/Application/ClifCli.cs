@@ -225,7 +225,10 @@ namespace Clif.Application
             MarkdownService.Render($"__{MarkdownService.Gradient("Markdown")}__") + "\n\n" +
                 MarkdownService.Render("# Header 1") + "         # Header 1" + "\n" +
                 MarkdownService.Render("## Header 2") + "         ## Header 2" + "\n" +
-                MarkdownService.Render("### Header 3") + "         ### Header 3" + "\n\n" +
+                MarkdownService.Render("### Header 3") + "         ### Header 3" + "\n" +
+                MarkdownService.Render("#### Header 4") + "         #### Header 4" + "\n" +
+                MarkdownService.Render("##### Header 5") + "         ##### Header 5" + "\n" +
+                MarkdownService.Render("###### Header 6") + "         ###### Header 6" + "\n\n" +
                 MarkdownService.Render("Normal") + "           Normal" + "\n" +
                 MarkdownService.Render("*Italic*") + "           *Italic* or _Italic_" + "\n" +
                 MarkdownService.Render("**Bold**") + "             **Bold** or __Bold__" + "\n" +
