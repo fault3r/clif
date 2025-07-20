@@ -1,5 +1,5 @@
 ## Clif. terminal-base Document Library in Markdown format.
-Render Markdown in CLI
++ Render Markdown in CLI
 
 # Markdown
 ![clif markdown](https://raw.githubusercontent.com/fault3r/clif/refs/heads/main/clif-markdown.png)
